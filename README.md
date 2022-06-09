@@ -13,7 +13,7 @@ Install my-project with npm
 
 ```bash
   git clone https://github.com/Future-Africa/project-x-investor-fe
-  npm instal
+  npm install
   cd project-x-investor-fe
   npm run dev
 ```
