@@ -1,0 +1,46 @@
+//Typography
+@mixin fa-typography($font-size, $line-height, $font-weight) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
+
+//Transitions
+@mixin buttonTransition() {
+  transition: all 0.7s cubic-bezier(0.2, 1, 0.22, 1);
+}
+
+@mixin fa_textfield {
+  width: 100%;
+  border-radius: 5px;
+  background-color: $fa-white;
+  font-size: 14px;
+  transition: padding-top 0.2s ease, margin-top 0.2s ease;
+  overflow-x: hidden;
+  color: $fa-black;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.03);
+  border: none;
+  padding: 1rem;
+
+  &::placeholder {
+    color: $fa-gray-200;
+  }
+
+  &:disabled {
+    background-color: $fa-disabled;
+    cursor: not-allowed;
+  }
+
+  &__error {
+    border: 1px solid $fa-error;
+  }
+
+  &__success {
+    border: 1px solid $fa-success;
+  }
+
+  &__warning {
+    border: 1px solid $fa-warning;
+  }
+}

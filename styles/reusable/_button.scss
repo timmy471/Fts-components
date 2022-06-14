@@ -1,0 +1,62 @@
+.fa_btn {
+  font-weight: 500;
+  font-size: 16px;
+  font-family: $font-family-primary;
+  border-radius: 5px;
+  font-style: normal;
+  border-color: unset;
+  border-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $fa-white;
+  width: 380px;
+  height: 50px;
+
+  @include buttonTransition();
+
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    transform: translateY(-1.5px);
+  }
+
+  &__btn-disabled {
+    background-color: $fa-gray-500;
+  }
+
+  //color || variant
+  &__primary {
+    background-color: $fa-success;
+  }
+
+  &__secondary {
+    background-color: transparent;
+    border: 1px solid $fa-success;
+    color: $fa-secondary-200;
+  }
+
+  //sizes
+  &__lg {
+    width: 380px;
+  }
+
+  &__md {
+    width: 250px;
+  }
+
+  &__sm {
+    width: 170px;
+  }
+
+  &__full-width {
+    width: 100%;
+  }
+}
