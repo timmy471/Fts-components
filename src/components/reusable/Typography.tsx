@@ -36,7 +36,7 @@ const elementVariants = {
   span: 'span',
 };
 
-const Typography: React.FC<ITypogrphy> = ({
+export const Typography: React.FC<ITypogrphy> = ({
   component,
   variant,
   style,
@@ -59,8 +59,6 @@ const Typography: React.FC<ITypogrphy> = ({
 };
 
 Typography.defaultProps = {
-  variant: 'body3',
+  component: 'p',
   state: 'default',
 };
-
-export default Typography;

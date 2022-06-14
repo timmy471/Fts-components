@@ -15,7 +15,7 @@ interface IButton {
   rest?: String[];
 }
 
-const Button: React.FC<IButton> = ({
+export const Button: React.FC<IButton> = ({
   label,
   disabled,
   variant,
@@ -63,5 +63,3 @@ Button.defaultProps = {
   type: 'button',
   disabled: false,
 };
-
-export default Button;

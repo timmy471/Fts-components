@@ -12,7 +12,7 @@ interface TextfieldProps extends InputHTMLAttributes<HTMLInputElement> {
   endIcon?: React.ReactNode;
 }
 
-const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProps> = ({
+export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProps> = ({
   type = 'text',
   name,
   id,
@@ -68,5 +68,3 @@ const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProps> = ({
     </div>
   );
 };
-
-export default TextField;
