@@ -23,9 +23,9 @@
   border: none;
   padding: 1rem;
 
-  // &::placeholder {
-  //   color: ;
-  // }
+  &::placeholder {
+    color: $fa-gray-200;
+  }
 
   &:disabled {
     background-color: $fa-disabled;

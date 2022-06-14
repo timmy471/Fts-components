@@ -8,9 +8,7 @@ const Login: NextPage = () => {
     <div className='login'>
       <MetaHead />
       <h1>Login Page</h1>
-      <Typography component='h1'>
-
-      </Typography>
+      <Typography component='h1'>Hello</Typography>
     </div>
   );
 };

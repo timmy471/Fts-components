@@ -47,7 +47,7 @@ export const Typography: React.FC<ITypogrphy> = ({
 }) => {
   const Component: any = component ? elementVariants[component] : 'p';
   const baseClass = `fa_typography`;
-  const variantClass = `${baseClass}__${variant}`;
+  const variantClass = variant ? `${baseClass}__${variant}` : '';
   const stateClass = `${baseClass}__${state}`;
 
   const typographyClassName = clsx(variantClass, stateClass, className);

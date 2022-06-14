@@ -37,8 +37,9 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
 
   const textFieldClasses = clsx(
     textFieldBaseClass,
-    `${textFieldBaseClass}__${state}`,
+    state ? `${textFieldBaseClass}__${state}` : '',
     `${hasError ? `${textFieldBaseClass}__error` : ''}`,
+    `${label ? `${textFieldBaseClass}__label_input` : ''}`,
     className
   );
 
@@ -51,15 +52,19 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
         disabled={disabled}
         style={style}
         className={textFieldClasses}
+        placeholder={label ? '' : placeholder}
         id={id || name}
         autoComplete='off'
         required
         onChange={onChange}
         {...rest}
       />
-      <label htmlFor={id || name} className={labelClasses}>
-        {label} {required && <span className='font-danger'>*</span>}
-      </label>
+      {label && (
+        <label htmlFor={id || name} className={labelClasses}>
+          {label} {required && <span className='font-danger'>*</span>}
+        </label>
+      )}
+
       {endIcon && (
         <div className='fa_textfield__endicon'>
           <span>{endIcon}</span>

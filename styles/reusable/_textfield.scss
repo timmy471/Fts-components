@@ -6,11 +6,19 @@
   @include fa_textfield;
   height: 50px;
 
-  &:focus,
-  &:valid {
-    padding-top: 35px;
-    outline: none;
+  &__label_input {
+
+    &:focus,
+    &:valid {
+      padding-top: 35px;
+      outline: none;
+    }
   }
+
+  &:focus {
+    outline: none
+  }
+
 
   &__label {
     font-weight: 300;
@@ -36,8 +44,8 @@
   }
 }
 
-.fa_textfield:focus + label,
-.fa_textfield:valid + label {
+.fa_textfield:focus+label,
+.fa_textfield:valid+label {
   bottom: 52px;
   font-size: 12px;
   color: #333;
