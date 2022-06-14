@@ -1,7 +1,46 @@
 .login {
+  background-color: $fa-white;
+  padding-bottom: 40px;
+
   h1 {
+    font-family: $font-family-secondary;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 44px;
+  }
+
+  h6 {
     font-family: $font-family-primary;
-    font-weight: 300;
-    color: #000;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+
+    span {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 20px;
+      text-decoration-line: underline;
+      color: $fa-black;
+    }
+  }
+
+  .container {
+    margin-right: 10%;
+    margin-left: 10%;
+    .left-hero {
+      .image-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative !important;
+      }
+    }
+    .right-hero{
+      .email-input{
+        
+      }
+    }
   }
 }
