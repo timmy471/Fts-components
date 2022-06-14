@@ -1,8 +1,9 @@
 /* FONT */
-$font-family-primary: 'Museo Sans';
-$font-family-secondary: 'manier';
+$font-family-primary: 'Museo Sans', Fallback, sans-serif;
+$font-family-secondary: 'Manier', Fallback, sans-serif;
+$font-family-primary-museo: 'Museo', Fallback, sans-serif;
 
-//Primary colors
+/* Primary colors */
 $fa-primary-100: #ffa800; //Gold
 $fa-primary-200: #3cac70; //Green
 
@@ -11,25 +12,25 @@ $fa-secondary-100: #ba4141; //Red
 $fa-secondary-200: #282727; //Black
 $fa-secondary-300: #3e8ffd; // blue
 
-//Status Colors
+/* Status Colors */
 $fa-info: #2f80ed;
 $fa-success: #3cac70;
 $fa-warning: #e2b93b;
 $fa-error: #eb5757;
 $fa-disabled: #f3f3f3;
 
-//Shade
+/* Shade */
 $fa-black: #000000;
 $fa-white: #ffffff;
 
-//Gray
-$fa-gray-100: #333333;
-$fa-gray-200: #4f4f4f;
-$fa-gray-300: #828282;
-$fa-gray-400: #bdbdbd;
-$fa-gray-500: #e0e0e0;
+/* Grey */
+$fa-grey-100: #333333;
+$fa-grey-200: #4f4f4f;
+$fa-grey-300: #828282;
+$fa-grey-400: #bdbdbd;
+$fa-grey-500: #e0e0e0;
 
-//BREAKPOINTS
+/* BREAKPOINTS */
 $screen-sm: 576px;
 $screen-md: 768px;
 $screen-lg: 992px;

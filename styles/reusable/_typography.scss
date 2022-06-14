@@ -19,8 +19,6 @@ li {
   margin: 0;
 }
 
-//Sizes
-
 //fa-typography(font-size, line-height, font-weight)
 h1 {
   @include fa-typography(75px, 60px, 700);
@@ -88,7 +86,7 @@ h6 {
 }
 
 .fa_typography__secondary {
-  color: $fa-gray-300; //gray
+  color: $fa-grey-300; //grey
 }
 
 .fa_typography__tetiary {
