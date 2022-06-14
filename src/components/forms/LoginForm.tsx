@@ -37,27 +37,29 @@ export const LoginForm: NextPage<Props> = ({
       {({ errors, touched }) => (
         <Form name='login-form' autoComplete='none'>
           <div className='mt-10'>
-            {errors.email && touched.email ? (
+            {/* {errors.email && touched.email ? (
               <span className='error-style'>{errors.email}</span>
-            ) : null}
+            ) : null} */}
             <Input
               placeholder='Email'
               value={formData?.email}
               name='email'
               onChange={onFormChange}
               className='email-input'
+              style={errors.email && touched.email ? { borderColor: 'red' } : {}}
             />
           </div>
           <div>
-            {errors.password && touched.password ? (
+            {/* {errors.password && touched.password ? (
               <span className='error-style'>{errors.password}</span>
-            ) : null}
+            ) : null} */}
             <Input.Password
               className='password-input'
               placeholder='Password'
               value={formData?.password}
               onChange={onFormChange}
               name='password'
+              style={errors.password && touched.password ? { borderColor: 'red' } : {}}
               iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
             />
           </div>
