@@ -36,7 +36,10 @@ export const LoginForm: NextPage<Props> = ({
       validationSchema={validateSchema}>
       {({ errors, touched }) => (
         <Form name='login-form' autoComplete='none'>
-          <Fragment>
+          <div className='mt-10'>
+            {errors.email && touched.email ? (
+              <span className='error-style'>{errors.email}</span>
+            ) : null}
             <Input
               placeholder='Email'
               value={formData?.email}
@@ -44,11 +47,11 @@ export const LoginForm: NextPage<Props> = ({
               onChange={onFormChange}
               className='email-input'
             />
-            {errors.email && touched.email ? (
-              <span className='error-style'>{errors.email}</span>
+          </div>
+          <div>
+            {errors.password && touched.password ? (
+              <span className='error-style'>{errors.password}</span>
             ) : null}
-          </Fragment>
-          <Fragment>
             <Input.Password
               className='password-input'
               placeholder='Password'
@@ -57,25 +60,22 @@ export const LoginForm: NextPage<Props> = ({
               name='password'
               iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
             />
-            {errors.password && touched.password ? (
-              <span className='error-style'>{errors.password}</span>
-            ) : null}
-          </Fragment>
-          <Fragment>
+          </div>
+          <div className='check-input'>
             <Row>
               <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                 <Checkbox name='remember' value={formData.remember} onChange={onRememberCheck}>
-                  Remember me
+                  <label>Remember me</label>
                 </Checkbox>
               </Col>
               <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-                <h6>Forgot your password</h6>
+                <h5 className='float-right mt-1'>Forgot your password</h5>
               </Col>
             </Row>
-          </Fragment>
+          </div>
           <Fragment>
             <Button className='btn-login' htmlType='submit'>
-              Lets go
+              Sign in
             </Button>
           </Fragment>
         </Form>

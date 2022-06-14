@@ -37,9 +37,89 @@
         position: relative !important;
       }
     }
-    .right-hero{
-      .email-input{
-        
+    .right-hero {
+      .login-form {
+        width: 380px;
+        .email-input {
+          height: 50px;
+          border: 1px solid $fa-grey-400;
+          box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.03);
+          border-radius: 5px;
+          margin: 30px 0px 20px 0px;
+        }
+        .password-input {
+          height: 50px;
+          border: 1px solid $fa-grey-400;
+          box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.03);
+          border-radius: 5px;
+          margin-bottom: 30px;
+        }
+        .error-style {
+          color: $fa-error;
+          margin-bottom: 20px;
+        }
+
+        .check-input {
+          h5 {
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration-line: underline;
+            color: $fa-secondary-200;
+          }
+          .ant-checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            span {
+              // padding-left: 10px;
+              margin-bottom: 5px;
+            }
+            label {
+              font-family: $font-family-primary;
+              font-style: normal;
+              font-weight: 400;
+              font-size: 14px;
+              line-height: 20px;
+              padding-top: 10px;
+              padding-left: 0px;
+            }
+            .ant-checkbox-checked .ant-checkbox-inner {
+              background-color: $fa-primary-200;
+              border-color: $fa-primary-200;
+              width: 24px;
+              height: 24px;
+              font-size: 24px;
+            }
+            .ant-checkbox-inner {
+              width: 24px;
+              height: 24px;
+              border-color: $fa-primary-200;
+            }
+
+            .ant-checkbox-checked .ant-checkbox-inner::after {
+              position: absolute;
+              display: table;
+              border: 1px solid $fa-white;
+              border-top: 0;
+              border-left: 0;
+              transform: rotate(45deg) scale(1.5) translate(-30%, -60%);
+              opacity: 1;
+              transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+              content: ' ';
+            }
+          }
+        }
+
+        .btn-login {
+          margin-top: 30px;
+          width: 100%;
+          background-color: $fa-primary-200;
+          border-radius: 5px;
+          height: 50px;
+          text-align: center;
+          font-size: 14px;
+          font-family: $font-family-primary;
+          color: $fa-white;
+        }
       }
     }
   }

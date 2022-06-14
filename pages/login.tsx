@@ -74,7 +74,7 @@ const Login: NextPage<Props> = () => {
                 <h6>
                   New to Future Africa Collective? <span>Sign up here</span>
                 </h6>
-                <div>
+                <div className='login-form'>
                   <LoginForm
                     formData={formData}
                     validateSchema={validateSchema}
