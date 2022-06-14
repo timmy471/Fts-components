@@ -31,15 +31,19 @@
     margin-right: 10%;
     margin-left: 10%;
     .left-hero {
-      .image-wrapper {
-        width: 100%;
-        height: 100%;
-        position: relative !important;
+      margin-top: 100px;
+      p {
+        font-weight: 600;
+        font-size: 17px;
+        font-family: $font-family-primary;
+        color: $fa-secondary-200;
+        text-align: center;
+        margin-top: 18px;
       }
     }
     .right-hero {
+      width: 380px;
       .login-form {
-        width: 380px;
         .email-input {
           height: 50px;
           border: 1px solid $fa-grey-400;
@@ -118,6 +122,25 @@
           font-size: 14px;
           font-family: $font-family-primary;
           color: $fa-white;
+        }
+      }
+      .other-socials-login {
+        margin-top: 70px;
+        hr {
+          margin: auto;
+        }
+        .btn-social {
+          margin-top: 30px;
+          background: linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+            #bcbcbc;
+          border: 2px solid rgba(0, 0, 0, 0.3);
+          border-radius: 5px;
+          height: 50px;
+          align-items: center;
+          width: 100%;
+        }
+        .btn-social:hover {
+          color: $fa-primary-200;
         }
       }
     }
