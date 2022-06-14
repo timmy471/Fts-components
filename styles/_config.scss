@@ -23,18 +23,6 @@ body {
   font-family: $font-family-primary;
 }
 
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.text-underline {
-  text-decoration: underline;
-}
-
-.font-danger {
-  color: $fa-error;
-}
-
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

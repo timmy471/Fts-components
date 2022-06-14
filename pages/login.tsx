@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { Rate } from 'antd';
 
 import { MetaHead, Typography } from '../src/components';
 
@@ -9,6 +10,7 @@ const Login: NextPage = () => {
       <MetaHead />
       <h1>Login Page</h1>
       <Typography component='h1'>Hello</Typography>
+      <Rate allowHalf defaultValue={2.5} />
     </div>
   );
 };
