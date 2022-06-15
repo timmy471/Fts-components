@@ -65,12 +65,12 @@ export const LoginForm: NextPage<Props> = ({
           </div>
           <div className='check-input'>
             <Row>
-              <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+              <Col xs={12} sm={12} md={12} lg={12} xl={12}>
                 <Checkbox name='remember' value={formData.remember} onChange={onRememberCheck}>
                   <label>Remember me</label>
                 </Checkbox>
               </Col>
-              <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+              <Col xs={12} sm={12} md={12} lg={12} xl={12}>
                 <h5 className='float-right mt-1'>Forgot your password</h5>
               </Col>
             </Row>

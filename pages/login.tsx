@@ -51,7 +51,7 @@ const Login: NextPage<Props> = () => {
         </Fragment>
         <div>
           <Row>
-            <Col xs={24} sm={24} md={14} lg={14} xl={14}>
+            <Col xs={0} sm={0} md={0} lg={14} xl={14}>
               <div className='left-hero'>
                 <div className='image-wrapper'>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
