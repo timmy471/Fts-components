@@ -1,12 +1,11 @@
 import { Layout, Row, Col, Button } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
 import * as Yup from 'yup';
 
-import { MetaHead, LoginForm } from '../src/components';
+import { LoginForm } from '../src/components';
 import { assets } from '../src/assets';
 import { Fragment } from 'react';
 
@@ -46,7 +45,6 @@ const Login: NextPage<Props> = () => {
 
   return (
     <div className='login'>
-      <MetaHead />
       <Content className='container'>
         <Fragment>
           <Image src={assets.FaLogo.src} alt={assets.FaLogo.alt} width={100} height={100} />
