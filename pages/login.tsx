@@ -72,7 +72,7 @@ const Login: NextPage<Props> = () => {
             <Col
               xs={24}
               sm={24}
-              md={10}
+              md={24}
               lg={10}
               xl={10}
               className='d-flex justify-content-center'>
@@ -116,17 +116,26 @@ const Login: NextPage<Props> = () => {
           </Row>
         </div>
       </Content>
-      <div className='login-mobile-cta'>
-        <h1>
-          Welcome back, <br />
-          co-investor!
-          <br />
-          <span>
-            Log in to your account to access <br /> the Future Africa Collective portal.
-          </span>
-        </h1>
-        <br />
-      </div>
+      <Col xs={24} sm={24} md={24} lg={0} xl={0}>
+        <div className='login-mobile-cta'>
+          <h1>
+            Welcome back, <br />
+            co-investor!
+            <br />
+            <span>
+              Log in to your account to access <br /> the Future Africa Collective portal.
+            </span>
+          </h1>
+          <div className='bottom-row'>
+            <div className='float-left'>
+              <a>Privacy policy</a>
+            </div>
+            <div className='float-right'>
+              <a>Terms & conditions </a>
+            </div>
+          </div>
+        </div>
+      </Col>
     </div>
   );
 };

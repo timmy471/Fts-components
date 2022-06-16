@@ -153,19 +153,33 @@
     width: 100%;
     background-size: cover;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    color: $fa-white;
+    margin-top: 20px;
     h1 {
-      color: $fa-white;
       font-size: 24px;
       text-align: center;
+      color: $fa-white;
       line-height: 26px;
+      margin: auto;
       span {
         font-family: $font-family-primary;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
         line-height: 13px;
+      }
+    }
+    .bottom-row {
+      margin: 0px 25px 40px 25px;
+      a {
+        color: $fa-white;
+        margin-bottom: auto;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        text-decoration: underline;
       }
     }
   }

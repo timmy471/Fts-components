@@ -1,10 +1,13 @@
 import { Button, Row, Col } from 'antd';
 import type { NextPage } from 'next';
+import Image from 'next/image';
 import React, { Fragment } from 'react';
+
 import { Formik } from 'formik';
-import { Form, Input, Select, Checkbox } from 'formik-antd';
-import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+import { Form, Input, Checkbox } from 'formik-antd';
+
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import { assets } from '../../assets';
 
 interface IFormData {
   email: string;
@@ -60,7 +63,23 @@ export const LoginForm: NextPage<Props> = ({
               onChange={onFormChange}
               name='password'
               style={errors.password && touched.password ? { borderColor: 'red' } : {}}
-              iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
+              iconRender={(visible) =>
+                visible ? (
+                  <Image
+                    src={assets.EyeOpen.src}
+                    alt={assets.EyeOpen.alt}
+                    height={20}
+                    width={20}
+                  />
+                ) : (
+                  <Image
+                    src={assets.EyeClose.src}
+                    alt={assets.EyeClose.alt}
+                    height={20}
+                    width={20}
+                  />
+                )
+              }
             />
           </div>
           <div className='check-input'>

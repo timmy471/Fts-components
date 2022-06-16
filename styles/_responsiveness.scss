@@ -1,4 +1,4 @@
-@import "./variables";
+@import './variables';
 
 // Breakpoints
 @mixin smMaxBreakPoint {
@@ -31,7 +31,7 @@
   }
 }
 
-//Custom Breakpoints 
+//Custom Breakpoints
 @mixin faMinBreakPoint($size) {
   @media (max-width: $size) {
     @content;
@@ -41,5 +41,25 @@
 @mixin faMaxBreakPoint($size) {
   @media (max-width: $size) {
     @content;
+  }
+}
+
+@media (max-width: 990px) {
+  .login {
+    .container {
+      .right-hero {
+        .login-form {
+          .btn-login {
+            margin-top: 4px;
+          }
+        }
+        .other-socials-login {
+          margin-top: 20px;
+          .btn-social {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
   }
 }

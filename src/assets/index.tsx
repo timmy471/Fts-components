@@ -11,4 +11,12 @@ export const assets = {
     alt: 'Login Mobile CTA',
     src: '/assets/images/login/login-mobile-cta.jpg',
   },
+  EyeOpen:{
+    alt: 'Eye Open',
+    src: '/assets/images/login/eye-open.png'
+  },
+  EyeClose:{
+    alt: 'Eye Close',
+    src: '/assets/images/login/eye-close.png'
+  }
 };
