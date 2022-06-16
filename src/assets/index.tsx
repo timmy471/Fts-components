@@ -11,12 +11,16 @@ export const assets = {
     alt: 'Login Mobile CTA',
     src: '/assets/images/auth/login-mobile-cta.jpg',
   },
-  EyeOpen:{
+  EyeOpen: {
     alt: 'Eye Open',
-    src: '/assets/images/auth/eye-open.png'
+    src: '/assets/images/auth/eye-open.png',
   },
-  EyeClose:{
+  EyeClose: {
     alt: 'Eye Close',
-    src: '/assets/images/auth/eye-close.png'
-  }
+    src: '/assets/images/auth/eye-close.png',
+  },
+  SendEnvelope: {
+    alt: 'Send Envelope',
+    src: '/assets/images/auth/send-envelope.png',
+  },
 };

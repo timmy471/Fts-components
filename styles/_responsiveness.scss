@@ -45,6 +45,15 @@
 }
 
 @media (max-width: 990px) {
+  .auth-modal {
+    .content {
+      .modal-btn {
+        width: 100%;
+      }
+    }
+  }
+
+  
   .login {
     .container {
       .right-hero {

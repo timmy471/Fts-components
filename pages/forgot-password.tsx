@@ -1,4 +1,4 @@
-import { Layout, Row, Col, Button } from 'antd';
+import { Layout, Row, Col, Button, Modal } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import type { NextPage } from 'next';
 import Image from 'next/image';
@@ -22,6 +22,7 @@ const ForgotPassword: NextPage<Props> = () => {
   const [formData, setFormData] = useState<IFormData>({
     email: '',
   });
+  const [isVerifyModalVisible, setIsVerifyModalVisible] = useState<boolean>(false);
 
   const onFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -31,8 +32,21 @@ const ForgotPassword: NextPage<Props> = () => {
     email: Yup.string().email('Invalid email address').required('Email address is required'),
   });
 
+  const showVerifyModal = () => {
+    setIsVerifyModalVisible(true);
+  };
+
+  const handleVerifyOk = () => {
+    setIsVerifyModalVisible(false);
+  };
+
+  const handleVerifyCancel = () => {
+    setIsVerifyModalVisible(false);
+  };
+
   const onSubmitForm = () => {
     console.log(formData);
+    showVerifyModal();
   };
 
   return (
@@ -85,13 +99,13 @@ const ForgotPassword: NextPage<Props> = () => {
               xl={12}
               className='d-flex justify-content-center align-items-center'>
               <div className='right-hero'>
-                <div className='image-wrapper'>
+                <div className='image-wrapper d-flex justify-content-center align-items-center'>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={assets.LoginHero.src}
                     alt={assets.LoginHero.alt}
-                    width='100%'
-                    height='100%'
+                    width='80%'
+                    height='80%'
                   />
                 </div>
                 <p>
@@ -123,6 +137,33 @@ const ForgotPassword: NextPage<Props> = () => {
           </div>
         </div>
       </Col>
+      <div className='modal'>
+        <Modal
+          centered
+          className='auth-modal'
+          visible={isVerifyModalVisible}
+          onOk={handleVerifyOk}
+          footer={null}
+          closable={false}
+          onCancel={handleVerifyCancel}>
+          <div className='content'>
+            <Image
+              src={assets.SendEnvelope.src}
+              alt={assets.SendEnvelope.alt}
+              height={100}
+              width={100}
+            />
+            <h3>Check your mail</h3>
+            <span>We’ve sent an email with a link to reset your password</span>
+            <Button className='modal-btn' onClick={handleVerifyOk}>
+              Resend mail
+            </Button>
+            <Link href='/login'>
+              <a>Skip, I’ll confirm later.</a>
+            </Link>
+          </div>
+        </Modal>
+      </div>
     </div>
   );
 };
