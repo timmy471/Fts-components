@@ -52,6 +52,17 @@
       }
       .register-form {
         margin-top: 20px;
+        a {
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 20px;
+          text-decoration-line: underline;
+          color: $fa-black;
+        }
+        a:hover {
+          text-decoration: none;
+        }
         .email-input,
         .firstName-input,
         .lastName-input {
@@ -159,7 +170,7 @@
           margin: auto;
         }
         .btn-social {
-          margin-top: 30px;
+          margin-top: 20px;
           background: linear-gradient(0deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
             #bcbcbc;
           border: 2px solid rgba(0, 0, 0, 0.3);

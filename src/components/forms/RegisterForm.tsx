@@ -2,6 +2,7 @@ import { Button, Row, Col } from 'antd';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import React, { Fragment } from 'react';
+import Link from 'next/link';
 
 import { Formik } from 'formik';
 import { Form, Input, Checkbox } from 'formik-antd';
@@ -106,7 +107,12 @@ export const RegisterForm: NextPage<Props> = ({
             <Row>
               <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                 <Checkbox name='terms' value={formData.terms} onChange={onTermsCheck}>
-                  <label>I agree to the Terms and Conditions</label>
+                  <label>
+                    I agree to the{' '}
+                    <Link href='/terms'>
+                      <a> Terms and Conditions</a>
+                    </Link>{' '}
+                  </label>
                 </Checkbox>
               </Col>
             </Row>
