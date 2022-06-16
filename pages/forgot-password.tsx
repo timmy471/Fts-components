@@ -44,11 +44,10 @@ const ForgotPassword: NextPage<Props> = () => {
               xs={24}
               sm={24}
               md={24}
-              lg={10}
-              xl={10}
-              className='d-flex justify-content-center'
-              style={{ backgroundColor: '#F0F0F0', height: '100vh' }}>
-              <div className='right-hero'>
+              lg={12}
+              xl={12}
+              className='left'>
+              <div className='left-hero'>
                 <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                   <Fragment>
                     <Image
@@ -59,14 +58,14 @@ const ForgotPassword: NextPage<Props> = () => {
                     />
                   </Fragment>
                 </Col>
-                <div>
+                <div className='forgot-password-box'>
                   <h1>Forgot Password?</h1>
                   <h6>
                     That’s okay, it happens!
                     <br /> Enter the email address associated with your account and we will
                     send you a link to reset your password.
                   </h6>
-                  <div className='register-form'>
+                  <div className='forgot-password-form'>
                     <ForgotPasswordForm
                       formData={formData}
                       validateSchema={validateSchema}
@@ -75,10 +74,17 @@ const ForgotPassword: NextPage<Props> = () => {
                     />
                   </div>
                 </div>
+                <Row>
+                  <Col span={12} offset={6} className='mt-3'>
+                    <Link href='/'>
+                      <a> Log in to Future Africa </a>
+                    </Link>
+                  </Col>
+                </Row>
               </div>
             </Col>
-            <Col xs={0} sm={0} md={0} lg={14} xl={14}>
-              <div className='left-hero'>
+            <Col xs={0} sm={0} md={0} lg={12} xl={12}>
+              <div className='right-hero'>
                 <div className='image-wrapper'>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img

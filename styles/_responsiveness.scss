@@ -80,4 +80,22 @@
       }
     }
   }
+
+  .forgot-password {
+    .container {
+      .left-hero {
+        .forgot-password-form {
+          .btn-forgot-password {
+            margin-top: 4px;
+          }
+        }
+        .other-socials-login {
+          margin-top: 20px;
+          .btn-social {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
 }

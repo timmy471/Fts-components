@@ -1,14 +1,9 @@
-import { Button, Row, Col } from 'antd';
+import { Button, Col } from 'antd';
 import type { NextPage } from 'next';
-import Image from 'next/image';
 import React, { Fragment } from 'react';
-import Link from 'next/link';
 
 import { Formik } from 'formik';
 import { Form, Input, Checkbox } from 'formik-antd';
-
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-import { assets } from '../../assets';
 
 interface IFormData {
   email: string;
@@ -34,7 +29,7 @@ export const ForgotPasswordForm: NextPage<Props> = ({
       onSubmit={onSubmitForm}
       validationSchema={validateSchema}>
       {({ errors, touched }) => (
-        <Form name='register-form' autoComplete='none'>
+        <Form name='forgot-password-form' autoComplete='none'>
           <div>
             <Input
               placeholder='Email address'
@@ -46,7 +41,7 @@ export const ForgotPasswordForm: NextPage<Props> = ({
             />
           </div>
           <Fragment>
-            <Button className='btn-register' htmlType='submit'>
+            <Button className='btn-forgot-password' htmlType='submit'>
               Submit
             </Button>
           </Fragment>
