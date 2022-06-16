@@ -40,13 +40,7 @@ const ForgotPassword: NextPage<Props> = () => {
       <Content className='container'>
         <div>
           <Row>
-            <Col
-              xs={24}
-              sm={24}
-              md={24}
-              lg={12}
-              xl={12}
-              className='left'>
+            <Col xs={24} sm={24} md={24} lg={12} xl={12} className='left'>
               <div className='left-hero'>
                 <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                   <Fragment>
@@ -83,7 +77,13 @@ const ForgotPassword: NextPage<Props> = () => {
                 </Row>
               </div>
             </Col>
-            <Col xs={0} sm={0} md={0} lg={12} xl={12}>
+            <Col
+              xs={0}
+              sm={0}
+              md={0}
+              lg={12}
+              xl={12}
+              className='d-flex justify-content-center align-items-center'>
               <div className='right-hero'>
                 <div className='image-wrapper'>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -104,9 +104,9 @@ const ForgotPassword: NextPage<Props> = () => {
         </div>
       </Content>
       <Col xs={24} sm={24} md={24} lg={0} xl={0}>
-        <div className='register-mobile-cta'>
+        <div className='forgot-password-mobile-cta'>
           <h1>
-            Time to be a, <br />
+            Become a <br />
             co-investor!
             <br />
             <span>
