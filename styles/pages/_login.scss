@@ -1,6 +1,6 @@
 .login {
   background-color: $fa-white;
-  padding-bottom: 40px;
+  // padding-bottom: 40px;
 
   h1 {
     font-family: $font-family-secondary;
@@ -142,6 +142,30 @@
         .btn-social:hover {
           color: $fa-primary-200;
         }
+      }
+    }
+  }
+
+  .login-mobile-cta {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 93.28%),
+      url('/assets/images/login/login-mobile-cta.jpg');
+    height: 375px;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      color: $fa-white;
+      font-size: 24px;
+      text-align: center;
+      line-height: 26px;
+      span {
+        font-family: $font-family-primary;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 13px;
       }
     }
   }

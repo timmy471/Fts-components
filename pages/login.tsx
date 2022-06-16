@@ -103,10 +103,10 @@ const Login: NextPage<Props> = () => {
                     </Col>
                   </Row>
                   <Row gutter={[16, 16]}>
-                    <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                    <Col xs={12} sm={12} md={12} lg={12} xl={12}>
                       <Button className='btn-social'>Google</Button>
                     </Col>
-                    <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+                    <Col xs={12} sm={12} md={12} lg={12} xl={12}>
                       <Button className='btn-social'>LinkedIn</Button>
                     </Col>
                   </Row>
@@ -116,6 +116,17 @@ const Login: NextPage<Props> = () => {
           </Row>
         </div>
       </Content>
+      <div className='login-mobile-cta'>
+        <h1>
+          Welcome back, <br />
+          co-investor!
+          <br />
+          <span>
+            Log in to your account to access <br /> the Future Africa Collective portal.
+          </span>
+        </h1>
+        <br />
+      </div>
     </div>
   );
 };
