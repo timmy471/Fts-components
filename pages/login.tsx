@@ -9,7 +9,7 @@ const Login: NextPage = () => {
     <div className='login'>
       <MetaHead />
       <h1>Login Page</h1>
-      <Typography component='h1'>Hello</Typography>
+      <Typography component='h4'>Hello</Typography>
       <Rate allowHalf defaultValue={2.5} />
     </div>
   );

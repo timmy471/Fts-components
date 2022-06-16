@@ -1,14 +1,31 @@
 import type { NextPage } from 'next';
-
-import { Typography, TextField } from '../src/components';
+import { Col, Row } from 'antd';
+import { OnboardingSidebar, Typography, FormStepper, ControlButtons } from '../src/components';
 
 const Onboarding: NextPage = () => {
+  const onBoardingSteps = [
+    'Complete Profile',
+    'Work Information',
+    'Other Details',
+    'Pin Setup',
+  ];
+
   return (
-    <div style={{ height: '100vh', background: 'grey' }}>
-      <Typography component='h1' state='primary'>
-        Hello
-      </Typography>
-      <TextField name='name' placeholder={'placeholder'} />
+    <div className='onboarding'>
+      <Row>
+        <Col xs={0} lg={7}>
+          <OnboardingSidebar />
+        </Col>
+        <Col xs={24} lg={17}>
+          <div className='onboarding-form-container'>
+            <Typography component='h5'>Awesome! Let's get you onboarded</Typography>
+            <FormStepper steps={onBoardingSteps} />
+            <div className='control-buttons-container'>
+              <ControlButtons />
+            </div>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 };

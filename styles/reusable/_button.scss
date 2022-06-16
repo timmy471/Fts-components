@@ -39,8 +39,8 @@
 
   &__secondary {
     background-color: transparent;
-    border: 1px solid $fa-success;
-    color: $fa-secondary-200;
+    border: 1.5px solid $fa-success;
+    color: $fa-grey-100;
   }
 
   //sizes
@@ -54,6 +54,11 @@
 
   &__sm {
     width: 170px;
+
+    @include smMaxBreakPoint {
+      width: 130px;
+      height: 45px;
+    }
   }
 
   &__full-width {

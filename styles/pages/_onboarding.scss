@@ -1,0 +1,187 @@
+.onboarding {
+    background-color: $fa-gray-700;
+
+    .onboarding-sidebar-container {
+        padding: 2rem .8rem 2rem 2.5rem;
+    }
+
+    .onboarding-sidebar {
+        height: 100vh;
+        background-color: $fa-grey-600;
+        border-radius: 20px;
+        padding: 3rem 3rem 6rem;
+        background-image: url('../../public/assets/onboarding-frame.png');
+        background-size: 52%;
+        background-position: top right;
+        background-repeat: no-repeat;
+        color: $fa-white  !important;
+        background-blend-mode: overlay;
+        position: relative;
+
+        h5 {
+            color: $fa-white;
+            margin-top: 11rem;
+            line-height: 36px;
+        }
+
+        p {
+            color: $fa-grey-300;
+            margin-top: 1.7rem;
+            font-weight: 500;
+        }
+
+        .onboarding-img {
+            position: absolute;
+            bottom: 2%;
+        }
+
+        @include xlMaxBreakPoint {
+            padding: 3rem 1.5rem 6rem
+        }
+    }
+
+    .onboarding-form-container {
+        margin: 6rem 0 0 1rem;
+        width: 75%;
+
+        &:nth-child(1)>div {
+            margin: 3rem 0
+        }
+
+        @include xlMaxBreakPoint {
+            width: 92%;
+        }
+
+        @include smMaxBreakPoint {
+            width: 92%;
+            margin: 4rem auto;
+        }
+    }
+
+    .form-stepper {
+        display: flex;
+
+        .status-indicator {
+            display: flex;
+            color: $fa-grey-200;
+            margin-right: .8rem;
+            flex-grow: 1;
+
+            .number-indicator {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .index {
+                    opacity: 0.3;
+
+                    &__active,
+                    &__completed {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .status-track {
+                border: 1px solid rgba(255, 168, 0, 0.2);
+                width: 22px;
+                height: 22px;
+                display: flex;
+                color: $fa-white;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                margin-top: .5rem;
+
+                &__completed {
+                    background-color: #FFA800;
+                    border: none;
+                }
+
+                &__active {
+                    border: 1.5px solid #FFA800;
+                }
+
+                @include lgMaxBreakPoint {
+                    margin-top: 20%;
+                }
+
+                @include smMaxBreakPoint {
+                    margin-top: 1rem;
+                }
+            }
+
+            .text-indicator {
+                display: none;
+                margin: .2rem .5rem;
+                width: 100%;
+                text-align: center;
+
+                div {
+                    border: 1px solid rgba(255, 168, 0, 0.2);
+                    margin-top: 1.3rem;
+                }
+
+                p {
+                    opacity: 0.3;
+                }
+
+                &__active div {
+                    border: 1px dashed #FFA800;
+
+                    p {
+                        color: $fa-black;
+                    }
+                }
+
+                &__completed div {
+                    border: 1px solid #FFA800;
+
+                    p {
+                        color: $fa-black;
+                    }
+                }
+
+
+                @include lgMaxBreakPoint {
+                    margin: 0 .3rem
+                }
+
+                @include smMaxBreakPoint {
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            @include smMaxBreakPoint {
+                flex-grow: 0;
+
+                .number-indicator {
+                    margin-top: .6rem;
+
+                    h5 {
+                        font-size: 16px
+                    }
+                }
+            }
+
+            @include smMaxBreakPoint {
+                margin-right: .2rem;
+            }
+
+
+        }
+    }
+
+    @include lgMaxBreakPoint {
+        height: 100vh;
+    }
+
+    .control-buttons-container {
+        div {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
