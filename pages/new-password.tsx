@@ -86,7 +86,11 @@ const NewPassword: NextPage<Props> = () => {
                 </Col>
                 <div className='new-password-box'>
                   <h1>New Password?</h1>
-                  <h6>Your new password must be different from previous used passwords</h6>
+                  <h6>
+                    Your new password must be different from previous used passwords
+                    <br />
+                    Password must contain at least 8 characters, one number and one letter
+                  </h6>
                   <div className='new-password-form'>
                     <NewPasswordForm
                       formData={formData}
