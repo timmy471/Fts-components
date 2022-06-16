@@ -1,4 +1,4 @@
-.login {
+.register {
   background-color: $fa-white;
   // padding-bottom: 40px;
 
@@ -47,6 +47,9 @@
     }
     .right-hero {
       width: 380px;
+      .required-text {
+        color: $fa-error;
+      }
       .login-form {
         .email-input {
           height: 50px;
@@ -62,6 +65,7 @@
           border-radius: 5px;
           margin-bottom: 30px;
         }
+
         .error-style {
           border-color: $fa-error;
         }

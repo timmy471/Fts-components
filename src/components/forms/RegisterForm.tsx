@@ -10,9 +10,11 @@ import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { assets } from '../../assets';
 
 interface IFormData {
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  remember: boolean;
+  terms: boolean;
 }
 
 interface Props {
@@ -20,18 +22,20 @@ interface Props {
   onSubmitForm: () => void;
   onFormChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   validateSchema: any;
-  onRememberCheck: (event: CheckboxChangeEvent) => void;
+  onTermsCheck: (event: CheckboxChangeEvent) => void;
 }
-export const LoginForm: NextPage<Props> = ({
+export const RegisterForm: NextPage<Props> = ({
   formData,
   validateSchema,
   onSubmitForm,
   onFormChange,
-  onRememberCheck,
+  onTermsCheck,
 }) => {
   return (
     <Formik
       initialValues={{
+        firstName: '',
+        lastName: '',
         email: '',
         password: '',
       }}
@@ -40,6 +44,28 @@ export const LoginForm: NextPage<Props> = ({
       {({ errors, touched }) => (
         <Form name='login-form' autoComplete='none'>
           <div className='mt-10'>
+            <Input
+              placeholder='First Name'
+              value={formData?.firstName}
+              name='firstName'
+              autoComplete='none'
+              onChange={onFormChange}
+              className='firstName-input'
+              style={errors.firstName && touched.firstName ? { borderColor: 'red' } : {}}
+            />
+          </div>
+          <div>
+            <Input
+              placeholder='Last Name'
+              value={formData?.lastName}
+              name='lastName'
+              autoComplete='none'
+              onChange={onFormChange}
+              className='lastName-input'
+              style={errors.lastName && touched.lastName ? { borderColor: 'red' } : {}}
+            />
+          </div>
+          <div>
             <Input
               placeholder='Email'
               value={formData?.email}
@@ -79,8 +105,8 @@ export const LoginForm: NextPage<Props> = ({
           <div className='check-input'>
             <Row>
               <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-                <Checkbox name='remember' value={formData.remember} onChange={onRememberCheck}>
-                  <label>Remember me</label>
+                <Checkbox name='terms' value={formData.terms} onChange={onTermsCheck}>
+                  <label>I agree to the Terms and Conditions</label>
                 </Checkbox>
               </Col>
               <Col xs={12} sm={12} md={12} lg={12} xl={12}>

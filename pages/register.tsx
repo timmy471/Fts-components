@@ -4,39 +4,53 @@ import type { NextPage } from 'next';
 import Image from 'next/image';
 import { useState } from 'react';
 import * as Yup from 'yup';
+import Link from 'next/link';
 
-import { LoginForm } from '../src/components';
+import { RegisterForm } from '../src/components';
 import { assets } from '../src/assets';
 import { Fragment } from 'react';
 
 interface Props {}
 
 interface IFormData {
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  remember: boolean;
+  terms: boolean;
 }
 
-const Login: NextPage<Props> = () => {
+const Register: NextPage<Props> = () => {
   const { Content } = Layout;
 
   const [formData, setFormData] = useState<IFormData>({
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
-    remember: false,
+    terms: false,
   });
 
   const onFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const onRememberCheck = (e: CheckboxChangeEvent) => {
-    setFormData({ ...formData, remember: e.target.checked });
+  const onTermsCheck = (e: CheckboxChangeEvent) => {
+    setFormData({ ...formData, terms: e.target.checked });
   };
 
   const validateSchema = Yup.object().shape({
+    firstName: Yup.string()
+      .min(2, 'First name must be at least 2 characters')
+      .max(25, 'First name must be at most 25 characters')
+      .required('First name is required'),
+    lastName: Yup.string()
+      .min(2, 'Last name must be at least 2 characters')
+      .max(25, 'Last name must be at most 25 characters')
+      .required('Last name is required'),
     email: Yup.string().email('Invalid email address').required('Email address is required'),
     password: Yup.string().required('Password is required'),
+    terms: Yup.boolean().required('Terms must be accepted'),
   });
 
   const onSubmitForm = () => {
@@ -44,7 +58,7 @@ const Login: NextPage<Props> = () => {
   };
 
   return (
-    <div className='login'>
+    <div className='register'>
       <Content className='container'>
         <Fragment>
           <Image src={assets.FaLogo.src} alt={assets.FaLogo.alt} width={100} height={100} />
@@ -77,17 +91,21 @@ const Login: NextPage<Props> = () => {
               xl={10}
               className='d-flex justify-content-center'>
               <div className='right-hero'>
-                <h1>Welcome back</h1>
+                <h1>Sign up</h1>
                 <h6>
-                  New to Future Africa Collective? <span>Sign up here</span>
+                  Already have an account?
+                  <Link href='/'>
+                    <a> Log in here</a>
+                  </Link>
                 </h6>
+                <span className='required-text'>*Required</span>
                 <div className='login-form'>
-                  <LoginForm
+                  <RegisterForm
                     formData={formData}
                     validateSchema={validateSchema}
                     onSubmitForm={onSubmitForm}
                     onFormChange={onFormChange}
-                    onRememberCheck={onRememberCheck}
+                    onTermsCheck={onTermsCheck}
                   />
                 </div>
                 <div className='other-socials-login'>
@@ -96,7 +114,7 @@ const Login: NextPage<Props> = () => {
                       <hr />
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={12} xl={12} className='text-center'>
-                      Login with other accounts
+                      Signup with social account
                     </Col>
                     <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ margin: 'auto' }}>
                       <hr />
@@ -140,4 +158,4 @@ const Login: NextPage<Props> = () => {
   );
 };
 
-export default Login;
+export default Register;
