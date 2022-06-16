@@ -96,9 +96,19 @@ const Register: NextPage<Props> = () => {
               xl={10}
               className='d-flex justify-content-center'>
               <div className='right-hero mt-4'>
+                <Col xs={24} sm={24} md={24} lg={0} xl={0}>
+                  <Fragment>
+                    <Image
+                      src={assets.FaLogo.src}
+                      alt={assets.FaLogo.alt}
+                      width={100}
+                      height={100}
+                    />
+                  </Fragment>
+                </Col>
                 <h1>Sign up</h1>
                 <h6>
-                  Already have an account?
+                  Already a member of Future Africa Collective?
                   <Link href='/'>
                     <a> Log in here</a>
                   </Link>
@@ -142,11 +152,11 @@ const Register: NextPage<Props> = () => {
       <Col xs={24} sm={24} md={24} lg={0} xl={0}>
         <div className='register-mobile-cta'>
           <h1>
-            Welcome back, <br />
+            Time to be a, <br />
             co-investor!
             <br />
             <span>
-              Log in to your account to access <br /> the Future Africa Collective portal.
+              Sign up to your account, to access <br /> the Future Africa Collective portal.
             </span>
           </h1>
           <div className='bottom-row'>
