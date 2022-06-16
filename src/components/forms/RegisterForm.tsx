@@ -42,10 +42,10 @@ export const RegisterForm: NextPage<Props> = ({
       onSubmit={onSubmitForm}
       validationSchema={validateSchema}>
       {({ errors, touched }) => (
-        <Form name='login-form' autoComplete='none'>
+        <Form name='register-form' autoComplete='none'>
           <div className='mt-10'>
             <Input
-              placeholder='First Name'
+              placeholder='First Name*'
               value={formData?.firstName}
               name='firstName'
               autoComplete='none'
@@ -67,7 +67,7 @@ export const RegisterForm: NextPage<Props> = ({
           </div>
           <div>
             <Input
-              placeholder='Email'
+              placeholder='Email*'
               value={formData?.email}
               name='email'
               onChange={onFormChange}
@@ -78,7 +78,7 @@ export const RegisterForm: NextPage<Props> = ({
           <div>
             <Input.Password
               className='password-input'
-              placeholder='Password'
+              placeholder='Password*'
               value={formData?.password}
               onChange={onFormChange}
               name='password'
@@ -104,19 +104,16 @@ export const RegisterForm: NextPage<Props> = ({
           </div>
           <div className='check-input'>
             <Row>
-              <Col xs={12} sm={12} md={12} lg={12} xl={12}>
+              <Col xs={24} sm={24} md={24} lg={24} xl={24}>
                 <Checkbox name='terms' value={formData.terms} onChange={onTermsCheck}>
                   <label>I agree to the Terms and Conditions</label>
                 </Checkbox>
               </Col>
-              <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-                <h5 className='float-right mt-1'>Forgot your password</h5>
-              </Col>
             </Row>
           </div>
           <Fragment>
-            <Button className='btn-login' htmlType='submit'>
-              Sign in
+            <Button className='btn-register' htmlType='submit'>
+              Sign up
             </Button>
           </Fragment>
         </Form>

@@ -60,12 +60,17 @@ const Register: NextPage<Props> = () => {
   return (
     <div className='register'>
       <Content className='container'>
-        <Fragment>
-          <Image src={assets.FaLogo.src} alt={assets.FaLogo.alt} width={100} height={100} />
-        </Fragment>
         <div>
           <Row>
             <Col xs={0} sm={0} md={0} lg={14} xl={14}>
+              <Fragment>
+                <Image
+                  src={assets.FaLogo.src}
+                  alt={assets.FaLogo.alt}
+                  width={100}
+                  height={100}
+                />
+              </Fragment>
               <div className='left-hero'>
                 <div className='image-wrapper'>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -90,7 +95,7 @@ const Register: NextPage<Props> = () => {
               lg={10}
               xl={10}
               className='d-flex justify-content-center'>
-              <div className='right-hero'>
+              <div className='right-hero mt-4'>
                 <h1>Sign up</h1>
                 <h6>
                   Already have an account?
@@ -99,7 +104,7 @@ const Register: NextPage<Props> = () => {
                   </Link>
                 </h6>
                 <span className='required-text'>*Required</span>
-                <div className='login-form'>
+                <div className='register-form'>
                   <RegisterForm
                     formData={formData}
                     validateSchema={validateSchema}
@@ -108,7 +113,7 @@ const Register: NextPage<Props> = () => {
                     onTermsCheck={onTermsCheck}
                   />
                 </div>
-                <div className='other-socials-login'>
+                <div className='other-socials-register'>
                   <Row>
                     <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ margin: 'auto' }}>
                       <hr />
@@ -135,7 +140,7 @@ const Register: NextPage<Props> = () => {
         </div>
       </Content>
       <Col xs={24} sm={24} md={24} lg={0} xl={0}>
-        <div className='login-mobile-cta'>
+        <div className='register-mobile-cta'>
           <h1>
             Welcome back, <br />
             co-investor!
