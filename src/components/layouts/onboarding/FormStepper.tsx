@@ -1,12 +1,8 @@
 import { Typography } from '../../';
 import { IFormStepper } from '../../../../type.d';
-import { assets } from '../../../assets';
-import Image from 'next/image';
+import { CheckOutlined } from '@ant-design/icons';
 
-export const FormStepper: React.FC<IFormStepper> = ({ currentStep = 3, steps }) => {
-  const {
-    checkImg: { src, alt },
-  } = assets;
+export const FormStepper: React.FC<IFormStepper> = ({ currentStep = 1, steps }) => {
   return (
     <div className='form-stepper'>
       {steps.map((step, key) => {
@@ -26,16 +22,12 @@ export const FormStepper: React.FC<IFormStepper> = ({ currentStep = 3, steps }) 
                 0{index}
               </Typography>
               <div className={getClassName('status-track')}>
-                {currentStep > index ? (
-                  <Image src={src} alt={alt} width={12} height={10} />
-                ) : (
-                  ''
-                )}
+                {currentStep > index ? <CheckOutlined /> : ''}
               </div>
             </div>
             <div className={getClassName('text-indicator')}>
               <Typography variant='body8'>{step}</Typography>
-              {/* <div></div> */}
+              <div></div>
             </div>
           </div>
         );

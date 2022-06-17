@@ -47,6 +47,7 @@ export const Button: React.FC<IButton> = ({
   return (
     <button
       type={loading ? 'button' : type}
+      onClick={onClick}
       className={buttonClasses}
       disabled={disabled}
       style={style}

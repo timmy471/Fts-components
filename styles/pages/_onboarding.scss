@@ -1,8 +1,14 @@
 .onboarding {
     background-color: $fa-gray-700;
+    min-height: 100vh;
 
     .onboarding-sidebar-container {
         padding: 2rem .8rem 2rem 2.5rem;
+        position: relative;
+
+        @include mdMaxBreakPoint {
+            padding: 0
+        }
     }
 
     .onboarding-sidebar {
@@ -31,20 +37,46 @@
         }
 
         .onboarding-img {
-            position: absolute;
-            bottom: 2%;
+            position: relative;
+            top: 30%;
+            display: flex;
+            justify-content: center;
         }
 
         @include xlMaxBreakPoint {
             padding: 3rem 1.5rem 6rem
         }
+
+        @include lgMaxBreakPoint {
+            height: fit-content;
+            background-image: none;
+            border-radius: 0;
+            padding: 1.5rem 4rem 6rem;
+
+            h5 {
+                margin-top: 2rem;
+                padding: 0 3rem
+            }
+
+            .onboarding-img {
+                margin-top: 4rem
+            }
+        }
+
+        @include smMaxBreakPoint {
+            padding: 1.5rem 1.2rem 1rem;
+
+            .onboarding-img {
+                margin-top: 3rem;
+            }
+        }
     }
 
     .onboarding-form-container {
-        margin: 6rem 0 0 1rem;
+        margin: 3rem 0 0 1rem;
         width: 75%;
 
-        &:nth-child(1)>div {
+        &:nth-child(2)>div {
             margin: 3rem 0
         }
 
@@ -52,9 +84,9 @@
             width: 92%;
         }
 
-        @include smMaxBreakPoint {
+        @include mdMaxBreakPoint {
             width: 92%;
-            margin: 4rem auto;
+            margin: 0 auto;
         }
     }
 
@@ -78,6 +110,12 @@
                     &__active,
                     &__completed {
                         opacity: 1;
+                    }
+                }
+
+                @include faMaxBreakPoint(640px) {
+                    h5 {
+                        font-size: 20px
                     }
                 }
             }
@@ -105,14 +143,9 @@
                 @include lgMaxBreakPoint {
                     margin-top: 20%;
                 }
-
-                @include smMaxBreakPoint {
-                    margin-top: 1rem;
-                }
             }
 
             .text-indicator {
-                display: none;
                 margin: .2rem .5rem;
                 width: 100%;
                 text-align: center;
@@ -126,11 +159,14 @@
                     opacity: 0.3;
                 }
 
-                &__active div {
-                    border: 1px dashed #FFA800;
+                &__active {
+                    div {
+                        border: 1px dashed #FFA800;
+                    }
 
                     p {
                         color: $fa-black;
+                        opacity: 1;
                     }
                 }
 
@@ -147,41 +183,144 @@
                     margin: 0 .3rem
                 }
 
+                @include faMaxBreakPoint(640px) {
+                    display: none;
+                    flex-grow: 0;
+                    margin: 6.5% 0;
+
+                    div {
+                        margin-top: 1.2rem;
+                    }
+
+                    &__active {
+                        display: block;
+                        margin-right: 2rem;
+                        margin-left: .7rem;
+                    }
+                }
+
                 @include smMaxBreakPoint {
                     p {
-                        font-size: 12px;
+                        font-size: 16px;
                     }
                 }
             }
 
             @include smMaxBreakPoint {
-                flex-grow: 0;
-
                 .number-indicator {
                     margin-top: .6rem;
-
-                    h5 {
-                        font-size: 16px
-                    }
                 }
             }
 
             @include smMaxBreakPoint {
                 margin-right: .2rem;
             }
-
-
         }
     }
 
-    @include lgMaxBreakPoint {
-        height: 100vh;
+    .form-parent-label {
+        margin-bottom: .3rem;
+    }
+
+    .onboarding-form-main {
+        .subtitle {
+            margin: .7rem 0 2rem;
+            padding-right: 10rem;
+
+            @include lgMaxBreakPoint {
+                padding-right: 0;
+            }
+        }
+    }
+
+    .work-info-field {
+        margin-top: .7rem
     }
 
     .control-buttons-container {
+        position: absolute;
+        bottom: 3rem;
+        width: 90%;
+
         div {
             display: flex;
+            width: 100%;
             justify-content: space-between;
+        }
+
+        @include mdMaxBreakPoint {
+            margin-top: 5rem !important;
+            bottom: 0;
+            position: relative;
+            width: 100%;
+        }
+
+    }
+
+    .PhoneInput {
+        overflow: hidden;
+    }
+
+    .otp-input {
+        text-align: center;
+        color: $fa-black  !important;
+        font-weight: 500;
+        width: 50px !important;
+        height: 50px;
+        background: $fa-white;
+        color: $fa-grey-200;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        padding: 0;
+        margin-right: 1rem;
+
+        @include smMaxBreakPoint {
+            width: 46px !important;
+            margin-right: .8rem;
+        }
+
+    }
+
+    .PhoneInputInput {
+        border: none;
+        outline: none;
+
+        color: $fa-grey-200;
+
+        &::placeholder {
+            color: $fa-grey-200;
+        }
+    }
+
+    .onboarding-congratulations-container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        @include lgMaxBreakPoint {
+            height: fit-content;
+
+            div {
+                width: 60%
+            }
+        }
+
+        @include smMaxBreakPoint {
+            div {
+                width: 90%
+            }
         }
     }
 }

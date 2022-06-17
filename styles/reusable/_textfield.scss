@@ -2,9 +2,14 @@
   position: relative;
 }
 
+.texfield_container_default {
+  margin-bottom: -1.4rem;
+}
+
 .fa_textfield {
   @include fa_textfield;
   height: 50px;
+  color: $fa-grey-200;
 
   &__label_input {
 
@@ -21,12 +26,13 @@
 
 
   &__label {
-    font-weight: 300;
+    font-weight: 400;
     margin: 0;
     position: relative;
-    font-size: 16px;
+    font-size: 14px;
     bottom: 35px;
-    left: 14px;
+    left: 20px;
+    color: $fa-grey-200;
     -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
   }

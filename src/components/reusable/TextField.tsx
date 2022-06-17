@@ -8,7 +8,7 @@ interface TextfieldProps extends InputHTMLAttributes<HTMLInputElement> {
   labelClassName?: string;
   state?: 'success' | 'warning' | 'error';
   rows?: string | number;
-  hasError?: Boolean;
+  hasError?: boolean | string;
   endIcon?: React.ReactNode;
 }
 
@@ -44,7 +44,7 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
   );
 
   return (
-    <div className='fa_textfield_container'>
+    <div className={`fa_textfield_container ${label ? 'texfield_container_default' : ''}`}>
       <input
         type={type}
         name={name}
