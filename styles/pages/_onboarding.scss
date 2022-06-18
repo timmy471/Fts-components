@@ -132,12 +132,12 @@
                 margin-top: .5rem;
 
                 &__completed {
-                    background-color: #FFA800;
+                    background-color: $fa-primary-100;
                     border: none;
                 }
 
                 &__active {
-                    border: 1.5px solid #FFA800;
+                    border: 1.5px solid $fa-primary-100;
                 }
 
                 @include lgMaxBreakPoint {
@@ -161,7 +161,7 @@
 
                 &__active {
                     div {
-                        border: 1px dashed #FFA800;
+                        border: 1px dashed $fa-primary-100;
                     }
 
                     p {
@@ -171,7 +171,7 @@
                 }
 
                 &__completed div {
-                    border: 1px solid #FFA800;
+                    border: 1px solid $fa-primary-100;
 
                     p {
                         color: $fa-black;
@@ -237,10 +237,57 @@
         margin-top: .7rem
     }
 
+    .other-details-container {
+        p {
+            color: $fa-grey-200;
+        }
+
+        .fa_typography__error {
+            color: $fa-error;
+            // margin-top: -.5rem
+        }
+
+        .ant-radio-wrapper,
+        .ant-radio-wrapper {
+            // &:nth-child(2)>span {
+            //     position: relative;
+            //     bottom: .1rem
+            // }
+
+            .fa_typography__default {
+                position: relative;
+                bottom: .1rem
+            }
+        }
+
+        .ant-radio-inner {
+            width: 20px;
+            height: 20px;
+
+            &::after {
+                background-color: $fa-success;
+            }
+        }
+
+        .ant-radio-checked .ant-radio-inner {
+            border-color: $fa-success
+        }
+
+        .pill-wrapper {
+            @include smMaxBreakPoint {
+                margin-top: .5rem;
+            }
+        }
+
+        .investment-method-error {
+            margin-top: -.5rem
+        }
+    }
+
     .control-buttons-container {
         position: absolute;
-        bottom: 3rem;
-        width: 90%;
+        bottom: 5rem;
+        width: 80%;
 
         div {
             display: flex;

@@ -1,7 +1,7 @@
 import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { useRouter } from 'next/router';
 import { Formik, Form, ErrorMessage } from 'formik';
-import { Col, Row } from 'antd';
+import { Col, Row, Radio } from 'antd';
 import { defaultValidation, urlValidation } from '../../helpers';
 import {
   Typography,
@@ -10,6 +10,7 @@ import {
   FormError,
   TextField,
   Button,
+  Pill,
 } from '../../components';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
@@ -28,6 +29,11 @@ interface MyFormValues {
   firm: string;
   industry: string;
   income: string;
+  investmentMethod: string | null;
+  pastInvestment: boolean;
+  syndicateMember: boolean;
+  pastEvent: boolean;
+  event: string;
 }
 
 interface IProps {
@@ -37,6 +43,8 @@ interface IProps {
 
 export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }) => {
   const [mounted, setMounted] = useState<boolean>(false);
+  const [shouldValidateEvent, setShouldValidateEvent] = useState<boolean>(false);
+
   useEffect(() => setMounted(true), []);
 
   const router = useRouter();
@@ -53,6 +61,11 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
     firm: '',
     industry: '',
     income: '',
+    investmentMethod: null,
+    pastInvestment: false,
+    syndicateMember: false,
+    pastEvent: false,
+    event: '',
   };
 
   const validateProfileInfo = () =>
@@ -83,7 +96,11 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
       }),
     });
 
-  const validateOtherInfo = () => Yup.object().shape({});
+  const validateOtherInfo = () =>
+    Yup.object().shape({
+      investmentMethod: Yup.string().required('Select a Method').nullable(),
+      event: shouldValidateEvent ? Yup.string().required('Event is required') : Yup.string(),
+    });
 
   const validatePin = () =>
     Yup.object({
@@ -294,6 +311,89 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
                           <FormError msg='Annual Income is requred' />
                         )}
                       </div>
+                    </Col>
+                  </Row>
+                </div>
+              )}
+              {currentStep === 3 && (
+                <div className='other-details-container'>
+                  <Row>
+                    <Col xs={24} md={15}>
+                      <div>
+                        <Typography variant='body5'>How do you want to invest?</Typography>
+                        <Radio.Group
+                          name='investmentMethod'
+                          defaultValue={values.investmentMethod}
+                          size='small'
+                          className='radio-group'
+                          onChange={(e) => setFieldValue('investmentMethod', e.target.value)}>
+                          <Radio value={'individial'}>
+                            <Typography variant='body7'> As an Individual</Typography>
+                          </Radio>
+                          <Radio value={'group'}>
+                            <Typography variant='body7'> As a group</Typography>
+                          </Radio>
+                        </Radio.Group>
+                        <div
+                          className={errors.investmentMethod ? 'investment-method-error' : ''}>
+                          <ErrorMessage component={FormError} name='investmentMethod' />
+                        </div>
+                      </div>
+                      <div className='mt-1 d-flex d-flex justify-content-between'>
+                        <Typography variant='body5'>
+                          How Have you been involved in any past investment in Africa?
+                        </Typography>
+                        <div className='pill-wrapper'>
+                          <Pill
+                            value={values.pastInvestment}
+                            onClick={() =>
+                              setFieldValue('pastInvestment', !values.pastInvestment)
+                            }
+                          />
+                        </div>
+                      </div>
+
+                      <div className='mt-2 d-flex justify-content-between align-items-base'>
+                        <Typography variant='body5'>
+                          Are you a past member of a syndicate?
+                        </Typography>
+                        <div className='pill-wrapper'>
+                          <Pill
+                            value={values.syndicateMember}
+                            onClick={() =>
+                              setFieldValue('syndicateMember', !values.syndicateMember)
+                            }
+                          />
+                        </div>
+                      </div>
+
+                      <div className='mt-2 d-flex justify-content-between align-items-base'>
+                        <Typography variant='body5'>
+                          Have you been to any past Future Africa events?
+                        </Typography>
+                        <div className='pill-wrapper'>
+                          <Pill
+                            value={values.pastEvent}
+                            onClick={() => {
+                              setFieldValue('pastEvent', !values.pastEvent);
+                              setShouldValidateEvent(!shouldValidateEvent);
+
+                              if (values.event) setFieldValue('event', '');
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {shouldValidateEvent && (
+                        <div className='mt-1'>
+                          <TextField
+                            placeholder='Enter event here'
+                            {...getFieldProps('event')}
+                            hasError={errors.event && touched.event}
+                          />
+                          <ErrorMessage component={FormError} name='event' />
+                        </div>
+                      )}
                     </Col>
                   </Row>
                 </div>

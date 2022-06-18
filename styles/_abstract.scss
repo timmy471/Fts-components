@@ -18,6 +18,27 @@
   display: none
 }
 
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.align-items-center {
+  align-items: center
+}
+
+.align-items-base {
+  align-items: baseline;
+}
+
+
 .form-error {
   margin: 0rem 0 0 .5rem;
   font-size: 12px;

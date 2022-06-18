@@ -3,6 +3,7 @@ export * from './reusable/Typography';
 export * from './reusable/TextField';
 export * from './reusable/MetaHead';
 export * from './reusable/SelectField';
+export * from './reusable/Pill';
 export * from './reusable/FormError';
 export * from './layouts/onboarding';
 export * from './layouts/onboarding/Sidebar';

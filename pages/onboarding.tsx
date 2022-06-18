@@ -4,7 +4,7 @@ import { Col, Row } from 'antd';
 import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '../src/components';
 
 const Onboarding: NextPage = () => {
-  const [currentStep, setCurrentStep] = useState<number>(3);
+  const [currentStep, setCurrentStep] = useState<number>(1);
 
   const onBoardingSteps = [
     'Complete Profile',

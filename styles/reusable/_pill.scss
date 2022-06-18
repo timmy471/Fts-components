@@ -1,0 +1,28 @@
+.fa_pill {
+    width: 90px;
+    height: 32px;
+    border-radius: 15px;
+    border: 1px solid $fa-black;
+    display: flex;
+    overflow: hidden;
+
+    div {
+        height: 31px;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        &:nth-child(1) {
+            border-right: 1px solid $fa-black;
+        }
+    }
+
+
+    .selected {
+        background-color: $fa-black;
+        color: $fa-white
+    }
+
+}
