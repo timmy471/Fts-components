@@ -14,10 +14,11 @@ import {
 } from '../../components';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
+import { countries } from '../../helpers/constants';
 import OtpInput from 'react-otp-input';
 import * as Yup from 'yup';
 
-interface MyFormValues {
+interface DetailFormValues {
   nationality: string;
   country: string;
   city: string;
@@ -49,7 +50,7 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
 
   const router = useRouter();
 
-  const initialValues: MyFormValues = {
+  const initialValues: DetailFormValues = {
     nationality: '',
     country: '',
     city: '',
@@ -132,15 +133,26 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
 
   const options = [
     { value: 'nigerian', label: 'Nigerian' },
-    { value: 'american', label: 'America' },
+    { value: 'american', label: 'American' },
   ];
 
+  const incomeOptions = [
+    { value: '< 10000', label: 'Below $10,000' },
+    { value: '$10000 - $49000', label: '$10,000 - $49,000' },
+    { value: '$50000 - $99000', label: '$50,000 - $99,000' },
+    { value: '$100000 - $149000', label: '$100,000 - $149,000' },
+    { value: '$150000 - $199000', label: '$150,000 - $199,000' },
+    { value: '$200000 - $499000', label: '$200,000 - $499,000' },
+    { value: '$500000 - $999000', label: '$500,000 - $990,000' },
+    { value: '> $1Million', label: 'Above $1Million' },
+  ];
+
+  const selectStates = { nationality: false, country: false, income: false };
+
+  const getCountries = countries.map((value) => ({ label: value, value }));
+
   const onDetailSubmit = (values: object) => {
-    // if (currentStep < 3)
-
     return handleNext();
-
-    console.log(values);
   };
 
   const onPinSubmit = (values: object) => {
@@ -159,7 +171,7 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
             setTouched({});
             onDetailSubmit(values);
           }}>
-          {({ errors, touched, setFieldValue, getFieldProps, values }) => (
+          {({ errors, touched, setFieldValue, getFieldProps, setTouched, values }) => (
             <Form noValidate autoComplete='off'>
               {/* PROFILE */}
               {currentStep === 1 && (
@@ -169,43 +181,60 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
                   </Typography>
                   <Row gutter={[22, 12]}>
                     <Col xs={24} md={12}>
-                      <SelectField
-                        options={options}
-                        id='nationality'
-                        name='nationality'
-                        value={values.nationality}
-                        onChange={(val) => setFieldValue('nationality', val)}
-                        hasError={errors.nationality && touched.nationality}
-                        isSearchable
-                        placeholder='Nationality'
-                      />
-                      {errors.nationality && touched.nationality && (
-                        <FormError msg='Nationality is requred' />
-                      )}
+                      <div data-aos='fade-up'>
+                        <SelectField
+                          options={options}
+                          id='nationality'
+                          name='nationality'
+                          value={values.nationality}
+                          onChange={(val) => {
+                            selectStates.nationality = true;
+                            setFieldValue('nationality', val);
+                          }}
+                          onBlur={() => {
+                            if (!selectStates.nationality)
+                              setTouched({ ...touched, nationality: true });
+                          }}
+                          hasError={errors.nationality && touched.nationality}
+                          isSearchable
+                          placeholder='Nationality'
+                        />
+                        {errors.nationality && touched.nationality && (
+                          <FormError msg='Nationality is required' />
+                        )}
+                      </div>
                     </Col>
                     <Col xs={24} md={12}>
                       <SelectField
-                        options={options}
+                        options={getCountries}
                         id='country'
                         name='country'
                         value={values.country}
-                        onChange={(val) => setFieldValue('country', val)}
+                        onChange={(val) => {
+                          selectStates.country = true;
+                          setFieldValue('country', val);
+                        }}
+                        onBlur={() => {
+                          if (!selectStates.country) setTouched({ ...touched, country: true });
+                        }}
                         hasError={errors.country && touched.country}
                         isSearchable
                         placeholder='Country of Residence'
                       />
                       {errors.country && touched.country && (
-                        <FormError msg='Country is requred' />
+                        <FormError msg='Country is required' />
                       )}
                     </Col>
 
                     <Col xs={24} md={12}>
-                      <TextField
-                        placeholder='City'
-                        {...getFieldProps('city')}
-                        hasError={errors.city && touched.city}
-                      />
-                      <ErrorMessage component={FormError} name='city' />
+                      <div data-aos='fade-down'>
+                        <TextField
+                          placeholder='City'
+                          {...getFieldProps('city')}
+                          hasError={errors.city && touched.city}
+                        />
+                        <ErrorMessage component={FormError} name='city' />
+                      </div>
                     </Col>
 
                     <Col xs={24} md={12}>
@@ -218,18 +247,20 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
                     </Col>
 
                     <Col xs={24} md={12}>
-                      <TextField
-                        placeholder='Zip/Postal Code'
-                        {...getFieldProps('zip')}
-                        hasError={errors.zip && touched.zip}
-                      />
-                      <ErrorMessage component={FormError} name='zip' />
+                      <div data-aos='fade-down'>
+                        <TextField
+                          placeholder='Zip/Postal Code'
+                          {...getFieldProps('zip')}
+                          hasError={errors.zip && touched.zip}
+                        />
+                        <ErrorMessage component={FormError} name='zip' />
+                      </div>
                     </Col>
                   </Row>
 
                   <Typography
                     variant='body5'
-                    className='form-parent-label '
+                    className='form-parent-label'
                     style={{ marginTop: '1.5rem' }}>
                     Contact
                   </Typography>
@@ -254,7 +285,7 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
               )}
               {/* WORK INFORMATION */}
               {currentStep === 2 && (
-                <div>
+                <div data-aos='fade-up'>
                   <Row>
                     <Col xs={24} md={15}>
                       <div>
@@ -294,15 +325,16 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
                       </div>
                       <div className='work-info-field'>
                         <SelectField
-                          options={[
-                            { value: '$5000 - $10000', label: '$5000 - $10000' },
-                            { value: '$11000 - $15000', label: '$11000 - $15000' },
-                          ]}
+                          options={incomeOptions}
                           id='nationality'
                           name='income'
                           value={values.income}
                           onChange={(val) => {
+                            selectStates.income = true;
                             setFieldValue('income', val);
+                          }}
+                          onBlur={() => {
+                            if (!selectStates.income) setTouched({ ...touched, income: true });
                           }}
                           hasError={errors.income && touched.income}
                           placeholder='Annual Income'
@@ -316,7 +348,7 @@ export const OnboardingForm: React.FC<IProps> = ({ currentStep, setCurrentStep }
                 </div>
               )}
               {currentStep === 3 && (
-                <div className='other-details-container'>
+                <div className='other-details-container' data-aos='fade-down'>
                   <Row>
                     <Col xs={24} md={15}>
                       <div>

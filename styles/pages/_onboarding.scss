@@ -295,7 +295,7 @@
             justify-content: space-between;
         }
 
-        @include mdMaxBreakPoint {
+        @include lgMaxBreakPoint {
             margin-top: 5rem !important;
             bottom: 0;
             position: relative;

@@ -27,6 +27,7 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
   hasError,
   required = true,
   onChange,
+  onBlur,
   endIcon,
   ...rest
 }) => {
@@ -43,8 +44,26 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
     className
   );
 
+  const handleFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const addedPlaceholder = e.target.previousElementSibling;
+    addedPlaceholder?.classList.add('no-placeholder');
+  };
+
+  const handleBlur = (e: any) => {
+    onBlur?.(e);
+    const addedPlaceholder = e.target.previousElementSibling;
+
+    if (!e.target.value.length) addedPlaceholder.classList.remove('no-placeholder');
+  };
+
   return (
     <div className={`fa_textfield_container ${label ? 'texfield_container_default' : ''}`}>
+      {!label && placeholder && (
+        <div className={`placeholder ${value ? 'no-placeholder' : ''}`}>
+          <label htmlFor={id || name}>{placeholder}</label> {required && <span>*</span>}
+        </div>
+      )}
+
       <input
         type={type}
         name={name}
@@ -52,12 +71,14 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
         disabled={disabled}
         style={style}
         className={textFieldClasses}
-        placeholder={label ? '' : placeholder}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        // placeholder={label ? '' : placeholder}
         id={id || name}
         autoComplete='off'
         required
         onChange={onChange}
-        {...rest}
+        // {...rest}
       />
       {label && (
         <label htmlFor={id || name} className={labelClasses}>
