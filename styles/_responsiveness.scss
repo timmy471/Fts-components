@@ -1,4 +1,4 @@
-@import "./variables";
+@import './variables';
 
 // Breakpoints
 @mixin smMaxBreakPoint {
@@ -31,7 +31,7 @@
   }
 }
 
-//Custom Breakpoints 
+//Custom Breakpoints
 @mixin faMinBreakPoint($size) {
   @media (max-width: $size) {
     @content;
@@ -41,5 +41,113 @@
 @mixin faMaxBreakPoint($size) {
   @media (max-width: $size) {
     @content;
+  }
+}
+
+@media (max-width: 990px) {
+  .auth-modal {
+    .content {
+      .modal-btn {
+        width: 100%;
+      }
+    }
+  }
+
+  .login {
+    .container {
+      .right-hero {
+        .login-form {
+          .btn-login {
+            margin-top: 4px;
+          }
+        }
+        .other-socials-login {
+          margin-top: 20px;
+          .btn-social {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .register {
+    .container {
+      .right-hero {
+        .login-form {
+          .btn-login {
+            margin-top: 4px;
+          }
+        }
+        .other-socials-login {
+          margin-top: 20px;
+          .btn-social {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .forgot-password {
+    background-color: $fa-grey-600;
+    .container {
+      margin-right: 10%;
+      margin-left: 10%;
+      .left {
+        height: 100%;
+        .left-hero {
+          .forgot-password-box {
+            margin-top: 50px;
+          }
+          .forgot-password-form {
+            .btn-forgot-password {
+              margin-top: 4px;
+            }
+          }
+          .other-socials-login {
+            margin-top: 20px;
+            .btn-social {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+      .right-hero {
+        visibility: hidden;
+        display: none;
+      }
+    }
+  }
+
+  .new-password {
+    background-color: $fa-grey-600;
+    .container {
+      margin-right: 10%;
+      margin-left: 10%;
+      .left {
+        height: 100%;
+        .left-hero {
+          .forgot-password-box {
+            margin-top: 50px;
+          }
+          .forgot-password-form {
+            .btn-forgot-password {
+              margin-top: 4px;
+            }
+          }
+          .other-socials-login {
+            margin-top: 20px;
+            .btn-social {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+      .right-hero {
+        visibility: hidden;
+        display: none;
+      }
+    }
   }
 }

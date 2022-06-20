@@ -6,38 +6,51 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 import Link from 'next/link';
 
-import { LoginForm } from '../src/components';
+import { RegisterForm } from '../src/components';
 import { assets } from '../src/assets';
 import { Fragment } from 'react';
 
 interface Props {}
 
 interface IFormData {
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
-  remember: boolean;
+  terms: boolean;
 }
 
-const Login: NextPage<Props> = () => {
+const Register: NextPage<Props> = () => {
   const { Content } = Layout;
 
   const [formData, setFormData] = useState<IFormData>({
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
-    remember: false,
+    terms: false,
   });
 
   const onFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const onRememberCheck = (e: CheckboxChangeEvent) => {
-    setFormData({ ...formData, remember: e.target.checked });
+  const onTermsCheck = (e: CheckboxChangeEvent) => {
+    setFormData({ ...formData, terms: e.target.checked });
   };
 
   const validateSchema = Yup.object().shape({
+    firstName: Yup.string()
+      .min(2, 'First name must be at least 2 characters')
+      .max(25, 'First name must be at most 25 characters')
+      .required('First name is required'),
+    lastName: Yup.string()
+      .min(2, 'Last name must be at least 2 characters')
+      .max(25, 'Last name must be at most 25 characters')
+      .required('Last name is required'),
     email: Yup.string().email('Invalid email address').required('Email address is required'),
     password: Yup.string().required('Password is required'),
+    terms: Yup.boolean().required('Terms must be accepted'),
   });
 
   const onSubmitForm = () => {
@@ -45,14 +58,19 @@ const Login: NextPage<Props> = () => {
   };
 
   return (
-    <div className='login'>
+    <div className='register'>
       <Content className='container'>
-        <Fragment>
-          <Image src={assets.FaLogo.src} alt={assets.FaLogo.alt} width={100} height={100} />
-        </Fragment>
         <div>
           <Row>
             <Col xs={0} sm={0} md={0} lg={14} xl={14}>
+              <Fragment>
+                <Image
+                  src={assets.FaLogo.src}
+                  alt={assets.FaLogo.alt}
+                  width={100}
+                  height={100}
+                />
+              </Fragment>
               <div className='left-hero'>
                 <div className='image-wrapper'>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -77,30 +95,41 @@ const Login: NextPage<Props> = () => {
               lg={10}
               xl={10}
               className='d-flex justify-content-center'>
-              <div className='right-hero'>
-                <h1>Welcome back</h1>
+              <div className='right-hero mt-4'>
+                <Col xs={24} sm={24} md={24} lg={0} xl={0}>
+                  <Fragment>
+                    <Image
+                      src={assets.FaLogo.src}
+                      alt={assets.FaLogo.alt}
+                      width={100}
+                      height={100}
+                    />
+                  </Fragment>
+                </Col>
+                <h1>Sign up</h1>
                 <h6>
-                  New to Future Africa Collective?
-                  <Link href='/register'>
-                    <a> Sign up here</a>
+                  Already a member of Future Africa Collective?
+                  <Link href='/'>
+                    <a> Log in here</a>
                   </Link>
                 </h6>
-                <div className='login-form'>
-                  <LoginForm
+                <span className='required-text'>*Required</span>
+                <div className='register-form'>
+                  <RegisterForm
                     formData={formData}
                     validateSchema={validateSchema}
                     onSubmitForm={onSubmitForm}
                     onFormChange={onFormChange}
-                    onRememberCheck={onRememberCheck}
+                    onTermsCheck={onTermsCheck}
                   />
                 </div>
-                <div className='other-socials-login'>
+                <div className='other-socials-register'>
                   <Row>
                     <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ margin: 'auto' }}>
                       <hr />
                     </Col>
                     <Col xs={12} sm={12} md={12} lg={12} xl={12} className='text-center'>
-                      Login with social account
+                      Signup with social account
                     </Col>
                     <Col xs={6} sm={6} md={6} lg={6} xl={6} style={{ margin: 'auto' }}>
                       <hr />
@@ -121,13 +150,13 @@ const Login: NextPage<Props> = () => {
         </div>
       </Content>
       <Col xs={24} sm={24} md={24} lg={0} xl={0}>
-        <div className='login-mobile-cta'>
+        <div className='register-mobile-cta'>
           <h1>
-            Welcome back, <br />
+            Time to be a, <br />
             co-investor!
             <br />
             <span>
-              Log in to your account to access <br /> the Future Africa Collective portal.
+              Sign up to your account, to access <br /> the Future Africa Collective portal.
             </span>
           </h1>
           <div className='bottom-row'>
@@ -144,4 +173,4 @@ const Login: NextPage<Props> = () => {
   );
 };
 
-export default Login;
+export default Register;

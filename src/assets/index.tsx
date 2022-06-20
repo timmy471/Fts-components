@@ -1,9 +1,29 @@
 export const assets = {
+  FaLogo: {
+    alt: 'Logo',
+    src: '/assets/images/auth/fa-logo.svg',
+  },
   LoginHero: {
     alt: 'Login Hero Image',
-    src: '/assets/login-hero.png',
+    src: '/assets/images/auth/login-hero.png',
   },
-  FaLogo: {
+  LoginMobileCTA: {
+    alt: 'Login Mobile CTA',
+    src: '/assets/images/auth/login-mobile-cta.jpg',
+  },
+  EyeOpen: {
+    alt: 'Eye Open',
+    src: '/assets/images/auth/eye-open.png',
+  },
+  EyeClose: {
+    alt: 'Eye Close',
+    src: '/assets/images/auth/eye-close.png',
+  },
+  SendEnvelope: {
+    alt: 'Send Envelope',
+    src: '/assets/images/auth/send-envelope.png',
+  },
+  OnboardFaLogo: {
     alt: 'Future Africa',
     src: '/assets/fa-logo-full.png',
   },

@@ -1,24 +1,18 @@
-import { useEffect } from 'react';
-import type { AppProps } from 'next/app';
 import 'antd/dist/antd.css';
 import 'aos/dist/aos.css';
-import AOS from 'aos';
+import 'antd/dist/antd.css';
+import 'nprogress/nprogress.css';
 import '../styles/main.scss';
-import { MetaHead } from '../src/components';
+import type { AppProps } from 'next/app';
+import { MetaHead, PreLoader } from '../src/components';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    AOS.init({
-      duration: 500,
-    });
-    AOS.refresh();
-  }, []);
-
   return (
-    <>
+    <div>
       <MetaHead />
+      <PreLoader />
       <Component {...pageProps} />
-    </>
+    </div>
   );
 }
 
