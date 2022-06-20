@@ -4,7 +4,6 @@
 @import '_mixins';
 @import '_abstract';
 @import '_custom';
-@import '_responsiveness';
 @import 'reusable/_button';
 @import 'reusable/_textfield';
 @import 'reusable/_typography';
@@ -14,3 +13,4 @@
 @import 'pages/_register';
 @import 'pages/_forgot-password';
 @import 'pages/_new-password';
+@import '_responsiveness';

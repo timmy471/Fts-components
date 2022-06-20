@@ -99,7 +99,7 @@ const NewPassword: NextPage<Props> = () => {
                   </div>
                 </div>
                 <Row>
-                  <Col span={12} offset={6} className='mt-3'>
+                  <Col span={12} offset={6} className='mtop-3'>
                     <Link href='/'>
                       <a> Log in to Future Africa </a>
                     </Link>
