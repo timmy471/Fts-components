@@ -23,4 +23,12 @@ export const assets = {
     alt: 'Send Envelope',
     src: '/assets/images/auth/send-envelope.png',
   },
+  OnboardFaLogo: {
+    alt: 'Future Africa',
+    src: '/assets/fa-logo-full.png',
+  },
+  OnboardingImg: {
+    alt: 'onboard',
+    src: '/assets/onboarding-cofeee.png',
+  },
 };

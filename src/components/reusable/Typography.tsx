@@ -46,7 +46,7 @@ export const Typography: React.FC<ITypogrphy> = ({
   ...props
 }) => {
   const Component: any = component ? elementVariants[component] : 'p';
-  const baseClass = `fa_typography`;
+  const baseClass = `typography_default fa_typography`;
   const variantClass = variant ? `${baseClass}__${variant}` : '';
   const stateClass = `${baseClass}__${state}`;
 

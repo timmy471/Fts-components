@@ -1,46 +1,44 @@
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   font-family: $font-family-secondary;
-//   margin: 0;
-// }
+h1.typography_default,
+h2.typography_default,
+h3.typography_default,
+h4.typography_default,
+h5.typography_default,
+h6.typography_default {
+  font-family: $font-family-secondary;
+  margin: 0;
+}
 
-// html,
-// body,
-// span,
-// a,
-// i,
-// div,
-// li {
-//   font-family: $font-family-primary;
-//   margin: 0;
-// }
+span.typography_default,
+a.typography_default,
+i.typography_default,
+li.typography_default,
+p.typography_default {
+  font-family: $font-family-primary;
+}
+
 
 //fa-typography(font-size, line-height, font-weight)
-h1 {
+h1.typography_default {
   @include fa-typography(75px, 60px, 700);
 }
 
-h2 {
+h2.typography_default {
   @include fa-typography(48px, 52px, 800);
 }
 
-h3 {
+h3.typography_default {
   @include fa-typography(40px, 44px, 800);
 }
 
-h4 {
+h4.typography_default {
   @include fa-typography(32px, 35px, 800);
 }
 
-h5 {
+h5.typography_default {
   @include fa-typography(24px, 26px, 800);
 }
 
-h6 {
+h6.typography_default {
   @include fa-typography(20px, 22px, 800);
 }
 
@@ -91,4 +89,8 @@ h6 {
 
 .fa_typography__tetiary {
   color: $fa-secondary-300; //blue
+}
+
+.fa_typography__error {
+  color: $fa-error; //red
 }
