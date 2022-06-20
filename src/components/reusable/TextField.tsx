@@ -73,12 +73,10 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
         className={textFieldClasses}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        // placeholder={label ? '' : placeholder}
         id={id || name}
         autoComplete='off'
         required
         onChange={onChange}
-        // {...rest}
       />
       {label && (
         <label htmlFor={id || name} className={labelClasses}>

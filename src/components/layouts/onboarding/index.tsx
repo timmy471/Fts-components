@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import { Col, Row } from 'antd';
+
 import { OnboardingSidebar } from './OnboardingSidebar';
 
 interface IProps {

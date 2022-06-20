@@ -1,5 +1,5 @@
-export * from './MetaHead';
-export * from './PreLoader';
+export * from './abstract/MetaHead';
+export * from './abstract/PreLoader';
 export * from './reusable/Button';
 export * from './reusable/Typography';
 export * from './reusable/TextField';
