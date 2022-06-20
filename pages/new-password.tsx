@@ -1,15 +1,13 @@
 import { Layout, Row, Col, Button, Modal } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { useState } from 'react';
-import * as Yup from 'yup';
 import Link from 'next/link';
 import Router from 'next/router';
+import { useState, Fragment } from 'react';
+import * as Yup from 'yup';
 
-import { NewPasswordForm } from '../src/components';
 import { assets } from '../src/assets';
-import { Fragment } from 'react';
+import { NewPasswordForm } from '../src/components';
 
 interface Props {}
 

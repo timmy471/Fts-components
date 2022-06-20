@@ -23,12 +23,12 @@ export const assets = {
     alt: 'Send Envelope',
     src: '/assets/images/auth/send-envelope.png',
   },
-  OnboardFaLogo: {
+  FaLogoLight: {
     alt: 'Future Africa',
-    src: '/assets/fa-logo-full.png',
+    src: '/assets/images/onboarding/fa-logo-light.svg',
   },
   OnboardingImg: {
     alt: 'onboard',
-    src: '/assets/onboarding-cofeee.png',
+    src: '/assets/images/onboarding/onboarding-cofeee.png',
   },
 };
