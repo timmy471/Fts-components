@@ -1,9 +1,18 @@
-import type { AppProps } from 'next/app';
-import 'antd/dist/antd.css'
+import 'antd/dist/antd.css';
+import 'nprogress/nprogress.css';
 import '../styles/main.scss';
 
+import type { AppProps } from 'next/app';
+import { MetaHead, PreLoader } from '../src/components';
+
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <div>
+      <MetaHead />
+      <PreLoader />
+      <Component {...pageProps} />
+    </div>
+  );
 }
 
 export default MyApp;
