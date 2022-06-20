@@ -1,0 +1,3 @@
+// Dependency to devedepencies 
+// Animation should be on the individual pages
+// Using link instead of router.push

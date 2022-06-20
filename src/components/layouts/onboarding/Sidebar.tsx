@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { assets } from '../../../assets';
-import { Typography } from '../../';
+import { Typography } from '../../index';
 
 export const OnboardingSidebar = () => {
   const {
