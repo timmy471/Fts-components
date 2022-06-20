@@ -1,8 +1,12 @@
 import { Col, Row } from 'antd';
+import AOS from 'aos';
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import * as Yup from 'yup';
 
+import { countries } from '../src/helpers/constants';
+import { defaultValidation, urlValidation } from '../src/helpers';
 import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '../src/components';
 
 interface IDetailFormValues {
@@ -31,16 +35,17 @@ const Onboarding: NextPage = () => {
 
   useEffect(() => setMounted(true), []);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+    });
+    AOS.refresh();
+  }, []);
+
   const validateProfileInfo = () =>
     Yup.object().shape({
-      nationality: Yup.object().shape({
-        label: Yup.string().required(),
-        value: Yup.string().required(),
-      }),
-      country: Yup.object().shape({
-        label: Yup.string().required(),
-        value: Yup.string().required(),
-      }),
+      nationality: defaultValidation('Nationality'),
+      country: defaultValidation('Country'),
       city: defaultValidation('City'),
       address: defaultValidation('Address'),
       zip: defaultValidation('Zip/Postal Code'),
@@ -53,10 +58,7 @@ const Onboarding: NextPage = () => {
       profession: defaultValidation('Profession'),
       firm: defaultValidation('Firm / Company'),
       industry: defaultValidation('Industry'),
-      income: Yup.object().shape({
-        label: Yup.string().required(),
-        value: Yup.string().required(),
-      }),
+      income: defaultValidation('Income'),
     });
 
   const validateOtherInfo = () =>
@@ -89,6 +91,8 @@ const Onboarding: NextPage = () => {
     }
   };
 
+  const router = useRouter();
+
   const onDetailSubmit = (values: object) => {
     return handleNext();
   };
@@ -99,9 +103,11 @@ const Onboarding: NextPage = () => {
 
   const handleNext = () => setCurrentStep(currentStep + 1);
 
-  const handlePrevious = () => setCurrentStep(currentStep - 1);
+  const handlePrevious = () => {
+    return setCurrentStep(currentStep - 1);
+  };
 
-  const options = [
+  const nationalityOptions = [
     { value: 'nigerian', label: 'Nigerian' },
     { value: 'american', label: 'American' },
   ];
@@ -128,7 +134,7 @@ const Onboarding: NextPage = () => {
     'PIN Setup',
   ];
 
-  const initialValues: DetailFormValues = {
+  const initialValues: IDetailFormValues = {
     nationality: '',
     country: '',
     city: '',
@@ -146,6 +152,8 @@ const Onboarding: NextPage = () => {
     pastEvent: false,
     event: '',
   };
+
+  if (!mounted) return null;
 
   return (
     <div className='onboarding'>
@@ -180,9 +188,18 @@ const Onboarding: NextPage = () => {
               </div>
               <OnboardingForm
                 currentStep={currentStep}
-                setCurrentStep={setCurrentStep}
                 initialValues={initialValues}
+                incomeOptions={incomeOptions}
+                getCountries={getCountries}
+                nationalityOptions={nationalityOptions}
+                selectStates={selectStates}
+                shouldValidateEvent={shouldValidateEvent}
+                setShouldValidateEvent={setShouldValidateEvent}
                 getValidationSchema={getValidationSchema}
+                onDetailSubmit={onDetailSubmit}
+                onPinSubmit={onPinSubmit}
+                validatePin={validatePin}
+                handlePrevious={handlePrevious}
               />
             </div>
           </div>

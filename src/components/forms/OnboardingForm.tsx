@@ -1,8 +1,8 @@
-import { useEffect, useState, Dispatch, SetStateAction } from 'react';
-import { useRouter } from 'next/router';
-import { Formik, Form, ErrorMessage } from 'formik';
 import { Col, Row, Radio } from 'antd';
-import { defaultValidation, urlValidation } from '../../helpers';
+import { Formik, Form, ErrorMessage } from 'formik';
+
+import { Dispatch, SetStateAction } from 'react';
+
 import {
   Typography,
   SelectField,
@@ -14,9 +14,7 @@ import {
 } from '../../components';
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
-import { countries } from '../../helpers/constants';
 import OtpInput from 'react-otp-input';
-import * as Yup from 'yup';
 
 interface IDetailFormValues {
   nationality: string;
@@ -50,27 +48,34 @@ interface ISelectStates {
 
 interface IProps {
   currentStep: number;
-  setCurrentStep: Dispatch<SetStateAction<number>>;
   initialValues: IDetailFormValues;
+  incomeOptions: IOption[];
+  getCountries: any;
+  nationalityOptions: IOption[];
+  selectStates: ISelectStates;
+  shouldValidateEvent: boolean;
+  setShouldValidateEvent: Dispatch<SetStateAction<boolean>>;
   getValidationSchema: () => void;
   onDetailSubmit: (values: object) => void;
-  options: [IOption];
-  selectStates: ISelectStates;
+  onPinSubmit: (values: object) => void;
+  validatePin: () => object;
+  handlePrevious: () => void;
 }
 
 export const OnboardingForm: React.FC<IProps> = ({
   currentStep,
-  setCurrentStep,
   initialValues,
   getValidationSchema,
   onDetailSubmit,
-  options,
-  selectStates,
+  nationalityOptions,
+  getCountries,
+  shouldValidateEvent,
+  setShouldValidateEvent,
+  incomeOptions,
+  onPinSubmit,
+  validatePin,
+  handlePrevious,
 }) => {
-  const router = useRouter();
-
-  if (!mounted) return null;
-
   return (
     <div>
       {currentStep !== 4 ? (
@@ -78,10 +83,19 @@ export const OnboardingForm: React.FC<IProps> = ({
           initialValues={initialValues}
           validationSchema={getValidationSchema}
           onSubmit={(values, { setTouched }) => {
+            console.log(values);
             setTouched({});
             onDetailSubmit(values);
           }}>
-          {({ errors, touched, setFieldValue, getFieldProps, setTouched, values }) => (
+          {({
+            errors,
+            touched,
+            setFieldValue,
+            getFieldProps,
+            handleChange,
+            handleBlur,
+            values,
+          }) => (
             <Form noValidate autoComplete='off'>
               {/* PROFILE */}
               {currentStep === 1 && (
@@ -91,22 +105,16 @@ export const OnboardingForm: React.FC<IProps> = ({
                   </Typography>
                   <Row gutter={[22, 12]}>
                     <Col xs={24} md={12}>
-                      <div data-aos='fade-up'>
+                      <div data-aos='fade-up' data-aos-once={true}>
                         <SelectField
-                          options={options}
-                          id='nationality'
-                          name='nationality'
-                          value={values.nationality}
-                          onChange={(val) => {
-                            selectStates.nationality = true;
-                            setFieldValue('nationality', val);
+                          options={nationalityOptions}
+                          onChange={(value: string) => {
+                            setFieldValue('nationality', value);
                           }}
-                          onBlur={() => {
-                            if (!selectStates.nationality)
-                              setTouched({ ...touched, nationality: true });
-                          }}
+                          onBlur={handleBlur}
+                          onSelect={handleChange}
+                          isSearchable={true}
                           hasError={errors.nationality && touched.nationality}
-                          isSearchable
                           placeholder='Nationality'
                         />
                         {errors.nationality && touched.nationality && (
@@ -117,18 +125,13 @@ export const OnboardingForm: React.FC<IProps> = ({
                     <Col xs={24} md={12}>
                       <SelectField
                         options={getCountries}
-                        id='country'
-                        name='country'
-                        value={values.country}
-                        onChange={(val) => {
-                          selectStates.country = true;
-                          setFieldValue('country', val);
+                        onChange={(value: string) => {
+                          setFieldValue('country', value);
                         }}
-                        onBlur={() => {
-                          if (!selectStates.country) setTouched({ ...touched, country: true });
-                        }}
+                        onBlur={handleBlur}
+                        onSelect={handleChange}
+                        isSearchable={true}
                         hasError={errors.country && touched.country}
-                        isSearchable
                         placeholder='Country of Residence'
                       />
                       {errors.country && touched.country && (
@@ -137,7 +140,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                     </Col>
 
                     <Col xs={24} md={12}>
-                      <div data-aos='fade-down'>
+                      <div data-aos='fade-down' data-aos-once={true}>
                         <TextField
                           placeholder='City'
                           {...getFieldProps('city')}
@@ -157,7 +160,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                     </Col>
 
                     <Col xs={24} md={12}>
-                      <div data-aos='fade-down'>
+                      <div data-aos='fade-down' data-aos-once={true}>
                         <TextField
                           placeholder='Zip/Postal Code'
                           {...getFieldProps('zip')}
@@ -195,7 +198,7 @@ export const OnboardingForm: React.FC<IProps> = ({
               )}
               {/* WORK INFORMATION */}
               {currentStep === 2 && (
-                <div data-aos='fade-up'>
+                <div data-aos='fade-up' data-aos-once={true}>
                   <Row>
                     <Col xs={24} md={15}>
                       <div>
@@ -236,16 +239,12 @@ export const OnboardingForm: React.FC<IProps> = ({
                       <div className='work-info-field'>
                         <SelectField
                           options={incomeOptions}
-                          id='nationality'
-                          name='income'
-                          value={values.income}
-                          onChange={(val) => {
-                            selectStates.income = true;
-                            setFieldValue('income', val);
+                          onChange={(value: string) => {
+                            setFieldValue('income', value);
                           }}
-                          onBlur={() => {
-                            if (!selectStates.income) setTouched({ ...touched, income: true });
-                          }}
+                          onBlur={handleBlur}
+                          onSelect={handleChange}
+                          isSearchable={true}
                           hasError={errors.income && touched.income}
                           placeholder='Annual Income'
                         />
@@ -258,7 +257,10 @@ export const OnboardingForm: React.FC<IProps> = ({
                 </div>
               )}
               {currentStep === 3 && (
-                <div className='other-details-container' data-aos='fade-down'>
+                <div
+                  className='other-details-container'
+                  data-aos='fade-down'
+                  data-aos-once={true}>
                   <Row>
                     <Col xs={24} md={15}>
                       <div>

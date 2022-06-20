@@ -1,118 +1,61 @@
-import React, { useRef, useState, ForwardRefRenderFunction } from 'react';
-import Select, {
-  ActionMeta,
-  MultiValue,
-  SingleValue,
-  StylesConfig,
-  GroupBase,
-} from 'react-select';
+import { Select } from 'antd';
 
-type OptionType = {
-  value: string | number;
+interface IOption {
+  value: string;
   label: string;
-};
-
-interface ISelect {
-  options: OptionType[];
-  onChange?:
-    | ((
-        newValue: MultiValue<OptionType> | SingleValue<OptionType>,
-        actionMeta: ActionMeta<OptionType>
-      ) => void)
-    | undefined;
-  value?: any;
-  disabled?: boolean;
-  noOptionsMessage?: ((obj: { inputValue: string }) => React.ReactNode) | undefined;
-  isSearchable?: boolean;
-  name: string;
-  isMulti?: boolean;
-  state?: 'success' | 'warning' | 'error';
-  hasError?: boolean | string;
-  placeholder?: string;
-  id: string;
-  required?: boolean;
-  onBlur?: (e: any) => void;
 }
 
-export const SelectField: ForwardRefRenderFunction<HTMLInputElement, ISelect> = ({
-  options,
-  onChange,
-  disabled = false,
-  noOptionsMessage,
-  value,
-  isSearchable = false,
-  name,
-  isMulti = false,
-  hasError,
-  placeholder = '',
-  state,
-  id,
+interface ISelect {
+  placeholder?: React.ReactNode;
+  required?: boolean;
+  disabled?: boolean;
+  isSearchable?: boolean;
+  options: IOption[];
+  hasError?: boolean | string;
+  onSelect: (value: string | number) => void;
+  onChange: (value: string) => void;
+  onBlur: (e: React.FocusEvent<any, Element>) => void;
+}
+const { Option } = Select;
+
+export const SelectField: React.FC<ISelect> = ({
+  placeholder,
   required = true,
+  options,
+  onSelect,
   onBlur,
+  onChange,
+  isSearchable,
+  hasError,
 }) => {
-  const instanceId = id || name;
-
-  const customStyles: StylesConfig<OptionType, boolean, GroupBase<OptionType>> | undefined = {
-    control: (style: object) => {
-      const getBorderState = () => {
-        switch (state) {
-          case 'success':
-            return '1.2px solid #3CAC70';
-
-          case 'warning':
-            return '1.2px solid #E2B93B';
-
-          case 'error':
-            return '1.px solid #EB5757';
-
-          default:
-            return 'none';
-        }
-      };
-      return {
-        ...style,
-        backgroundColor: disabled ? '#F3F3F3' : '#FFFFFF',
-        outline: 'none',
-        border: hasError ? '1.2px solid #EB5757' : getBorderState(),
-        color: '#4F4F4F',
-        fontSize: '14px',
-        height: '50px',
-        borderRadius: '5px',
-        cursor: !disabled ? 'pointer' : 'not-allowed',
-        boxShadow: '0px 1px 10px rgba(0, 0, 0, 0.03)',
-        fontFamily: 'Museo Sans',
-        padding: '0.4rem 0.6rem',
-      };
-    },
-    menuPortal: (style) => ({ ...style, zIndex: 9999 }),
-    menu: (style) => ({ ...style, zIndex: 9999 }),
-    placeholder: (style: object) => ({ ...style, color: '#4F4F4F', fontFamily: 'Museo Sans' }),
-  };
-
   return (
-    <div className='fa_textfield_container'>
+    <div className={`select-field-container ${hasError ? 'fa_selectfield__error' : ''}`}>
       <Select
-        defaultValue={value}
-        onChange={onChange}
-        options={options}
-        value={value}
-        name={name}
-        inputId={instanceId}
-        instanceId={instanceId}
-        styles={customStyles}
-        isMulti={isMulti}
-        isSearchable={isSearchable}
-        noOptionsMessage={noOptionsMessage}
-        onBlur={onBlur}
         placeholder={
-          <span>
+          <span className='select-placeholder'>
             {placeholder} {required && <span className='font-danger'>*</span>}
           </span>
         }
-        components={{
-          IndicatorSeparator: () => null,
-        }}
-      />
+        showSearch={isSearchable}
+        style={{ width: '100%' }}
+        className={`fa_selectfield`}
+        onSelect={onSelect}
+        onChange={onChange}
+        onBlur={onBlur}
+        filterOption={(input, option) =>
+          (option!.children as unknown as string).includes(input)
+        }
+        filterSort={(optionA, optionB) =>
+          (optionA!.children as unknown as string)
+            .toLowerCase()
+            .localeCompare((optionB!.children as unknown as string).toLowerCase())
+        }>
+        {options.map((option) => (
+          <Option key={option.value} value={option.value}>
+            {option.label}
+          </Option>
+        ))}
+      </Select>
     </div>
   );
 };

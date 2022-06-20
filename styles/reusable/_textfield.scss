@@ -75,3 +75,33 @@
 .no-placeholder {
   display: none;
 }
+
+.fa_selectfield {
+  width: 100%;
+  border: none !important;
+  border: 0 !important;
+  outline: none;
+  border-radius: 8px;
+  background-color: $fa-white;
+  font-size: 14px;
+
+  &:focus {
+    outline: none
+  }
+
+  &__error {
+    border: 1px solid $fa-error;
+    border-radius: 8px;
+
+  }
+}
+
+.select-field-container .ant-select .ant-select-selector {
+  border-radius: 8px;
+  height: 50px;
+  padding-top: 10px !important;
+
+  .select-placeholder {
+    color: $fa-grey-200
+  }
+}

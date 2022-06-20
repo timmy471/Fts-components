@@ -1,11 +1,9 @@
 import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import { Button, Typography, OnboardingLayout } from '../src/components';
 
 const OnboardingCongratulations: NextPage = () => {
-  const router = useRouter();
-
   return (
     <OnboardingLayout>
       <div className='onboarding-congratulations-container '>
@@ -14,7 +12,9 @@ const OnboardingCongratulations: NextPage = () => {
           <Typography className='mt-2 mb-4' variant='body6'>
             You have successfully completed your onboarding. You are ready to start investing
           </Typography>
-          <Button label='Get Started' onClick={() => router.push('/dashboard')} />
+          <Link href='/dashboard'>
+            <Button label='Get Started' />
+          </Link>
         </div>
       </div>
     </OnboardingLayout>
