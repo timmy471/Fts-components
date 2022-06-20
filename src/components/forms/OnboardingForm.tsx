@@ -1,7 +1,9 @@
 import { Col, Row, Radio } from 'antd';
 import { Formik, Form, ErrorMessage } from 'formik';
-
 import { Dispatch, SetStateAction } from 'react';
+import 'react-phone-number-input/style.css';
+import OtpInput from 'react-otp-input';
+import PhoneInput from 'react-phone-number-input';
 
 import {
   Typography,
@@ -12,9 +14,6 @@ import {
   Button,
   Pill,
 } from '../../components';
-import 'react-phone-number-input/style.css';
-import PhoneInput from 'react-phone-number-input';
-import OtpInput from 'react-otp-input';
 
 interface IDetailFormValues {
   nationality: string;
@@ -65,13 +64,13 @@ interface IProps {
 export const OnboardingForm: React.FC<IProps> = ({
   currentStep,
   initialValues,
-  getValidationSchema,
-  onDetailSubmit,
   nationalityOptions,
   getCountries,
   shouldValidateEvent,
-  setShouldValidateEvent,
   incomeOptions,
+  setShouldValidateEvent,
+  getValidationSchema,
+  onDetailSubmit,
   onPinSubmit,
   validatePin,
   handlePrevious,
