@@ -5,7 +5,7 @@ import { Typography } from '../../index';
 
 export const OnboardingSidebar = () => {
   const {
-    FaLogo: { src, alt },
+    FaLogoLight: { src, alt },
     OnboardingImg,
   } = assets;
   return (

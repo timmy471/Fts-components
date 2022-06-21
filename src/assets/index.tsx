@@ -23,7 +23,7 @@ export const assets = {
     alt: 'Send Envelope',
     src: '/assets/images/auth/send-envelope.png',
   },
-  OnboardFaLogo: {
+  FaLogoLight: {
     alt: 'Future Africa',
     src: '/assets/fa-logo-full.png',
   },
