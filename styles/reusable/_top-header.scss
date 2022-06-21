@@ -19,7 +19,7 @@
     width: 30px;
     padding: 2px;
     height: 30px;
-    background: #ffffff;
+    background: $fa-white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
     border-radius: 7px;
   }
@@ -29,7 +29,7 @@
       line-height: 15px;
       span {
         line-height: 0px;
-        color: #3cac70;
+        color: $fa-success;
         font-weight: 400;
         font-size: 12px;
       }

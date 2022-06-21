@@ -57,7 +57,7 @@
 
   .active-item {
     width: 100%;
-    background: #f0f0f0;
+    background: $fa-grey-600;
     height: 60px;
     border-radius: 15px 0px 0px 15px;
     color: #000;
@@ -66,7 +66,7 @@
     .active {
       width: 50px;
       height: 50px;
-      background: #ffa800;
+      background: $fa-primary-100;
       border-radius: 15px 15px 0px 15px;
       padding: 10px;
       margin-right: 10px;
@@ -76,16 +76,16 @@
 
   .active-item-with-dropdown {
     width: 100%;
-    background: #f0f0f0;
+    background: $fa-grey-600;
     height: 115px;
     border-radius: 15px 0px 0px 15px;
-    color: #000;
+    color: $fa-black;
     padding: 5px;
 
     .active {
       // width: 50px;
       height: 50px;
-      background: #ffa800;
+      background: $fa-primary-100;
       border-radius: 15px 15px 0px 15px;
       padding: 10px;
       margin-right: 10px;
@@ -95,7 +95,7 @@
       line-height: 30px;
     }
     .span-inactive {
-      color: #828282;
+      color: $fa-grey-300;
     }
   }
 

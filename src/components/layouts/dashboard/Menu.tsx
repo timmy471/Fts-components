@@ -9,8 +9,19 @@ import { Fragment, useState, useEffect } from 'react';
 
 import { assets } from '../../../assets';
 
-interface IProps {}
-export const Menu: NextPage<IProps> = () => {
+interface IUser {
+  firstName: string;
+  lastName: string;
+  role: string;
+}
+interface IProps {
+  user: IUser;
+  visible: boolean;
+  onClose: () => void;
+  classN: string;
+  subClassN?: string;
+}
+export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClassN }) => {
   const { Sider } = Layout;
 
   const onLogout = () => {
@@ -28,36 +39,46 @@ export const Menu: NextPage<IProps> = () => {
 
         <div>
           <ul>
-            <li className='topic'>
-              <img
-                src={assets.InvestmentsIcon.src}
-                alt={assets.InvestmentsIcon.alt}
-                height='25'
-                width='25'
-              />
-              Investments
-            </li>
-            {/* <li className='active-topic'>
-              <div className='active-item-with-dropdown'>
-                <Row>
-                  <Col xs={6} sm={6} md={6} lg={6} xl={6} className='active'>
-                    <img
-                      src={assets.InvestmentsActiveIcon.src}
-                      alt={assets.InvestmentsActiveIcon.alt}
-                      height='25'
-                      width='25'
-                    />
-                  </Col>
-                  <Col xs={16} sm={16} md={16} lg={16} xl={16} className='mt-1'>
-                    <span>Investments</span>
-                    <br />
-                    <span className='span-inactive'>Syndicate Deals</span>
-                    <br />
-                    <span className='span-inactive'>Funds</span>
-                  </Col>
-                </Row>
-              </div>
-            </li> */}
+            {classN === 'dashboard' ? (
+              <li className='active-topic'>
+                <div className='active-item-with-dropdown'>
+                  <Row>
+                    <Col xs={6} sm={6} md={6} lg={6} xl={6} className='active'>
+                      <img
+                        src={assets.InvestmentsActiveIcon.src}
+                        alt={assets.InvestmentsActiveIcon.alt}
+                        height='25'
+                        width='25'
+                      />
+                    </Col>
+                    <Col xs={16} sm={16} md={16} lg={16} xl={16} className='mt-1'>
+                      <span className={subClassN === 'investments' ? '' : 'span-inactive'}>
+                        Investments
+                      </span>
+                      <br />
+                      <span className={subClassN === 'syndicate-deals' ? '' : 'span-inactive'}>
+                        Syndicate Deals
+                      </span>
+                      <br />
+                      <span className={subClassN === 'funds' ? '' : 'span-inactive'}>
+                        Funds
+                      </span>
+                    </Col>
+                  </Row>
+                </div>
+              </li>
+            ) : (
+              <li className='topic'>
+                <img
+                  src={assets.InvestmentsIcon.src}
+                  alt={assets.InvestmentsIcon.alt}
+                  height='25'
+                  width='25'
+                />
+                Investments
+              </li>
+            )}
+
             <li className='topic'>
               <img
                 src={assets.PortfolioIcon.src}
