@@ -1,9 +1,9 @@
-import { Button, Col } from 'antd';
+import { Button } from 'antd';
 import type { NextPage } from 'next';
 import React, { Fragment } from 'react';
 
 import { Formik } from 'formik';
-import { Form, Input, Checkbox } from 'formik-antd';
+import { Form, Input } from 'formik-antd';
 
 interface IFormData {
   email: string;

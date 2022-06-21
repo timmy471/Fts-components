@@ -1,7 +1,7 @@
 import { Col, Row, Radio } from 'antd';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { Dispatch, SetStateAction } from 'react';
-import 'react-phone-number-input/style.css';
+
 import OtpInput from 'react-otp-input';
 import PhoneInput from 'react-phone-number-input';
 

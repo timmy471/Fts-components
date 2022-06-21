@@ -1,13 +1,13 @@
 import { Button, Row, Col } from 'antd';
-import type { NextPage } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { Fragment } from 'react';
-
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Formik } from 'formik';
 import { Form, Input, Checkbox } from 'formik-antd';
+import Link from 'next/link';
+import Image from 'next/image';
+import type { NextPage } from 'next';
+import React, { Fragment } from 'react';
 
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+
 import { assets } from '../../assets';
 
 interface IFormData {
@@ -23,6 +23,7 @@ interface Props {
   validateSchema: any;
   onRememberCheck: (event: CheckboxChangeEvent) => void;
 }
+
 export const LoginForm: NextPage<Props> = ({
   formData,
   validateSchema,

@@ -1,10 +1,53 @@
+// Breakpoints
+@mixin smMaxBreakPoint {
+  @media (max-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+@mixin mdMaxBreakPoint {
+  @media (max-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+@mixin lgMaxBreakPoint {
+  @media (max-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+@mixin xlMaxBreakPoint {
+  @media (max-width: #{$screen-xl}) {
+    @content;
+  }
+}
+
+@mixin xxlMaxBreakPoint {
+  @media (max-width: #{$screen-xxl}) {
+    @content;
+  }
+}
+
+//Custom Breakpoints
+@mixin faMinBreakPoint($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin faMaxBreakPoint($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
 //Typography
 @mixin fa-typography($font-size, $line-height, $font-weight) {
   font-size: $font-size;
   line-height: $line-height;
   font-weight: $font-weight;
 }
-
 
 //Transitions
 @mixin buttonTransition() {

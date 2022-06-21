@@ -1,6 +1,8 @@
+import { CheckOutlined } from '@ant-design/icons';
+
 import { Typography } from '../../';
 import { IFormStepper } from '../../../../type.d';
-import { CheckOutlined } from '@ant-design/icons';
+
 
 export const FormStepper: React.FC<IFormStepper> = ({ currentStep = 1, steps }) => {
   return (

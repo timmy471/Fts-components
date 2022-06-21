@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import { Col, Row } from 'antd';
-import { OnboardingSidebar } from './Sidebar';
+
+import { OnboardingSidebar } from './OnboardingSidebar';
 
 interface IProps {
   children: JSX.Element[] | JSX.Element;

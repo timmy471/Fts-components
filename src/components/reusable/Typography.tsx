@@ -13,7 +13,7 @@ type bodyVariants =
   | 'body7'
   | 'body8';
 
-type typographyStates = 'default' | 'primary' | 'secondary' | 'tetiary';
+type typographyStates = 'default' | 'primary' | 'secondary' | 'tetiary' | 'error';
 
 interface ITypogrphy {
   component?: elements;

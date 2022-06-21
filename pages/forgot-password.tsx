@@ -1,14 +1,12 @@
 import { Layout, Row, Col, Button, Modal } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-import type { NextPage } from 'next';
 import Image from 'next/image';
-import { useState } from 'react';
-import * as Yup from 'yup';
 import Link from 'next/link';
+import type { NextPage } from 'next';
+import { Fragment, useState } from 'react';
+import * as Yup from 'yup';
 
-import { ForgotPasswordForm } from '../src/components';
 import { assets } from '../src/assets';
-import { Fragment } from 'react';
+import { ForgotPasswordForm } from '../src/components';
 
 interface Props {}
 
@@ -83,7 +81,7 @@ const ForgotPassword: NextPage<Props> = () => {
                   </div>
                 </div>
                 <Row>
-                  <Col span={12} offset={6} className='mt-3'>
+                  <Col span={12} offset={6} className='mtop-3'>
                     <Link href='/'>
                       <a> Log in to Future Africa </a>
                     </Link>
@@ -158,7 +156,7 @@ const ForgotPassword: NextPage<Props> = () => {
             <Button className='modal-btn' onClick={handleVerifyOk}>
               Resend mail
             </Button>
-            <Link href='/login'>
+            <Link href='/'>
               <a>Skip, I’ll confirm later.</a>
             </Link>
           </div>

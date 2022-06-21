@@ -2,13 +2,12 @@ import { Layout, Row, Col, Button } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import { useState } from 'react';
-import * as Yup from 'yup';
 import Link from 'next/link';
+import { useState, Fragment } from 'react';
+import * as Yup from 'yup';
 
-import { RegisterForm } from '../src/components';
 import { assets } from '../src/assets';
-import { Fragment } from 'react';
+import { RegisterForm } from '../src/components';
 
 interface Props {}
 
@@ -95,7 +94,7 @@ const Register: NextPage<Props> = () => {
               lg={10}
               xl={10}
               className='d-flex justify-content-center'>
-              <div className='right-hero mt-4'>
+              <div className='right-hero mtop-4'>
                 <Col xs={24} sm={24} md={24} lg={0} xl={0}>
                   <Fragment>
                     <Image

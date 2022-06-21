@@ -1,10 +1,10 @@
-import { Button, Col } from 'antd';
+import { Button } from 'antd';
+import { Formik } from 'formik';
+import { Form, Input } from 'formik-antd';
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import React, { Fragment } from 'react';
 
-import { Formik } from 'formik';
-import { Form, Input } from 'formik-antd';
 import { assets } from '../../assets';
 
 interface IFormData {

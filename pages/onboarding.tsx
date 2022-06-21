@@ -1,5 +1,5 @@
-import { Col, Row } from 'antd';
 import AOS from 'aos';
+import { Col, Row } from 'antd';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
@@ -33,9 +33,8 @@ const Onboarding: NextPage = () => {
   const [mounted, setMounted] = useState<boolean>(false);
   const [shouldValidateEvent, setShouldValidateEvent] = useState<boolean>(false);
 
-  useEffect(() => setMounted(true), []);
-
   useEffect(() => {
+    setMounted(true);
     AOS.init({
       duration: 500,
     });
