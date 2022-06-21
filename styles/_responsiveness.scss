@@ -104,4 +104,28 @@
       }
     }
   }
+
+  .investors-dashboard {
+    .layout {
+      .mobile-header {
+        visibility: visible !important;
+        display: block !important;
+        background-color: #fff;
+        z-index: 99 !important;
+      }
+    }
+    .menu {
+      visibility: hidden;
+      display: none;
+    }
+    .site-layout {
+      margin-left: 0px !important;
+      .site-content {
+        .site-layout-background {
+          padding: 50px 50px !important;
+          min-height: 360;
+        }
+      }
+    }
+  }
 }

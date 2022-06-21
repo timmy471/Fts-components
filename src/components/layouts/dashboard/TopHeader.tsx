@@ -20,11 +20,11 @@ export const TopHeader: NextPage = () => {
   return (
     <Header className='top-header'>
       <Row>
-        <Col xs={19} sm={19} md={19} lg={19} xl={19}>
+        <Col xs={19} sm={19} md={16} lg={16} xl={19}>
           <h3>Last Login:</h3>
           <span>March 03, 2022 09.23am</span>
         </Col>
-        <Col xs={5} sm={5} md={5} lg={5} xl={5}>
+        <Col xs={5} sm={5} md={8} lg={8} xl={5}>
           <Row>
             <Col xs={4} sm={6} md={6} lg={6} xl={6} className='mtop-1'>
               <div className='notif-bell'>
@@ -37,8 +37,8 @@ export const TopHeader: NextPage = () => {
               </div>
             </Col>
             <Col xs={18} sm={18} md={18} lg={18} xl={18}>
-              <Row>
-                <Col span={6}>
+              <Row gutter={[4, 4]}>
+                <Col xs={6} sm={6} md={6} lg={6} xl={6}>
                   <div>
                     <Image
                       src={assets.UserAvatarIcon.src}
@@ -48,7 +48,7 @@ export const TopHeader: NextPage = () => {
                     />
                   </div>
                 </Col>
-                <Col span={15} className='ml-1 mtop-1'>
+                <Col xs={15} sm={15} md={15} lg={15} xl={15} className='ml-1 mtop-1'>
                   <div className='user-detail'>
                     <h3>
                       Abbey <br />
@@ -56,7 +56,14 @@ export const TopHeader: NextPage = () => {
                     </h3>
                   </div>
                 </Col>
-                <Col span={2} style={{ float: 'right' }} className='mtop-1'>
+                <Col
+                  xs={2}
+                  sm={2}
+                  md={2}
+                  lg={2}
+                  xl={2}
+                  style={{ float: 'right' }}
+                  className='mtop-1'>
                   <CaretDownOutlined style={{ color: '#3F3F3F' }} />{' '}
                 </Col>
               </Row>

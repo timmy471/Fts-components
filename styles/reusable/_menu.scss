@@ -10,6 +10,8 @@
   width: 280px !important;
   border-radius: 2px 20px 2px 2px;
   color: $fa-white;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   ul {
     list-style-type: none;
@@ -60,7 +62,7 @@
     background: $fa-grey-600;
     height: 60px;
     border-radius: 15px 0px 0px 15px;
-    color: #000;
+    color: $fa-black;
     padding: 5px;
 
     .active {
@@ -100,13 +102,100 @@
   }
 
   .general-action {
-    margin-top: 200px;
+    margin-top: 150px;
   }
-
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
-.sider::-webkit-scrollbar {
+.menu::-webkit-scrollbar {
   display: none;
+}
+
+.drawer-menu {
+  z-index: 10;
+  background-color: $fa-grey-800;
+  color: $fa-white;
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+
+  .logo {
+    margin-left: 20px;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+
+  li {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    font-family: $font-family-primary;
+    margin-bottom: 20px;
+  }
+
+  .inactive {
+    margin-left: 8px;
+  }
+
+  .active-item {
+    width: 100%;
+    background: $fa-grey-600;
+    height: 40px;
+    border-radius: 15px 0px 0px 15px;
+    color: $fa-black;
+    padding: 0px;
+
+    .active {
+      width: 40px;
+      height: 40px;
+      background: $fa-primary-100;
+      border-radius: 10px 10px 0px 10px;
+      padding: 7px;
+      margin-right: 7px;
+      display: inline-block;
+    }
+  }
+
+  .active-item-with-dropdown {
+    width: 100%;
+    background: $fa-grey-600;
+    height: 115px;
+    border-radius: 10px 0px 0px 10px;
+    color: $fa-black;
+
+    .active {
+      height: 40px;
+      width: 40px;
+      background: $fa-primary-100;
+      border-radius: 10px 10px 0px 10px;
+      padding: 7px;
+      margin-right: 7px;
+    }
+    span {
+      line-height: 30px;
+    }
+    .span-inactive {
+      color: $fa-grey-300;
+    }
+  }
+  .general-action {
+    margin-top: 200px;
+    li {
+      margin: 0px 0px 20px 8px;
+    }
+  }
 }

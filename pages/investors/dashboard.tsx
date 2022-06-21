@@ -34,7 +34,7 @@ const Dashboard: NextPage<IProps> = () => {
             user={user}
             onClose={onClose}
             visible={visible}
-            classN='dashboard'
+            classN='investments'
             subClassN='investments'
           />
         </div>

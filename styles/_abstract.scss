@@ -162,3 +162,15 @@
   line-height: 0px;
   background: $fa-grey-600;
 }
+
+.ant-drawer-body {
+  flex-grow: 1;
+  padding: 24px;
+  padding-right: 0px;
+  overflow: auto;
+  font-size: 14px;
+  line-height: 1.5715;
+  word-wrap: break-word;
+  background-color: $fa-grey-800;
+  color: $fa-white;
+}
