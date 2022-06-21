@@ -106,13 +106,11 @@ const Onboarding: NextPage = () => {
     return setCurrentStep(currentStep - 1);
   };
 
-  const nationalityOptions = [
-    { value: 'nigerian', label: 'Nigerian' },
-    { value: 'american', label: 'American' },
-  ];
+  const getNationalities = () =>
+    countries.map((country) => ({ label: country.nationality, value: country.nationality }));
 
   const incomeOptions = [
-    { value: '< 10000', label: 'Below $10,000' },
+    { value: '< $10000', label: 'Below $10,000' },
     { value: '$10000 - $49000', label: '$10,000 - $49,000' },
     { value: '$50000 - $99000', label: '$50,000 - $99,000' },
     { value: '$100000 - $149000', label: '$100,000 - $149,000' },
@@ -122,9 +120,8 @@ const Onboarding: NextPage = () => {
     { value: '> $1Million', label: 'Above $1Million' },
   ];
 
-  const selectStates = { nationality: false, country: false, income: false };
-
-  const getCountries = countries.map((value) => ({ label: value, value }));
+  const getCountries = () =>
+    countries.map((country) => ({ label: country.name, value: country.name }));
 
   const onBoardingSteps = [
     'Complete Profile',
@@ -189,10 +186,9 @@ const Onboarding: NextPage = () => {
                 currentStep={currentStep}
                 initialValues={initialValues}
                 incomeOptions={incomeOptions}
-                getCountries={getCountries}
-                nationalityOptions={nationalityOptions}
-                selectStates={selectStates}
                 shouldValidateEvent={shouldValidateEvent}
+                getCountries={getCountries}
+                nationalityOptions={getNationalities}
                 setShouldValidateEvent={setShouldValidateEvent}
                 getValidationSchema={getValidationSchema}
                 onDetailSubmit={onDetailSubmit}
