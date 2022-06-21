@@ -67,4 +67,12 @@ export const assets = {
     alt: 'Logout Icon',
     src: '/assets/images/layout/logout-icon.svg',
   },
+  NotificationBellIcon: {
+    alt: 'Notification Bell Icon',
+    src: '/assets/images/layout/notifications-bell-2.svg',
+  },
+  UserAvatarIcon: {
+    alt: 'User Avatar Icon',
+    src: '/assets/images/layout/user-avatar.svg',
+  },
 };

@@ -1,3 +1,24 @@
-body {
-  background: #f0f0f0;
+.investors-dashboard {
+  color: $fa-black;
+  text-align: justify;
+  text-justify: inter-word;
+  .layout {
+    min-height: 100vh;
+    // .mobile-header {
+    //   visibility: hidden;
+    //   display: none;
+    // }
+
+    .site-layout {
+      margin-left: 260px;
+      background-color: #f0f0f0;
+      .site-content {
+        margin: '0 16px';
+        .site-layout-background {
+          padding: 30px 50px 30px 50px;
+          min-height: 360;
+        }
+      }
+    }
+  }
 }

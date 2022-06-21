@@ -19,7 +19,7 @@ export const Menu: NextPage<IProps> = () => {
 
   return (
     <div>
-      <Sider className='sider'>
+      <Sider className='menu'>
         <Link href='/dashboard' passHref>
           <div className='logo'>
             <Image src={assets.FaLogoLight.src} width={200} height={50} alt='Logo' />
