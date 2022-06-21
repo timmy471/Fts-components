@@ -21,7 +21,7 @@ export const assets = {
   },
   SendEnvelope: {
     alt: 'Send Envelope',
-    src: '/assets/images/auth/send-envelope.png',
+    src: '/assets/images/auth/send-envelope.gif',
   },
   FaLogoLight: {
     alt: 'Future Africa',
