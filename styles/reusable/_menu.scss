@@ -16,7 +16,7 @@
   ul {
     list-style-type: none;
     padding: 0px;
-    padding-bottom: 80px !important;
+    // padding-bottom: 80px !important;
   }
 
   li {
@@ -102,18 +102,17 @@
   }
 
   .general-action {
-    margin-top: 150px;
+    margin-top: 200px;
   }
-}
-
-.menu::-webkit-scrollbar {
-  display: none;
 }
 
 .drawer-menu {
   z-index: 10;
   background-color: $fa-grey-800;
   color: $fa-white;
+
+  overflow-x: hidden;
+
   ul {
     list-style-type: none;
     padding: 0px;
@@ -198,4 +197,43 @@
       margin: 0px 0px 20px 8px;
     }
   }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
+.menu::-webkit-scrollbar-track {
+  background: none !important;
+}
+
+/* Handle */
+.menu::-webkit-scrollbar-thumb {
+  background: none !important;
+}
+
+/* Handle on hover */
+.menu::-webkit-scrollbar-thumb:hover {
+  background: none !important;
+}
+
+.drawer-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.drawer-menu::-webkit-scrollbar-track {
+  background: none !important;
+}
+
+/* Handle */
+.drawer-menu::-webkit-scrollbar-thumb {
+  background: none !important;
+}
+
+/* Handle on hover */
+.drawer-menu::-webkit-scrollbar-thumb:hover {
+  background: none !important;
 }

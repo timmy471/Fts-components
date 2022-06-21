@@ -15,6 +15,7 @@ const Dashboard: NextPage<IProps> = () => {
     firstName: 'Abbey',
     lastName: 'Sunkami',
     role: 'Investor',
+    lastLogin: 'March 03, 2022 09.23am',
   };
 
   // Shows side drawer when you click on Menu button
@@ -39,7 +40,7 @@ const Dashboard: NextPage<IProps> = () => {
           />
         </div>
         <Layout className='site-layout'>
-          <TopHeader />
+          <TopHeader showDrawer={showDrawer} user={user} />
           <Content className='site-content'>
             <div className='site-layout-background'>
               <h1>Investments</h1>

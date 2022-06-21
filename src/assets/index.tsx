@@ -75,4 +75,8 @@ export const assets = {
     alt: 'User Avatar Icon',
     src: '/assets/images/layout/user-avatar.svg',
   },
+  HamburgerIcon: {
+    alt: 'Hamburger Icon',
+    src: '/assets/images/layout/hamburger-icon.svg',
+  },
 };

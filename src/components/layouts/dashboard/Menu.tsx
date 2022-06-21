@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { Layout, Drawer, Modal, Button, Row, Col, Dropdown, Menu as M } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { Layout, Drawer, Row, Col } from 'antd';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { NextPage } from 'next';
-import { useDispatch, useSelector } from 'react-redux';
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment } from 'react';
 
 import { assets } from '../../../assets';
 
@@ -13,6 +11,7 @@ interface IUser {
   firstName: string;
   lastName: string;
   role: string;
+  lastLogin: string;
 }
 interface IProps {
   user: IUser;
@@ -171,7 +170,7 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
           placement={'left'}
           closable={false}
           onClose={onClose}
-          visible={true}
+          visible={visible}
           width='250'
           key={'left'}>
           <div className='drawer-menu'>
