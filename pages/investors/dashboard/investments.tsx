@@ -1,14 +1,13 @@
-import { Layout, Collapse } from 'antd';
+import { Layout } from 'antd';
 import type { NextPage } from 'next';
 import { useState } from 'react';
 
-import { Menu, TopHeader } from '../../src/components';
+import { Menu, TopHeader } from '../../../src/components';
 
 interface IProps {}
 
-const Dashboard: NextPage<IProps> = () => {
+const InvestmentsDashboard: NextPage<IProps> = () => {
   const { Content } = Layout;
-  const { Panel } = Collapse;
   const [visible, setVisible] = useState<boolean>(false);
 
   let user = {
@@ -18,11 +17,10 @@ const Dashboard: NextPage<IProps> = () => {
     lastLogin: 'March 03, 2022 09.23am',
   };
 
-  // Shows side drawer when you click on Menu button
   const showDrawer = () => {
     setVisible(true);
   };
-  // Closes side drawer when clicked uppon
+
   const onClose = () => {
     setVisible(false);
   };
@@ -68,4 +66,4 @@ export async function getServerSideProps(context: any) {
   }
 }
 
-export default Dashboard;
+export default InvestmentsDashboard;
