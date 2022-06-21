@@ -1,0 +1,114 @@
+.sider {
+  /* Track */
+
+  overflow: auto !important;
+  height: 100vh !important;
+  position: fixed;
+  left: 0;
+  background-color: $fa-grey-800;
+  flex: 0 0 280px !important;
+  max-width: 280px !important;
+  min-width: 280px !important;
+  width: 280px !important;
+  border-radius: 2px 20px 2px 2px;
+  color: $fa-white;
+
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    padding-bottom: 80px !important;
+  }
+
+  li {
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    margin-left: 40px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+  }
+
+  .topic {
+    font-family: $font-family-primary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 32px;
+    margin-left: 80px;
+
+    img {
+      margin-right: 26px;
+    }
+  }
+
+  .active-topic {
+    font-family: $font-family-primary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 32px;
+    margin-left: 70px;
+  }
+
+  .active-item {
+    width: 100%;
+    background: #f0f0f0;
+    height: 60px;
+    border-radius: 15px 0px 0px 15px;
+    color: #000;
+    padding: 5px;
+
+    .active {
+      width: 50px;
+      height: 50px;
+      background: #ffa800;
+      border-radius: 15px 15px 0px 15px;
+      padding: 10px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+  }
+
+  .active-item-with-dropdown {
+    width: 100%;
+    background: #f0f0f0;
+    height: 115px;
+    border-radius: 15px 0px 0px 15px;
+    color: #000;
+    padding: 5px;
+
+    .active {
+      // width: 50px;
+      height: 50px;
+      background: #ffa800;
+      border-radius: 15px 15px 0px 15px;
+      padding: 10px;
+      margin-right: 10px;
+      // display: inline-block;
+    }
+    span {
+      line-height: 30px;
+    }
+    .span-inactive {
+      color: #828282;
+    }
+  }
+
+  .general-action {
+    margin-top: 200px;
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.sider::-webkit-scrollbar {
+  display: none;
+}
