@@ -346,6 +346,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-image: url('../../public/assets/images/onboarding/Success.gif');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-blend-mode: color-dodge;
 
         div {
             width: 50%;
