@@ -38,46 +38,48 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
 
         <div>
           <ul>
-            {classN === 'investments' ? (
-              <li className='active-topic'>
-                <div className='active-item-with-dropdown'>
-                  <Row>
-                    <Col xs={6} sm={6} md={6} lg={6} xl={6} className='active'>
-                      <img
-                        src={assets.InvestmentsActiveIcon.src}
-                        alt={assets.InvestmentsActiveIcon.alt}
-                        height='25'
-                        width='25'
-                      />
-                    </Col>
-                    <Col xs={16} sm={16} md={16} lg={16} xl={16} className='mt-1'>
-                      <span className={subClassN === 'investments' ? '' : 'span-inactive'}>
-                        Investments
-                      </span>
-                      <br />
-                      <span className={subClassN === 'syndicate-deals' ? '' : 'span-inactive'}>
-                        Syndicate Deals
-                      </span>
-                      <br />
-                      <span className={subClassN === 'funds' ? '' : 'span-inactive'}>
-                        Funds
-                      </span>
-                    </Col>
-                  </Row>
-                </div>
-              </li>
-            ) : (
-              <li className='topic'>
-                <img
-                  src={assets.InvestmentsIcon.src}
-                  alt={assets.InvestmentsIcon.alt}
-                  height='25'
-                  width='25'
-                />
-                Investments
-              </li>
-            )}
-
+            <Link href={'/investors/dashboard/investments'}>
+              {classN === 'investments' ? (
+                <li className='active-topic'>
+                  <div className='active-item-with-dropdown'>
+                    <Row>
+                      <Col xs={6} sm={6} md={6} lg={6} xl={6} className='active'>
+                        <img
+                          src={assets.InvestmentsActiveIcon.src}
+                          alt={assets.InvestmentsActiveIcon.alt}
+                          height='25'
+                          width='25'
+                        />
+                      </Col>
+                      <Col xs={16} sm={16} md={16} lg={16} xl={16} className='mt-1'>
+                        <span className={subClassN === 'investments' ? '' : 'span-inactive'}>
+                          Investments
+                        </span>
+                        <br />
+                        <span
+                          className={subClassN === 'syndicate-deals' ? '' : 'span-inactive'}>
+                          Syndicate Deals
+                        </span>
+                        <br />
+                        <span className={subClassN === 'funds' ? '' : 'span-inactive'}>
+                          Funds
+                        </span>
+                      </Col>
+                    </Row>
+                  </div>
+                </li>
+              ) : (
+                <li className='topic'>
+                  <img
+                    src={assets.InvestmentsIcon.src}
+                    alt={assets.InvestmentsIcon.alt}
+                    height='25'
+                    width='25'
+                  />
+                  Investments
+                </li>
+              )}
+            </Link>
             {classN === 'portfolio' ? (
               <li className='active-topic'>
                 <div className='active-item'>
@@ -104,31 +106,33 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
               </li>
             )}
 
-            {classN === 'wallet' ? (
-              <li className='active-topic'>
-                <div className='active-item'>
-                  <div className='active'>
-                    <img
-                      src={assets.WalletActiveIcon.src}
-                      alt={assets.WalletActiveIcon.alt}
-                      height='25'
-                      width='25'
-                    />
+            <Link href={'/investors/dashboard/wallet'} passHref>
+              {classN === 'wallet' ? (
+                <li className='active-topic'>
+                  <div className='active-item'>
+                    <div className='active'>
+                      <img
+                        src={assets.WalletActiveIcon.src}
+                        alt={assets.WalletActiveIcon.alt}
+                        height='25'
+                        width='25'
+                      />
+                    </div>
+                    Wallet
                   </div>
+                </li>
+              ) : (
+                <li className='topic'>
+                  <img
+                    src={assets.WalletIcon.src}
+                    alt={assets.WalletIcon.alt}
+                    height='25'
+                    width='25'
+                  />
                   Wallet
-                </div>
-              </li>
-            ) : (
-              <li className='topic'>
-                <img
-                  src={assets.WalletIcon.src}
-                  alt={assets.WalletIcon.alt}
-                  height='25'
-                  width='25'
-                />
-                Wallet
-              </li>
-            )}
+                </li>
+              )}
+            </Link>
           </ul>
         </div>
 

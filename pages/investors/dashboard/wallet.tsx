@@ -6,7 +6,7 @@ import { Menu, TopHeader } from '../../../src/components';
 
 interface IProps {}
 
-const InvestorsDashboard: NextPage<IProps> = () => {
+const InvestorsWallet: NextPage<IProps> = () => {
   const { Content } = Layout;
   const [visible, setVisible] = useState<boolean>(false);
 
@@ -29,13 +29,7 @@ const InvestorsDashboard: NextPage<IProps> = () => {
     <div className='investors-dashboard'>
       <Layout className='layout'>
         <div>
-          <Menu
-            user={user}
-            onClose={onClose}
-            visible={visible}
-            classN='investments'
-            subClassN='investments'
-          />
+          <Menu user={user} onClose={onClose} visible={visible} classN='wallet' />
         </div>
         <Layout className='site-layout'>
           <TopHeader showDrawer={showDrawer} user={user} />
@@ -66,4 +60,4 @@ export async function getServerSideProps(context: any) {
   }
 }
 
-export default InvestorsDashboard;
+export default InvestorsWallet;
