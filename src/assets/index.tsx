@@ -28,7 +28,55 @@ export const assets = {
     src: '/assets/images/onboarding/fa-logo-light.svg',
   },
   OnboardingImg: {
-    alt: 'onboard',
+    alt: 'onboard icon',
     src: '/assets/images/onboarding/onboarding-cofeee.png',
+  },
+  InvestmentsIcon: {
+    alt: 'Investments Icon',
+    src: '/assets/images/layout/investments-icon.svg',
+  },
+  InvestmentsActiveIcon: {
+    alt: 'InvestmentsActive Icon',
+    src: '/assets/images/layout/investments-active-icon.svg',
+  },
+  PortfolioIcon: {
+    alt: 'Portfolio Icon',
+    src: '/assets/images/layout/portfolio-icon.svg',
+  },
+  PortfolioActiveIcon: {
+    alt: 'PortfolioActive Icon',
+    src: '/assets/images/layout/portfolio-active-icon.svg',
+  },
+  WalletIcon: {
+    alt: 'Wallet Icon',
+    src: '/assets/images/layout/wallet-icon.svg',
+  },
+  WalletActiveIcon: {
+    alt: 'Wallet Active Icon',
+    src: '/assets/images/layout/wallet-active-icon.svg',
+  },
+  CommunityIcon: {
+    alt: 'Community Icon',
+    src: '/assets/images/layout/community-icon.svg',
+  },
+  SettingsIcon: {
+    alt: 'Settings Icon',
+    src: '/assets/images/layout/settings-icon.svg',
+  },
+  LogoutIcon: {
+    alt: 'Logout Icon',
+    src: '/assets/images/layout/logout-icon.svg',
+  },
+  NotificationBellIcon: {
+    alt: 'Notification Bell Icon',
+    src: '/assets/images/layout/notifications-bell-2.svg',
+  },
+  UserAvatarIcon: {
+    alt: 'User Avatar Icon',
+    src: '/assets/images/layout/user-avatar.svg',
+  },
+  HamburgerIcon: {
+    alt: 'Hamburger Icon',
+    src: '/assets/images/layout/hamburger-icon.svg',
   },
 };

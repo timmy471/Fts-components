@@ -1,0 +1,37 @@
+.investors-dashboard {
+  color: $fa-black;
+  text-align: justify;
+  text-justify: inter-word;
+  .layout {
+    min-height: 100vh;
+    .mobile-header {
+      visibility: hidden;
+      display: none;
+      .changers-logo {
+        padding-top: 14px !important;
+      }
+      .changers-menu-ham {
+        cursor: pointer;
+      }
+    }
+    .site-layout {
+      margin-left: 260px;
+      background-color: #f0f0f0;
+      .site-content {
+        margin: '0 16px';
+        .site-layout-background {
+          padding: 30px 50px 30px 50px;
+          min-height: 360;
+          h1 {
+            font-family: $font-family-secondary;
+            font-style: normal;
+            font-weight: 800;
+            font-size: 32px;
+            line-height: 35px;
+            color: $fa-grey-1000;
+          }
+        }
+      }
+    }
+  }
+}

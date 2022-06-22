@@ -1,0 +1,239 @@
+.menu {
+  overflow: auto !important;
+  height: 100vh !important;
+  position: fixed;
+  left: 0;
+  background-color: $fa-grey-800;
+  flex: 0 0 280px !important;
+  max-width: 280px !important;
+  min-width: 280px !important;
+  width: 280px !important;
+  border-radius: 2px 20px 2px 2px;
+  color: $fa-white;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    // padding-bottom: 80px !important;
+  }
+
+  li {
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    margin-left: 40px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+  }
+
+  .topic {
+    font-family: $font-family-primary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 32px;
+    margin-left: 80px;
+
+    img {
+      margin-right: 26px;
+    }
+  }
+
+  .active-topic {
+    font-family: $font-family-primary;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 32px;
+    margin-left: 70px;
+  }
+
+  .active-item {
+    width: 100%;
+    background: $fa-grey-600;
+    height: 60px;
+    border-radius: 15px 0px 0px 15px;
+    color: $fa-black;
+    padding: 5px;
+
+    .active {
+      width: 50px;
+      height: 50px;
+      background: $fa-primary-100;
+      border-radius: 15px 15px 0px 15px;
+      padding: 10px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+  }
+
+  .active-item-with-dropdown {
+    width: 100%;
+    background: $fa-grey-600;
+    height: 115px;
+    border-radius: 15px 0px 0px 15px;
+    color: $fa-black;
+    padding: 5px;
+
+    .active {
+      // width: 50px;
+      height: 50px;
+      background: $fa-primary-100;
+      border-radius: 15px 15px 0px 15px;
+      padding: 10px;
+      margin-right: 10px;
+      // display: inline-block;
+    }
+    span {
+      line-height: 30px;
+    }
+    .span-inactive {
+      color: $fa-grey-300;
+    }
+  }
+
+  .general-action {
+    margin-top: 200px;
+  }
+}
+
+.drawer-menu {
+  z-index: 10;
+  background-color: $fa-grey-800;
+  color: $fa-white;
+
+  overflow-x: hidden;
+
+  ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+
+  .logo {
+    margin-left: 20px;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+
+  li {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    font-family: $font-family-primary;
+    margin-bottom: 20px;
+  }
+
+  .inactive {
+    margin-left: 8px;
+  }
+
+  .active-item {
+    width: 100%;
+    background: $fa-grey-600;
+    height: 40px;
+    border-radius: 15px 0px 0px 15px;
+    color: $fa-black;
+    padding: 0px;
+
+    .active {
+      width: 40px;
+      height: 40px;
+      background: $fa-primary-100;
+      border-radius: 10px 10px 0px 10px;
+      padding: 7px;
+      margin-right: 7px;
+      display: inline-block;
+    }
+  }
+
+  .active-item-with-dropdown {
+    width: 100%;
+    background: $fa-grey-600;
+    height: 115px;
+    border-radius: 10px 0px 0px 10px;
+    color: $fa-black;
+
+    .active {
+      height: 40px;
+      width: 40px;
+      background: $fa-primary-100;
+      border-radius: 10px 10px 0px 10px;
+      padding: 7px;
+      margin-right: 7px;
+    }
+    span {
+      line-height: 30px;
+    }
+    .span-inactive {
+      color: $fa-grey-300;
+    }
+  }
+  .general-action {
+    margin-top: 200px;
+    li {
+      margin: 0px 0px 20px 8px;
+    }
+  }
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.menu::-webkit-scrollbar {
+  display: none;
+}
+
+.menu::-webkit-scrollbar-track {
+  background: none !important;
+}
+
+/* Handle */
+.menu::-webkit-scrollbar-thumb {
+  background: none !important;
+}
+
+/* Handle on hover */
+.menu::-webkit-scrollbar-thumb:hover {
+  background: none !important;
+}
+
+.drawer-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.drawer-menu::-webkit-scrollbar-track {
+  background: none !important;
+}
+
+/* Handle */
+.drawer-menu::-webkit-scrollbar-thumb {
+  background: none !important;
+}
+
+/* Handle on hover */
+.drawer-menu::-webkit-scrollbar-thumb:hover {
+  background: none !important;
+}

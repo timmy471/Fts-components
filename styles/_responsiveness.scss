@@ -104,4 +104,59 @@
       }
     }
   }
+
+  .investors-dashboard {
+    .layout {
+      .mobile-header {
+        visibility: visible !important;
+        display: block !important;
+        background-color: #fff;
+        z-index: 99 !important;
+      }
+    }
+    .menu {
+      visibility: hidden;
+      display: none;
+    }
+    .site-layout {
+      margin-left: 0px !important;
+      .site-content {
+        .site-layout-background {
+          padding: 25px 25px !important;
+          min-height: 360;
+        }
+      }
+    }
+  }
+
+  .ant-layout-header {
+    height: 95px;
+    width: 100%;
+    padding: 25px;
+    line-height: 0px;
+    background: $fa-grey-600;
+  }
+}
+
+// Iphone and Below
+@media (max-width: 450px) {
+  .top-header {
+    h3 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 11px;
+      line-height: 10px;
+    }
+    span {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      // line-height: 18px;
+    }
+
+    .notif-bell{
+      height: 40px;
+      width: 40px;
+    }
+  }
 }
