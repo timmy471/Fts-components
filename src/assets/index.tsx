@@ -95,4 +95,8 @@ export const assets = {
     alt: 'Mooi Logo',
     src: '/assets/images/dashboard/mooi-logo.png',
   },
+  FilterHarmBurger: {
+    alt: 'Filter Icon',
+    src: '/assets/images/dashboard/filter-harmburger.svg',
+  },
 };

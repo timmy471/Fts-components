@@ -80,7 +80,7 @@ const InvestorsDashboard: NextPage<IProps> = () => {
 
               <div className='filter-fields'>
                 <Row>
-                  <Col xs={12} sm={12} md={12} lg={12} xl={12}>
+                  <Col xs={24} sm={24} md={12} lg={9} xl={9}>
                     <Input
                       className='search'
                       prefix={
@@ -94,26 +94,38 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                       placeholder='  Search by deal’s name or industry'
                     />
                   </Col>
-                  <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-                    <Row>
-                      <Col span={3}>
+                  <Col xs={24} sm={24} md={12} lg={0} xl={0} className='text-right mt-2'>
+                    Filter by:
+                    {/*  eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={assets.FilterHarmBurger.src}
+                      alt={assets.FilterHarmBurger.alt}
+                      width='20'
+                      height={'20'}
+                      className='ml-2'
+                    />
+                  </Col>
+                  <Col xs={0} sm={0} md={0} lg={0} xl={3}></Col>
+                  <Col xs={0} sm={0} md={0} lg={15} xl={12}>
+                    <Row gutter={[10, 0]}>
+                      <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                         <p className='mtop-2'>Filter by:</p>
                       </Col>
-                      <Col span={7}>
+                      <Col xs={7} sm={7} md={7} lg={7} xl={7}>
                         <Dropdown overlay={menu} placement='bottomLeft'>
                           <Button className='dropdown-btn'>
                             All Round <CaretDownOutlined />
                           </Button>
                         </Dropdown>
                       </Col>
-                      <Col span={7}>
+                      <Col xs={7} sm={7} md={7} lg={7} xl={7}>
                         <Dropdown overlay={menu} placement='bottomLeft'>
                           <Button className='dropdown-btn'>
                             All Stage <CaretDownOutlined />
                           </Button>
                         </Dropdown>
                       </Col>
-                      <Col span={7}>
+                      <Col xs={7} sm={7} md={7} lg={7} xl={7}>
                         <Dropdown overlay={menu} placement='bottomLeft'>
                           <Button className='dropdown-btn'>
                             All Industry <CaretDownOutlined />
@@ -128,11 +140,13 @@ const InvestorsDashboard: NextPage<IProps> = () => {
               <div className='deals'>
                 <div className='deal'>
                   <Row>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={assets.DealCta.src} alt={assets.DealCta.alt} />
+                    <Col xs={0} sm={0} md={24} lg={24} xl={24}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={assets.DealCta.src} alt={assets.DealCta.alt} />
+                    </Col>
                   </Row>
                   <Row>
-                    <Col xs={2} sm={2} md={2} lg={2} xl={2}>
+                    <Col xs={24} sm={24} md={2} lg={2} xl={2}>
                       <Image
                         src={assets.MooiLogo.src}
                         alt={assets.MooiLogo.alt}
@@ -140,7 +154,7 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                         height={'40'}
                       />
                     </Col>
-                    <Col xs={8} sm={8} md={8} lg={8} xl={8}>
+                    <Col xs={24} sm={24} md={20} lg={20} xl={20}>
                       <h2>Future Africa Fund II</h2>
                     </Col>
                   </Row>
@@ -162,43 +176,43 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                   </Fragment>
                   <div className='metrics'>
                     <Row>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
                         <h4>
                           Min Subscription
                           <br />
                           <span>$5k/Quarter</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
                         <h4>
                           Subscription Period
                           <br />
                           <span>Q1 ‘21 - Q4 ‘23</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4} className='text-center'>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
                         <h4>
                           Frequency
                           <br />
                           <span>Quarterly</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4} className='text-center'>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
                         <h4>
                           Carry
                           <br />
                           <span>20%</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <h4 className='float-right'>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
+                        <h4>
                           Management Fee
                           <br />
                           <span>2%</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <h4 className='float-right'>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
+                        <h4>
                           Admin
                           <br />
                           <span>1%</span>
@@ -210,11 +224,13 @@ const InvestorsDashboard: NextPage<IProps> = () => {
 
                 <div className='deal'>
                   <Row>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={assets.DealCta2.src} alt={assets.DealCta2.alt} />
+                    <Col xs={0} sm={0} md={24} lg={24} xl={24}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={assets.DealCta2.src} alt={assets.DealCta2.alt} />
+                    </Col>
                   </Row>
                   <Row>
-                    <Col xs={2} sm={2} md={2} lg={2} xl={2}>
+                    <Col xs={24} sm={24} md={2} lg={2} xl={2}>
                       <Image
                         src={assets.MooiLogo.src}
                         alt={assets.MooiLogo.alt}
@@ -222,7 +238,7 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                         height={'40'}
                       />
                     </Col>
-                    <Col xs={8} sm={8} md={8} lg={8} xl={8}>
+                    <Col xs={24} sm={24} md={20} lg={20} xl={20}>
                       <h2>Future Africa Fund II</h2>
                     </Col>
                   </Row>
@@ -244,43 +260,43 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                   </Fragment>
                   <div className='metrics'>
                     <Row>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
                         <h4>
                           Min Subscription
                           <br />
                           <span>$5k/Quarter</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4}>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
                         <h4>
                           Subscription Period
                           <br />
                           <span>Q1 ‘21 - Q4 ‘23</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4} className='text-center'>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
                         <h4>
                           Frequency
                           <br />
                           <span>Quarterly</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4} className='text-center'>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
                         <h4>
                           Carry
                           <br />
                           <span>20%</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <h4 className='float-right'>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
+                        <h4>
                           Management Fee
                           <br />
                           <span>2%</span>
                         </h4>
                       </Col>
-                      <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                        <h4 className='float-right'>
+                      <Col xs={12} sm={12} md={8} lg={4} xl={4}>
+                        <h4>
                           Admin
                           <br />
                           <span>1%</span>
