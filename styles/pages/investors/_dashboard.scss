@@ -27,8 +27,109 @@
             font-style: normal;
             font-weight: 800;
             font-size: 32px;
-            line-height: 35px;
+            line-height: 0px;
             color: $fa-grey-1000;
+          }
+
+          .filter-fields {
+            .search {
+              width: 372px;
+              height: 50px;
+              border-radius: 6px;
+              border-color: $fa-grey-700;
+
+              ::placeholder {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                color: #1f1f1f;
+                opacity: 0.4;
+              }
+            }
+            .search:focus {
+              border: 1px solid $fa-grey-700;
+            }
+            .search:hover {
+              border: 1px solid $fa-grey-700;
+            }
+            .search:active {
+              border: 1px solid $fa-grey-700;
+            }
+            .search::selection {
+              border: 1px solid $fa-grey-700;
+            }
+
+            .dropdown-btn {
+              width: 147px;
+              height: 40px;
+              border-radius: 6px;
+            }
+            .dropdown-btn:hover {
+              color: $fa-black;
+              border-color: $fa-grey-700;
+            }
+          }
+
+          .deals {
+            .deal {
+              margin-top: 40px;
+              background-color: white;
+              height: 100%;
+              width: 100%;
+              border-radius: 13px;
+              padding: 15px;
+
+              img {
+                height: 130px;
+                width: 100%;
+                object-fit: cover;
+                margin-bottom: 10px;
+              }
+              h2 {
+                font-family: $font-family-secondary;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 18px;
+                color: $fa-grey-1000;
+                line-height: 40px;
+              }
+              p {
+                font-weight: 400;
+                font-size: 12.4224px;
+                line-height: 15px;
+                color: $fa-grey-300;
+                text-align: justify;
+                text-justify: inter-word;
+              }
+              .companies {
+                font-family: $font-family-primary;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 17px;
+                color: $fa-info;
+              }
+
+              .metrics {
+                width: 100%;
+                height: 62px;
+                border-radius: 6px;
+                background: rgba(232, 232, 232, 0.5);
+                padding: 10px;
+                h4 {
+                  font-weight: 400;
+                  font-size: 12.4224px;
+                  line-height: 15px;
+                  color: $fa-grey-300;
+                  span {
+                    font-weight: 600;
+                    font-size: 14px;
+                    line-height: 30px;
+                    color: $fa-grey-900;
+                  }
+                }
+              }
+            }
           }
         }
       }
