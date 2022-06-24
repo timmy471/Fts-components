@@ -1,3 +1,11 @@
+import { Col, Row, Radio } from 'antd';
+import OtpInput from 'react-otp-input';
+import { Dispatch, SetStateAction } from 'react';
+import PhoneInput from 'react-phone-number-input';
+import { Formik, Form, ErrorMessage } from 'formik';
+import { industries } from '@src/helpers/constants';
+
+
 import {
   Typography,
   SelectField,
@@ -6,22 +14,39 @@ import {
   TextField,
   Button,
   Pill,
-} from '@src/components';
-import OtpInput from 'react-otp-input';
-import { Col, Row, Radio } from 'antd';
-import { Dispatch, SetStateAction } from 'react';
-import PhoneInput from 'react-phone-number-input';
-import { Formik, Form, ErrorMessage } from 'formik';
-import { IDetailFormValues, ISelectStates } from 'type.d';
+} from '../../components';
+
+interface IDetailFormValues {
+  nationality: string;
+  country: string;
+  city: string;
+  address: string;
+  zip: string;
+  phoneNumber: string;
+  linkedin: string;
+  profession: string;
+  firm: string;
+  industry: string;
+  income: string;
+  investmentMethod: string | null;
+  pastInvestment: boolean;
+  syndicateMember: boolean;
+  pastEvent: boolean;
+  event: string;
+}
+
+interface IOption {
+  value: string;
+  label: string;
+}
 
 interface IProps {
   currentStep: number;
   initialValues: IDetailFormValues;
-  incomeOptions: { value: string; label: string }[];
-  getCountries: any;
-  nationalityOptions: { value: string; label: string }[];
-  selectStates: ISelectStates;
+  incomeOptions: IOption[];
   shouldValidateEvent: boolean;
+  getCountries: () => IOption[];
+  nationalityOptions: () => IOption[];
   setShouldValidateEvent: Dispatch<SetStateAction<boolean>>;
   getValidationSchema: () => void;
   onDetailSubmit: (values: object) => void;
@@ -74,7 +99,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                     <Col xs={24} md={12}>
                       <div data-aos='fade-up' data-aos-once={true}>
                         <SelectField
-                          options={nationalityOptions}
+                          options={nationalityOptions()}
                           onChange={(value: string) => {
                             setFieldValue('nationality', value);
                           }}
@@ -84,14 +109,12 @@ export const OnboardingForm: React.FC<IProps> = ({
                           hasError={errors.nationality && touched.nationality}
                           placeholder='Nationality'
                         />
-                        {errors.nationality && touched.nationality && (
-                          <FormError msg='Nationality is required' />
-                        )}
+                        <ErrorMessage component={FormError} name='nationality' />
                       </div>
                     </Col>
                     <Col xs={24} md={12}>
                       <SelectField
-                        options={getCountries}
+                        options={getCountries()}
                         onChange={(value: string) => {
                           setFieldValue('country', value);
                         }}
@@ -101,9 +124,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                         hasError={errors.country && touched.country}
                         placeholder='Country of Residence'
                       />
-                      {errors.country && touched.country && (
-                        <FormError msg='Country is required' />
-                      )}
+                      <ErrorMessage component={FormError} name='country' />
                     </Col>
 
                     <Col xs={24} md={12}>
@@ -196,10 +217,19 @@ export const OnboardingForm: React.FC<IProps> = ({
                       </div>
 
                       <div className='work-info-field'>
-                        <TextField
-                          placeholder='Industry'
-                          {...getFieldProps('industry')}
+                        <SelectField
+                          options={industries.map((industry) => ({
+                            label: industry,
+                            value: industry,
+                          }))}
+                          onChange={(value: string) => {
+                            setFieldValue('industry', value);
+                          }}
+                          onBlur={handleBlur}
+                          onSelect={handleChange}
+                          isSearchable={true}
                           hasError={errors.industry && touched.industry}
+                          placeholder='Industry'
                         />
                         <ErrorMessage component={FormError} name='industry' />
                       </div>
@@ -215,9 +245,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                           hasError={errors.income && touched.income}
                           placeholder='Annual Income'
                         />
-                        {errors.income && touched.income && (
-                          <FormError msg='Annual Income is requred' />
-                        )}
+                        <ErrorMessage component={FormError} name='income' />
                       </div>
                     </Col>
                   </Row>

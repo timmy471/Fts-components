@@ -27,14 +27,10 @@ export const SelectField: React.FC<ISelect> = ({
         onSelect={onSelect}
         onChange={onChange}
         onBlur={onBlur}
-        filterOption={(input, option) =>
-          (option!.children as unknown as string).includes(input)
-        }
-        filterSort={(optionA, optionB) =>
-          (optionA!.children as unknown as string)
-            .toLowerCase()
-            .localeCompare((optionB!.children as unknown as string).toLowerCase())
-        }>
+        bordered={false}
+        filterOption={(input, option: any) => {
+          return option!.children?.toLowerCase().includes(input.toLowerCase());
+        }}>
         {options.map((option) => (
           <Option key={option.value} value={option.value}>
             {option.label}

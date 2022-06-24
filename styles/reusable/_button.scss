@@ -35,12 +35,20 @@
   //color || variant
   &__primary {
     background-color: $fa-success;
+
+    &:hover {
+      background-color: rgba(60, 172, 112, 0.8);
+    }
   }
 
   &__secondary {
     background-color: transparent;
     border: 1.5px solid $fa-success;
     color: $fa-grey-100;
+
+    &:hover {
+      background-color: rgba(60, 172, 112, 0.1);
+    }
   }
 
   //sizes
