@@ -5,7 +5,6 @@ import PhoneInput from 'react-phone-number-input';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { industries } from '@src/helpers/constants';
 
-
 import {
   Typography,
   SelectField,
@@ -175,7 +174,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                         countryCallingCodeEditable={false}
                         name='phoneNumber'
                         value={values.phoneNumber}
-                        onChange={(val) => setFieldValue('phoneNumber', val)}
+                        onChange={(val: string) => setFieldValue('phoneNumber', val)}
                         defaultCountry='NG'
                         international
                       />
