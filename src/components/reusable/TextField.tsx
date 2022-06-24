@@ -1,3 +1,4 @@
+import { SearchOutlined } from '@ant-design/icons';
 import React, { ForwardRefRenderFunction, InputHTMLAttributes } from 'react';
 import clsx from 'classnames';
 
@@ -10,6 +11,7 @@ interface TextfieldProps extends InputHTMLAttributes<HTMLInputElement> {
   rows?: string | number;
   hasError?: boolean | string;
   endIcon?: React.ReactNode;
+  searchField?: boolean;
 }
 
 export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProps> = ({
@@ -29,6 +31,7 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
   onChange,
   onBlur,
   endIcon,
+  searchField,
   ...rest
 }) => {
   const textFieldBaseClass = 'fa_textfield';
@@ -45,7 +48,7 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
   );
 
   const handleFocus = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const addedPlaceholder = e.target.previousElementSibling;
+    const addedPlaceholder = e.target?.previousElementSibling;
     addedPlaceholder?.classList.add('no-placeholder');
   };
 
@@ -53,13 +56,14 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
     onBlur?.(e);
     const addedPlaceholder = e.target.previousElementSibling;
 
-    if (!e.target.value.length) addedPlaceholder.classList.remove('no-placeholder');
+    if (!e.target.value.length) addedPlaceholder?.classList?.remove('no-placeholder');
   };
 
   return (
     <div className={`fa_textfield_container ${label ? 'texfield_container_default' : ''}`}>
       {!label && placeholder && (
         <div className={`placeholder ${value ? 'no-placeholder' : ''}`}>
+          {!value && searchField && <SearchOutlined className={'fa-input-search-icon'} />}{' '}
           <label htmlFor={id || name}>{placeholder}</label> {required && <span>*</span>}
         </div>
       )}

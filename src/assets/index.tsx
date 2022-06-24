@@ -79,4 +79,16 @@ export const assets = {
     alt: 'Hamburger Icon',
     src: '/assets/images/layout/hamburger-icon.svg',
   },
+  dollarBriefcaseIcon: {
+    alt: 'Money',
+    src: '/assets/images/dollar-briefcase.svg',
+  },
+  dollarPlainIcon: {
+    alt: 'Money',
+    src: '/assets/images/dollar-plain.svg',
+  },
+  filterIcon: {
+    alt: 'filter',
+    src: '/assets/images/filter.png',
+  },
 };

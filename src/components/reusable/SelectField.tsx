@@ -11,10 +11,11 @@ interface ISelect {
   disabled?: boolean;
   isSearchable?: boolean;
   options: IOption[];
+  className?: string;
   hasError?: boolean | string;
   onSelect: (value: string | number) => void;
   onChange: (value: string) => void;
-  onBlur: (e: React.FocusEvent<any, Element>) => void;
+  onBlur?: (e: React.FocusEvent<any, Element>) => void;
 }
 const { Option } = Select;
 
@@ -27,9 +28,13 @@ export const SelectField: React.FC<ISelect> = ({
   onChange,
   isSearchable,
   hasError,
+  className = '',
 }) => {
   return (
-    <div className={`select-field-container ${hasError ? 'fa_selectfield__error' : ''}`}>
+    <div
+      className={`select-field-container ${className} ${
+        hasError ? 'fa_selectfield__error' : ''
+      }`}>
       <Select
         placeholder={
           <span className='select-placeholder'>

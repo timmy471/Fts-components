@@ -5,7 +5,7 @@ import Image from 'next/image';
 import type { NextPage } from 'next';
 import { useState, useEffect } from 'react';
 
-import { assets } from '../../../assets';
+import { assets } from '../../../../assets';
 
 interface IUser {
   firstName: string;

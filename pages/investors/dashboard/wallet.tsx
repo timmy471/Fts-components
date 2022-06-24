@@ -1,46 +1,381 @@
-import { Layout } from 'antd';
+import { Col, Modal, Row, Table, Collapse } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
+import { CaretDownOutlined } from '@ant-design/icons';
+
+import Image from 'next/image';
 import type { NextPage } from 'next';
 import { useState } from 'react';
+import * as Yup from 'yup';
 
-import { Menu, TopHeader } from '../../../src/components';
+import { assets } from '../../../src/assets/';
+import { defaultValidation } from '../../../src/helpers';
+import {
+  InvestorsDashboardLayout,
+  Button,
+  Typography,
+  TextField,
+  SelectField,
+  WalletForm,
+} from '../../../src/components';
 
 interface IProps {}
 
+interface IDataType {
+  date: string;
+  id: string;
+  narration: string;
+  via: string;
+  paymentProvider: string;
+  amount: string;
+  status: string;
+}
+
 const InvestorsWallet: NextPage<IProps> = () => {
-  const { Content } = Layout;
-  const [visible, setVisible] = useState<boolean>(false);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
 
-  let user = {
-    firstName: 'Abbey',
-    lastName: 'Sunkami',
-    role: 'Investor',
-    lastLogin: 'March 03, 2022 09.23am',
+  const { Panel } = Collapse;
+
+  const handlePaymentModalAction = () => setIsPaymentModalOpen(!isPaymentModalOpen);
+
+  const fundWalledValidation = () =>
+    Yup.object().shape({
+      currency: defaultValidation('Currency'),
+      amount: defaultValidation('Amount'),
+    });
+
+  const handleWalletFundSubmit = (values: object) => {
+    console.log(values);
+    handlePaymentModalAction();
   };
 
-  const showDrawer = () => {
-    setVisible(true);
-  };
+  const tableColumns: ColumnsType<IDataType> = [
+    {
+      title: 'Date',
+      dataIndex: 'date',
+    },
+    {
+      title: 'ID',
+      dataIndex: 'id',
+    },
+    {
+      title: 'Narration',
+      dataIndex: 'narration',
+    },
+    {
+      title: 'Via',
+      dataIndex: 'via',
+    },
+    {
+      title: 'Payment Provider',
+      dataIndex: 'paymentProvider',
+      width: 200,
+    },
+    {
+      title: 'Amount',
+      dataIndex: 'amount',
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+    },
+  ];
 
-  const onClose = () => {
-    setVisible(false);
-  };
+  const walletData: IDataType[] = [
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Wallet Funding',
+      via: 'Paystack',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Fund Payment',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Fund Payment',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Fund payment',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Fund Payment',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Payment for Future Africa Fund',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Fund payment',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Fund Payment',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Payment for Future Africa Fund',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Fund payment',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Fund Payment',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+    {
+      date: 'December 2, 2018',
+      id: '2336987',
+      narration: 'Payment for Future Africa Fund',
+      via: 'AngelList',
+      paymentProvider: 'Paystack',
+      amount: '$5,000',
+      status: 'Successful',
+    },
+  ];
 
   return (
-    <div className='investors-dashboard'>
-      <Layout className='layout'>
-        <div>
-          <Menu user={user} onClose={onClose} visible={visible} classN='wallet' />
+    <InvestorsDashboardLayout classN='wallet' subClassN='wallet'>
+      <div className='investor-wallet'>
+        <Typography component='h4'>Wallet</Typography>
+        <div className='mt-2'>
+          {' '}
+          <Row gutter={[32, 12]} className='wallet-cards-container'>
+            <Col xs={24} xl={12}>
+              <div className='wallet-header-cards d-flex justify-content-between'>
+                <div className='d-flex'>
+                  <div className='icon-container'>
+                    <Image
+                      src={assets.dollarBriefcaseIcon.src}
+                      alt={assets.dollarBriefcaseIcon.alt}
+                      width='100%'
+                      height='100%'
+                    />
+                  </div>
+                  <div>
+                    <Typography variant='body8' state='secondary'>
+                      Balance
+                    </Typography>
+                    <Typography component='h4'>$38,000</Typography>
+                  </div>
+                </div>
+                <div>
+                  <Button label='Fund Wallet' onClick={handlePaymentModalAction} />
+                </div>
+              </div>
+            </Col>
+            <Col xs={24} xl={12}>
+              <div className='wallet-header-cards d-flex justify-content-between'>
+                <div className='d-flex'>
+                  <div className='icon-container'>
+                    <Image
+                      src={assets.dollarPlainIcon.src}
+                      alt={assets.dollarPlainIcon.alt}
+                      width='100%'
+                      height='100%'
+                    />
+                  </div>
+                  <div>
+                    <Typography variant='body8' state='secondary'>
+                      Balance
+                    </Typography>
+                    <Typography component='h4'>$56,000</Typography>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
         </div>
-        <Layout className='site-layout'>
-          <TopHeader showDrawer={showDrawer} user={user} />
-          <Content className='site-content'>
-            <div className='site-layout-background'>
-              <h1>Investments</h1>
-            </div>
-          </Content>
-        </Layout>
-      </Layout>
-    </div>
+        <div className='mt-2'>
+          <Row>
+            <Col xs={24} md={12}>
+              <div className='wallet-search'>
+                <TextField searchField placeholder='Search' name='search' required={false} />
+              </div>
+            </Col>
+            <Col xs={24} md={12}>
+              <div className='filter-params-container'>
+                <div className='filter-cta cursor-pointer d-flex align-items-center'>
+                  <Typography className='mt-1'>Filter By:</Typography>
+                  <span className='mtop-2 d-none'>
+                    <Image
+                      src={assets.filterIcon.src}
+                      alt={assets.filterIcon.alt}
+                      width='20px'
+                      height='20px'
+                    />
+                  </span>
+                </div>
+
+                <div className='d-flex filter-params'>
+                  <SelectField
+                    placeholder='All Providers'
+                    required={false}
+                    options={[]}
+                    onSelect={() => {}}
+                    onChange={() => {}}
+                    className='w-100 mr-2'
+                  />
+                  <SelectField
+                    placeholder='All Status'
+                    required={false}
+                    options={[]}
+                    onSelect={() => {}}
+                    onChange={() => {}}
+                    className='w-100 mr-2'
+                  />
+                  <SelectField
+                    placeholder='All Dates'
+                    required={false}
+                    options={[]}
+                    onSelect={() => {}}
+                    onChange={() => {}}
+                    className='w-100 '
+                  />
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <div className='wallet-accordion-container mt-1'>
+          {walletData.map(
+            ({ date, id, narration, via, paymentProvider, amount, status }, key) => (
+              <Collapse
+                bordered={false}
+                expandIconPosition='end'
+                expandIcon={({ isActive }) => (
+                  <CaretDownOutlined rotate={isActive ? 180 : 0} />
+                )}
+                className=''>
+                <Panel
+                  header={
+                    <div className='w-100 d-flex justify-content-between pr-1'>
+                      <div>
+                        <Typography variant='body8'>Date</Typography>{' '}
+                        <Typography variant='body7' className='wallet-detail'>
+                          {date}
+                        </Typography>
+                      </div>
+                      <div>
+                        <Typography variant='body8'>Amount</Typography>{' '}
+                        <Typography variant='body7' className='wallet-detail'>
+                          {amount}
+                        </Typography>
+                      </div>
+                      <div>
+                        <Typography variant='body8'>Status</Typography>{' '}
+                        <Typography variant='body7' className='wallet-detail'>
+                          {status}
+                        </Typography>
+                      </div>
+                    </div>
+                  }
+                  key={key}
+                  className='wallet-accordion-panel'>
+                  <div className='pr-4'>
+                    <div className='d-flex justify-content-between'>
+                      <Typography variant='body8'>ID</Typography>
+                      <Typography variant='body6'>{id}</Typography>
+                    </div>
+                    <div className='d-flex justify-content-between'>
+                      <Typography variant='body8'>Naration</Typography>
+                      <Typography variant='body6'>{narration}</Typography>
+                    </div>
+                    <div className='d-flex justify-content-between'>
+                      <Typography variant='body8'>Via</Typography>
+                      <Typography variant='body6'>{via}</Typography>
+                    </div>
+                    <div className='d-flex justify-content-between'>
+                      <Typography variant='body8'>Payment Provider</Typography>
+                      <Typography variant='body6'>{paymentProvider}</Typography>
+                    </div>
+                  </div>
+                </Panel>
+              </Collapse>
+            )
+          )}
+        </div>
+        <div className='fa-table wallet-table mtop-1 pb-4'>
+          <Table
+            columns={tableColumns}
+            dataSource={walletData}
+            pagination={false}
+            scroll={{ x: true, y: 'calc(100vh - 300px)' }}
+          />
+        </div>
+        <Modal
+          centered
+          visible={isPaymentModalOpen}
+          footer={null}
+          closable={false}
+          maskClosable={true}
+          className='wallet-payment-modal'
+          onOk={handlePaymentModalAction}
+          onCancel={handlePaymentModalAction}>
+          <WalletForm
+            validationSchema={fundWalledValidation}
+            onWalletFundSubmit={handleWalletFundSubmit}
+          />
+        </Modal>
+      </div>
+    </InvestorsDashboardLayout>
   );
 };
 
