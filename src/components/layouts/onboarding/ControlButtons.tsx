@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-
-import { Button } from '../../../components';
+import { Button } from '@src/components';
 
 interface IProps {
   handlePrevious: () => void;

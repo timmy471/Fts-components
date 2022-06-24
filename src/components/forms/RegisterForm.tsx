@@ -1,15 +1,12 @@
-import { Button, Row, Col } from 'antd';
-import { Formik } from 'formik';
-import { Form, Input, Checkbox } from 'formik-antd';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
+import { Formik } from 'formik';
+import { assets } from '@src/assets';
 import type { NextPage } from 'next';
+import { Button, Row, Col } from 'antd';
 import React, { Fragment } from 'react';
+import { Form, Input, Checkbox } from 'formik-antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-
-
-import { assets } from '../../assets';
-
 
 interface IFormData {
   firstName: string;
@@ -23,7 +20,7 @@ interface Props {
   formData: IFormData;
   onSubmitForm: () => void;
   onFormChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  validateSchema: any;
+  validateSchema: object;
   onTermsCheck: (event: CheckboxChangeEvent) => void;
 }
 export const RegisterForm: NextPage<Props> = ({

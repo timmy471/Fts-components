@@ -124,6 +124,12 @@
         .site-layout-background {
           padding: 25px 25px !important;
           min-height: 360;
+
+          .filter-fields {
+            .search {
+              width: 100%;
+            }
+          }
         }
       }
     }
@@ -151,10 +157,9 @@
       font-style: normal;
       font-weight: 400;
       font-size: 12px;
-      // line-height: 18px;
     }
 
-    .notif-bell{
+    .notif-bell {
       height: 40px;
       width: 40px;
     }

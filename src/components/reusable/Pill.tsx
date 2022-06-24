@@ -6,7 +6,6 @@ interface IProps {
   falseText?: string;
   onClick?: () => void;
 }
-
 export const Pill: React.FC<IProps> = ({
   value,
   trueText = 'Yes',
@@ -14,10 +13,8 @@ export const Pill: React.FC<IProps> = ({
   onClick,
 }) => {
   const [itemValue, setItemValue] = useState<boolean>(value);
-
   const handleClick = () => {
     setItemValue(!itemValue);
-
     onClick?.();
   };
 

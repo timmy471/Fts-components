@@ -1,11 +1,8 @@
-import { Layout, Drawer, Dropdown, Menu, Row, Col } from 'antd';
-import { DownOutlined, CaretDownOutlined } from '@ant-design/icons';
-import Link from 'next/link';
 import Image from 'next/image';
+import { assets } from '@src/assets';
 import type { NextPage } from 'next';
-import { useState, useEffect } from 'react';
-
-import { assets } from '../../../assets';
+import { Layout, Row, Col } from 'antd';
+import { CaretDownOutlined } from '@ant-design/icons';
 
 interface IUser {
   firstName: string;
@@ -13,15 +10,12 @@ interface IUser {
   role: string;
   lastLogin: string;
 }
-
 interface IProps {
   showDrawer: () => void;
   user: IUser;
 }
-
 export const TopHeader: NextPage<IProps> = ({ showDrawer, user }) => {
   const { Header } = Layout;
-
   return (
     <Header className='top-header'>
       <Row>
