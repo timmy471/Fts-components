@@ -1,14 +1,3 @@
-import { Col, Modal, Row, Table, Collapse } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
-import { CaretDownOutlined } from '@ant-design/icons';
-
-import Image from 'next/image';
-import type { NextPage } from 'next';
-import { useState } from 'react';
-import * as Yup from 'yup';
-
-import { assets } from '../../../src/assets/';
-import { defaultValidation } from '../../../src/helpers';
 import {
   InvestorsDashboardLayout,
   Button,
@@ -16,10 +5,18 @@ import {
   TextField,
   SelectField,
   WalletForm,
-} from '../../../src/components';
+} from '@src/components';
+import * as Yup from 'yup';
+import Image from 'next/image';
+import { useState } from 'react';
+import type { NextPage } from 'next';
+import { assets } from '@src/assets/';
+import { defaultValidation } from '@src/helpers';
+import type { ColumnsType } from 'antd/lib/table';
+import { CaretDownOutlined } from '@ant-design/icons';
+import { Col, Modal, Row, Table, Collapse } from 'antd';
 
 interface IProps {}
-
 interface IDataType {
   date: string;
   id: string;
@@ -32,22 +29,17 @@ interface IDataType {
 
 const InvestorsWallet: NextPage<IProps> = () => {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
-
   const { Panel } = Collapse;
-
   const handlePaymentModalAction = () => setIsPaymentModalOpen(!isPaymentModalOpen);
-
   const fundWalledValidation = () =>
     Yup.object().shape({
       currency: defaultValidation('Currency'),
       amount: defaultValidation('Amount'),
     });
-
   const handleWalletFundSubmit = (values: object) => {
     console.log(values);
     handlePaymentModalAction();
   };
-
   const tableColumns: ColumnsType<IDataType> = [
     {
       title: 'Date',
