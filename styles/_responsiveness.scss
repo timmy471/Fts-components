@@ -1,45 +1,167 @@
-@import "./variables";
+@media (max-width: 990px) {
+  .auth-modal {
+    .content {
+      .modal-btn {
+        width: 100%;
+      }
+    }
+  }
 
-// Breakpoints
-@mixin smMaxBreakPoint {
-  @media (max-width: #{$screen-sm}) {
-    @content;
+  .login {
+    .container {
+      .right-hero {
+        .login-form {
+          .btn-login {
+            margin-top: 4px;
+          }
+        }
+        .other-socials-login {
+          margin-top: 20px;
+          .btn-social {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .register {
+    .container {
+      .right-hero {
+        .login-form {
+          .btn-login {
+            margin-top: 4px;
+          }
+        }
+        .other-socials-login {
+          margin-top: 20px;
+          .btn-social {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .forgot-password {
+    background-color: $fa-grey-600;
+    .container {
+      margin-right: 10%;
+      margin-left: 10%;
+      .left {
+        height: 100%;
+        .left-hero {
+          .forgot-password-box {
+            margin-top: 50px;
+          }
+          .forgot-password-form {
+            .btn-forgot-password {
+              margin-top: 4px;
+            }
+          }
+          .other-socials-login {
+            margin-top: 20px;
+            .btn-social {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+      .right-hero {
+        visibility: hidden;
+        display: none;
+      }
+    }
+  }
+
+  .new-password {
+    background-color: $fa-grey-600;
+    .container {
+      margin-right: 10%;
+      margin-left: 10%;
+      .left {
+        height: 100%;
+        .left-hero {
+          .forgot-password-box {
+            margin-top: 50px;
+          }
+          .forgot-password-form {
+            .btn-forgot-password {
+              margin-top: 4px;
+            }
+          }
+          .other-socials-login {
+            margin-top: 20px;
+            .btn-social {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+      .right-hero {
+        visibility: hidden;
+        display: none;
+      }
+    }
+  }
+
+  .investors-dashboard {
+    .layout {
+      .mobile-header {
+        visibility: visible !important;
+        display: block !important;
+        background-color: #fff;
+        z-index: 99 !important;
+      }
+    }
+    .menu {
+      visibility: hidden;
+      display: none;
+    }
+    .site-layout {
+      margin-left: 0px !important;
+      .site-content {
+        .site-layout-background {
+          padding: 25px 25px !important;
+          min-height: 360;
+
+          .filter-fields {
+            .search {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ant-layout-header {
+    height: 95px;
+    width: 100%;
+    padding: 25px;
+    line-height: 0px;
+    background: $fa-grey-600;
   }
 }
 
-@mixin mdMaxBreakPoint {
-  @media (max-width: #{$screen-md}) {
-    @content;
-  }
-}
+// Iphone and Below
+@media (max-width: 450px) {
+  .top-header {
+    h3 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 11px;
+      line-height: 10px;
+    }
+    span {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+    }
 
-@mixin lgMaxBreakPoint {
-  @media (max-width: #{$screen-lg}) {
-    @content;
-  }
-}
-
-@mixin xlMaxBreakPoint {
-  @media (max-width: #{$screen-xl}) {
-    @content;
-  }
-}
-
-@mixin xxlMaxBreakPoint {
-  @media (max-width: #{$screen-xxl}) {
-    @content;
-  }
-}
-
-//Custom Breakpoints 
-@mixin faMinBreakPoint($size) {
-  @media (max-width: $size) {
-    @content;
-  }
-}
-
-@mixin faMaxBreakPoint($size) {
-  @media (max-width: $size) {
-    @content;
+    .notif-bell {
+      height: 40px;
+      width: 40px;
+    }
   }
 }

@@ -1,8 +1,6 @@
 import React from 'react';
 import clsx from 'classnames';
-
 type elements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'p';
-
 type bodyVariants =
   | 'body1'
   | 'body2'
@@ -12,8 +10,7 @@ type bodyVariants =
   | 'body6'
   | 'body7'
   | 'body8';
-
-type typographyStates = 'default' | 'primary' | 'secondary' | 'tetiary';
+type typographyStates = 'default' | 'primary' | 'secondary' | 'tetiary' | 'error';
 
 interface ITypogrphy {
   component?: elements;
@@ -46,7 +43,7 @@ export const Typography: React.FC<ITypogrphy> = ({
   ...props
 }) => {
   const Component: any = component ? elementVariants[component] : 'p';
-  const baseClass = `fa_typography`;
+  const baseClass = `typography_default fa_typography`;
   const variantClass = variant ? `${baseClass}__${variant}` : '';
   const stateClass = `${baseClass}__${state}`;
 

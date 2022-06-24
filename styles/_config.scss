@@ -21,6 +21,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: $font-family-primary;
+
+  ::selection {
+    color: $fa-grey-200;
+    background: $fa-success;
+    opacity: .5;
+  }
 }
 
 /* Chrome, Safari, Edge, Opera */
