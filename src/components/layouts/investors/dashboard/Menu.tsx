@@ -181,7 +181,7 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
             </div>
             <ul>
               <Fragment>
-                <Link href='/#' passHref>
+                <Link href='/investors/dashboard/investments' passHref>
                   {classN === 'investments' ? (
                     <li className='mt-3'>
                       <div className='active-item-with-dropdown'>
@@ -258,7 +258,7 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
               </Fragment>
 
               <Fragment>
-                <Link href='/#' passHref>
+                <Link href='/investors/dashboard/wallet' passHref>
                   {classN === 'wallet' ? (
                     <li>
                       <div className='active-item'>
