@@ -1,19 +1,17 @@
 import { Button } from 'antd';
+import { Formik } from 'formik';
 import type { NextPage } from 'next';
 import React, { Fragment } from 'react';
-
-import { Formik } from 'formik';
 import { Form, Input } from 'formik-antd';
 
 interface IFormData {
   email: string;
 }
-
 interface Props {
   formData: IFormData;
   onSubmitForm: () => void;
   onFormChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  validateSchema: any;
+  validateSchema: object;
 }
 export const ForgotPasswordForm: NextPage<Props> = ({
   formData,

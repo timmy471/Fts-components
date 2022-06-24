@@ -1,10 +1,3 @@
-import { Col, Row, Radio } from 'antd';
-import { Formik, Form, ErrorMessage } from 'formik';
-import { Dispatch, SetStateAction } from 'react';
-
-import OtpInput from 'react-otp-input';
-import PhoneInput from 'react-phone-number-input';
-
 import {
   Typography,
   SelectField,
@@ -13,44 +6,20 @@ import {
   TextField,
   Button,
   Pill,
-} from '../../components';
-
-interface IDetailFormValues {
-  nationality: string;
-  country: string;
-  city: string;
-  address: string;
-  zip: string;
-  phoneNumber: string;
-  linkedin: string;
-  profession: string;
-  firm: string;
-  industry: string;
-  income: string;
-  investmentMethod: string | null;
-  pastInvestment: boolean;
-  syndicateMember: boolean;
-  pastEvent: boolean;
-  event: string;
-}
-
-interface IOption {
-  value: string;
-  label: string;
-}
-
-interface ISelectStates {
-  nationality: boolean;
-  country: boolean;
-  income: boolean;
-}
+} from '@src/components';
+import OtpInput from 'react-otp-input';
+import { Col, Row, Radio } from 'antd';
+import { Dispatch, SetStateAction } from 'react';
+import PhoneInput from 'react-phone-number-input';
+import { Formik, Form, ErrorMessage } from 'formik';
+import { IDetailFormValues, ISelectStates } from 'type.d';
 
 interface IProps {
   currentStep: number;
   initialValues: IDetailFormValues;
-  incomeOptions: IOption[];
+  incomeOptions: { value: string; label: string }[];
   getCountries: any;
-  nationalityOptions: IOption[];
+  nationalityOptions: { value: string; label: string }[];
   selectStates: ISelectStates;
   shouldValidateEvent: boolean;
   setShouldValidateEvent: Dispatch<SetStateAction<boolean>>;
@@ -60,7 +29,6 @@ interface IProps {
   validatePin: () => object;
   handlePrevious: () => void;
 }
-
 export const OnboardingForm: React.FC<IProps> = ({
   currentStep,
   initialValues,

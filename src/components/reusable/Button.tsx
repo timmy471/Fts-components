@@ -1,19 +1,6 @@
 import React from 'react';
 import clsx from 'classnames';
-
-interface IButton {
-  label: string;
-  disabled?: boolean;
-  variant?: 'primary' | 'secondary';
-  fullWidth?: boolean;
-  loading?: boolean;
-  type?: 'button' | 'submit' | 'reset';
-  className?: string;
-  style?: React.CSSProperties;
-  onClick?: () => void;
-  size?: 'sm' | 'md' | 'lg';
-  rest?: String[];
-}
+import { IButton } from 'type.d';
 
 export const Button: React.FC<IButton> = ({
   label,

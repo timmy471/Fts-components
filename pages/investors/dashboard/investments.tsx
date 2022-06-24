@@ -1,11 +1,11 @@
-import { Layout, Row, Col, Input, Dropdown, Button, Menu as M } from 'antd';
+import { IUser } from 'type.d';
+import Image from 'next/image';
+import { assets } from '@src/assets';
 import type { NextPage } from 'next';
 import { Fragment, useState } from 'react';
+import { Menu, TopHeader } from '@src/components';
+import { Layout, Row, Col, Input, Dropdown, Button, Menu as M } from 'antd';
 import { CaretDownOutlined, InfoCircleOutlined } from '@ant-design/icons';
-import Image from 'next/image';
-
-import { Menu, TopHeader } from '../../../src/components';
-import { assets } from '../../../src/assets';
 
 interface IProps {}
 
@@ -13,17 +13,15 @@ const InvestorsDashboard: NextPage<IProps> = () => {
   const { Content } = Layout;
   const [visible, setVisible] = useState<boolean>(false);
 
-  let user = {
+  let user: IUser = {
     firstName: 'Abbey',
     lastName: 'Sunkami',
     role: 'Investor',
     lastLogin: 'March 03, 2022 09.23am',
   };
-
   const showDrawer = () => {
     setVisible(true);
   };
-
   const onClose = () => {
     setVisible(false);
   };
@@ -44,14 +42,6 @@ const InvestorsDashboard: NextPage<IProps> = () => {
           label: (
             <a target='_blank' rel='noopener noreferrer' href='https://www.aliyun.com'>
               2nd menu item
-            </a>
-          ),
-        },
-        {
-          key: '3',
-          label: (
-            <a target='_blank' rel='noopener noreferrer' href='https://www.luohanacademy.com'>
-              3rd menu item
             </a>
           ),
         },
@@ -77,7 +67,6 @@ const InvestorsDashboard: NextPage<IProps> = () => {
             <div className='site-layout-background'>
               <h1>Investments</h1>
               <p>Invest in early stage companies through these funds</p>
-
               <div className='filter-fields'>
                 <Row>
                   <Col xs={24} sm={24} md={12} lg={9} xl={9}>
@@ -88,7 +77,7 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                           src={assets.SearchIcon.src}
                           alt={assets.SearchIcon.alt}
                           width='20'
-                          height={'20'}
+                          height='20'
                         />
                       }
                       placeholder='  Search by deal’s name or industry'
@@ -96,7 +85,6 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                   </Col>
                   <Col xs={24} sm={24} md={12} lg={0} xl={0} className='text-right mt-2'>
                     Filter by:
-                    {/*  eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={assets.FilterHarmBurger.src}
                       alt={assets.FilterHarmBurger.alt}
@@ -137,11 +125,11 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                 </Row>
               </div>
 
+              {/* Display Deals List  */}
               <div className='deals'>
                 <div className='deal'>
                   <Row>
                     <Col xs={0} sm={0} md={24} lg={24} xl={24}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={assets.DealCta.src} alt={assets.DealCta.alt} />
                     </Col>
                   </Row>
@@ -225,7 +213,6 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                 <div className='deal'>
                   <Row>
                     <Col xs={0} sm={0} md={24} lg={24} xl={24}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={assets.DealCta2.src} alt={assets.DealCta2.alt} />
                     </Col>
                   </Row>

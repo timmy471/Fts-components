@@ -1,13 +1,12 @@
-import { Layout, Row, Col, Button, Modal } from 'antd';
-import type { NextPage } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import Router from 'next/router';
-import { useState, Fragment } from 'react';
 import * as Yup from 'yup';
-
-import { assets } from '../src/assets';
-import { NewPasswordForm } from '../src/components';
+import Link from 'next/link';
+import Image from 'next/image';
+import Router from 'next/router';
+import type { NextPage } from 'next';
+import { assets } from '@src/assets';
+import { useState, Fragment } from 'react';
+import { NewPasswordForm } from '@src/components';
+import { Layout, Row, Col, Button, Modal } from 'antd';
 
 interface Props {}
 
@@ -18,18 +17,15 @@ interface IFormData {
 
 const NewPassword: NextPage<Props> = () => {
   const { Content } = Layout;
-
   const [formData, setFormData] = useState<IFormData>({
     password: '',
     confirmPassword: '',
   });
   const [isVerifyModalVisible, setIsVerifyModalVisible] = useState<boolean>(false);
-
   const onFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-
-  const validateSchema = Yup.object().shape({
+  const validateSchema: object = Yup.object().shape({
     password: Yup.string()
       .required('Password is required')
       .matches(
@@ -44,22 +40,18 @@ const NewPassword: NextPage<Props> = () => {
       }
     ),
   });
-
   const showVerifyModal = () => {
     setIsVerifyModalVisible(true);
   };
-
   const handleVerifyOk = () => {
     setIsVerifyModalVisible(false);
     setTimeout(() => {
       Router.push('/');
     }, 1000);
   };
-
   const handleVerifyCancel = () => {
     setIsVerifyModalVisible(false);
   };
-
   const onSubmitForm = () => {
     console.log(formData);
     showVerifyModal();
@@ -116,7 +108,6 @@ const NewPassword: NextPage<Props> = () => {
               className='d-flex justify-content-center align-items-center'>
               <div className='right-hero'>
                 <div className='image-wrapper d-flex justify-content-center align-items-center'>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={assets.LoginHero.src}
                     alt={assets.LoginHero.alt}
