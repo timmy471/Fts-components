@@ -1,11 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
-import { Layout, Drawer, Row, Col } from 'antd';
 import Link from 'next/link';
 import Image from 'next/image';
-import type { NextPage } from 'next';
 import { Fragment } from 'react';
-
-import { assets } from '../../../../assets';
+import type { NextPage } from 'next';
+import { assets } from '@src/assets';
+import { Layout, Drawer, Row, Col } from 'antd';
 
 interface IUser {
   firstName: string;
@@ -22,11 +20,6 @@ interface IProps {
 }
 export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClassN }) => {
   const { Sider } = Layout;
-
-  const onLogout = () => {
-    console.log('logged out');
-  };
-
   return (
     <div>
       <Sider className='menu'>
@@ -35,7 +28,6 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
             <Image src={assets.FaLogoLight.src} width={200} height={50} alt='Logo' />
           </div>
         </Link>
-
         <div>
           <ul>
             <Link href={'/investors/dashboard/investments'}>

@@ -5,7 +5,7 @@ export const MetaHead = () => {
     <Head>
       <title>Future Africa - Invest in African Startups</title>
       <meta name='description' content='Future Africa - Invest in African Startups' />
-      <link rel='icon' href='/fa-icon.png' />
+      <link rel='icon' href='/assets/images/fa-icon.png' />
     </Head>
   );
 };

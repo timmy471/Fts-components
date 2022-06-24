@@ -1,11 +1,11 @@
 import { Button } from 'antd';
-import { Formik } from 'formik';
-import { Form, Input } from 'formik-antd';
-import type { NextPage } from 'next';
 import Image from 'next/image';
+import { Formik } from 'formik';
+import { assets } from '@src/assets';
+import type { NextPage } from 'next';
 import React, { Fragment } from 'react';
+import { Form, Input } from 'formik-antd';
 
-import { assets } from '../../assets';
 
 interface IFormData {
   password: string;
@@ -16,7 +16,7 @@ interface Props {
   formData: IFormData;
   onSubmitForm: () => void;
   onFormChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  validateSchema: any;
+  validateSchema: object;
 }
 export const NewPasswordForm: NextPage<Props> = ({
   formData,

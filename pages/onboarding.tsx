@@ -1,38 +1,19 @@
 import AOS from 'aos';
+import * as Yup from 'yup';
 import { Col, Row } from 'antd';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { IDetailFormValues } from 'type.d';
 import { useState, useEffect } from 'react';
-import * as Yup from 'yup';
+import { countries } from '@src/helpers/constants';
+import { defaultValidation, urlValidation } from '@src/helpers';
+import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '@src/components';
 
-import { countries } from '../src/helpers/constants';
-import { defaultValidation, urlValidation } from '../src/helpers';
-import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '../src/components';
-
-interface IDetailFormValues {
-  nationality: string;
-  country: string;
-  city: string;
-  address: string;
-  zip: string;
-  phoneNumber: string;
-  linkedin: string;
-  profession: string;
-  firm: string;
-  industry: string;
-  income: string;
-  investmentMethod: string | null;
-  pastInvestment: boolean;
-  syndicateMember: boolean;
-  pastEvent: boolean;
-  event: string;
-}
 
 const Onboarding: NextPage = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [mounted, setMounted] = useState<boolean>(false);
   const [shouldValidateEvent, setShouldValidateEvent] = useState<boolean>(false);
-
   useEffect(() => {
     setMounted(true);
     AOS.init({
@@ -40,7 +21,6 @@ const Onboarding: NextPage = () => {
     });
     AOS.refresh();
   }, []);
-
   const validateProfileInfo = () =>
     Yup.object().shape({
       nationality: defaultValidation('Nationality'),
@@ -59,13 +39,11 @@ const Onboarding: NextPage = () => {
       industry: defaultValidation('Industry'),
       income: defaultValidation('Income'),
     });
-
   const validateOtherInfo = () =>
     Yup.object().shape({
       investmentMethod: Yup.string().required('Select a Method').nullable(),
       event: shouldValidateEvent ? Yup.string().required('Event is required') : Yup.string(),
     });
-
   const validatePin = () =>
     Yup.object({
       pin: defaultValidation('PIN'),
@@ -73,7 +51,6 @@ const Onboarding: NextPage = () => {
         .required('Re-enter PIN')
         .oneOf([Yup.ref('pin'), null], 'Pins do not match'),
     });
-
   const getValidationSchema = () => {
     switch (currentStep) {
       case 1:
@@ -89,19 +66,14 @@ const Onboarding: NextPage = () => {
         return Yup.object().shape({});
     }
   };
-
   const router = useRouter();
-
   const onDetailSubmit = (values: object) => {
     return handleNext();
   };
-
   const onPinSubmit = (values: object) => {
     return router.push('/onboarding-congratulations');
   };
-
   const handleNext = () => setCurrentStep(currentStep + 1);
-
   const handlePrevious = () => {
     return setCurrentStep(currentStep - 1);
   };
@@ -129,7 +101,6 @@ const Onboarding: NextPage = () => {
     'Other Details',
     'PIN Setup',
   ];
-
   const initialValues: IDetailFormValues = {
     nationality: '',
     country: '',
@@ -148,9 +119,7 @@ const Onboarding: NextPage = () => {
     pastEvent: false,
     event: '',
   };
-
   if (!mounted) return null;
-
   return (
     <div className='onboarding'>
       <Row>
@@ -165,7 +134,6 @@ const Onboarding: NextPage = () => {
             <Col xs={0} lg={24}>
               <Typography component='h5'>Awesome! Lets get you onboarded</Typography>
             </Col>
-
             <FormStepper steps={onBoardingSteps} currentStep={currentStep} />
             <div>
               <div className='onboarding-form-main'>

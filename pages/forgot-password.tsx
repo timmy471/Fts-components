@@ -1,12 +1,11 @@
-import { Layout, Row, Col, Button, Modal } from 'antd';
-import Image from 'next/image';
+import * as Yup from 'yup';
 import Link from 'next/link';
+import Image from 'next/image';
+import { assets } from '@src/assets';
 import type { NextPage } from 'next';
 import { Fragment, useState } from 'react';
-import * as Yup from 'yup';
-
-import { assets } from '../src/assets';
-import { ForgotPasswordForm } from '../src/components';
+import { ForgotPasswordForm } from '@src/components';
+import { Layout, Row, Col, Button, Modal } from 'antd';
 
 interface Props {}
 
@@ -16,32 +15,25 @@ interface IFormData {
 
 const ForgotPassword: NextPage<Props> = () => {
   const { Content } = Layout;
-
   const [formData, setFormData] = useState<IFormData>({
     email: '',
   });
   const [isVerifyModalVisible, setIsVerifyModalVisible] = useState<boolean>(false);
-
   const onFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-
   const validateSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email address').required('Email address is required'),
   });
-
   const showVerifyModal = () => {
     setIsVerifyModalVisible(true);
   };
-
   const handleVerifyOk = () => {
     setIsVerifyModalVisible(false);
   };
-
   const handleVerifyCancel = () => {
     setIsVerifyModalVisible(false);
   };
-
   const onSubmitForm = () => {
     console.log(formData);
     showVerifyModal();
@@ -98,7 +90,6 @@ const ForgotPassword: NextPage<Props> = () => {
               className='d-flex justify-content-center align-items-center'>
               <div className='right-hero'>
                 <div className='image-wrapper d-flex justify-content-center align-items-center'>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={assets.LoginHero.src}
                     alt={assets.LoginHero.alt}
@@ -148,8 +139,8 @@ const ForgotPassword: NextPage<Props> = () => {
             <Image
               src={assets.SendEnvelope.src}
               alt={assets.SendEnvelope.alt}
-              height={100}
-              width={100}
+              height={200}
+              width={200}
             />
             <h3>Check your mail</h3>
             <span>We’ve sent an email with a link to reset your password</span>

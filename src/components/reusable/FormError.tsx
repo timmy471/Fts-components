@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from './Typography';
+import { Typography } from '@src/components';
 
 interface IProps {
   children?: any;
