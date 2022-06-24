@@ -2,7 +2,6 @@ import { Select } from 'antd';
 import { ISelect } from 'type.d';
 
 const { Option } = Select;
-
 export const SelectField: React.FC<ISelect> = ({
   placeholder,
   required = true,
@@ -12,9 +11,13 @@ export const SelectField: React.FC<ISelect> = ({
   onChange,
   isSearchable,
   hasError,
+  className = '',
 }) => {
   return (
-    <div className={`select-field-container ${hasError ? 'fa_selectfield__error' : ''}`}>
+    <div
+      className={`select-field-container ${className} ${
+        hasError ? 'fa_selectfield__error' : ''
+      }`}>
       <Select
         placeholder={
           <span className='select-placeholder'>

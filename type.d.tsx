@@ -60,10 +60,9 @@ export interface ISelect {
   disabled?: boolean;
   isSearchable?: boolean;
   options: { value: string; label: string }[];
+  className?: string;
   hasError?: boolean | string;
   onSelect: (value: string | number) => void;
   onChange: (value: string) => void;
-  onBlur: (e: React.FocusEvent<any, Element>) => void;
+  onBlur?: (e: React.FocusEvent<any, Element>) => void;
 }
-
-

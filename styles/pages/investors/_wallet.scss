@@ -1,0 +1,153 @@
+.investor-wallet {
+    .wallet-cards-container {
+        padding-right: 1.5rem;
+
+        @include lgMaxBreakPoint {
+            padding-right: 0
+        }
+
+    }
+
+    .wallet-header-cards {
+        background: $fa-white;
+        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.05);
+        border-radius: 15px;
+        padding: 19px 25px 80px;
+
+        h4 {
+            line-height: 22px;
+        }
+
+        .icon-container {
+            width: 50px;
+            height: 50px;
+            margin-right: 1rem;
+        }
+
+        @include smMaxBreakPoint {
+            padding: 16px 12px;
+            border-radius: 10px;
+            align-items: center;
+
+            h4 {
+                font-size: 20px !important;
+                line-height: 18px;
+            }
+
+            .icon-container {
+                width: 55px;
+                height: 55px;
+                margin-right: 12px;
+            }
+
+        }
+    }
+
+    .filter-params-container {
+
+
+        display: flex;
+        align-content: center;
+        align-items: center;
+        height: 100%;
+
+        @include xlMaxBreakPoint {
+            justify-content: flex-end;
+        }
+
+        .filter-params {
+            flex: 8;
+            margin-left: 1rem;
+
+            @include xlMaxBreakPoint {
+                display: none !important
+            }
+        }
+    }
+
+    .filter-cta {
+        span {
+            @include xlMaxBreakPoint {
+                display: block;
+            }
+        }
+    }
+
+    .wallet-search {
+        width: 19rem;
+
+        @include smMaxBreakPoint {
+            width: 100%
+        }
+    }
+}
+
+.wallet-payment-modal {
+    .ant-modal-content {
+        background-color: $fa-grey-500;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 0 1rem;
+
+        @include smMaxBreakPoint {
+            padding: 0
+        }
+
+        .fund-wallet-cta {
+            width: 80%;
+            margin: 0 auto;
+
+            @include smMaxBreakPoint {
+                width: 100%
+            }
+        }
+    }
+
+    div {
+        p {
+            margin-bottom: 0
+        }
+    }
+
+}
+
+
+.wallet-table {
+    @include mdMaxBreakPoint {
+        display: none
+    }
+}
+
+.wallet-accordion-container {
+    display: none;
+
+    @include mdMaxBreakPoint {
+        display: block;
+    }
+
+    .wallet-accordion-panel {
+        border-radius: 12px !important;
+        background-color: $fa-white;
+        margin-bottom: 5px;
+    }
+
+    .ant-collapse-item-active {
+        background: transparent;
+        border: 1px solid $fa-grey-500;
+    }
+
+    .ant-collapse-borderless,
+    .ant-collapse {
+        background-color: transparent
+    }
+
+    .ant-collapse-header-text {
+        width: 100%
+    }
+
+    .wallet-detail {
+        line-height: 10px;
+        font-weight: 600;
+        color: #393636;
+    }
+}
