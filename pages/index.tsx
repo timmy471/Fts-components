@@ -1,13 +1,16 @@
-import { Layout, Row, Col, Button } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-import type { NextPage } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState, Fragment } from 'react';
 import * as Yup from 'yup';
-
-import { assets } from '../src/assets';
-import { LoginForm } from '../src/components';
+import Link from 'next/link';
+import Image from 'next/image';
+import { assets } from '@src/assets';
+import type { NextPage } from 'next';
+import { bindActionCreators } from 'redux';
+import { useState, Fragment } from 'react';
+import { LoginForm } from '@src/components';
+import { AuthActionCreators } from '@src/redux';
+import { RootState } from '@src/redux/reducers';
+import { Layout, Row, Col, Button } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 interface Props {}
 
@@ -19,7 +22,9 @@ interface IFormData {
 
 const Login: NextPage<Props> = () => {
   const { Content } = Layout;
-
+  const dispatch = useDispatch();
+  const state = useSelector((state: RootState) => state.auth);
+  const { Register } = bindActionCreators(AuthActionCreators, dispatch);
   const [formData, setFormData] = useState<IFormData>({
     email: '',
     password: '',
@@ -40,7 +45,13 @@ const Login: NextPage<Props> = () => {
   });
 
   const onSubmitForm = () => {
-    console.log(formData);
+    console.log(formData, state, 'submission clicked');
+    Register({
+      firstName: 'Abbey',
+      lastName: 'Tosin',
+      role: 'admin',
+      lastLogin: '3rd, April, 20:00:00',
+    });
   };
 
   return (
@@ -54,7 +65,6 @@ const Login: NextPage<Props> = () => {
             <Col xs={0} sm={0} md={0} lg={14} xl={14}>
               <div className='left-hero'>
                 <div className='image-wrapper'>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={assets.LoginHero.src}
                     alt={assets.LoginHero.alt}
@@ -68,7 +78,6 @@ const Login: NextPage<Props> = () => {
                 </p>
               </div>
             </Col>
-
             <Col
               xs={24}
               sm={24}

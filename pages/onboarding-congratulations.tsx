@@ -1,9 +1,9 @@
-import type { NextPage } from 'next';
 import Link from 'next/link';
+import type { NextPage } from 'next';
+import { Button, Typography, OnboardingLayout } from '@src/components';
 
-import { Button, Typography, OnboardingLayout } from '../src/components';
-
-const OnboardingCongratulations: NextPage = () => {
+interface Props {}
+const OnboardingCongratulations: NextPage<Props> = () => {
   return (
     <OnboardingLayout>
       <div className='onboarding-congratulations-container '>
@@ -12,7 +12,7 @@ const OnboardingCongratulations: NextPage = () => {
           <Typography className='mt-2 mb-4' variant='body6'>
             You have successfully completed your onboarding. You are ready to start investing
           </Typography>
-          <Link href='/dashboard'>
+          <Link href='/investors/dashboard/investments'>
             <Button label='Get Started' />
           </Link>
         </div>

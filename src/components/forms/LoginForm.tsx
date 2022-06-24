@@ -1,14 +1,12 @@
-import { Button, Row, Col } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-import { Formik } from 'formik';
-import { Form, Input, Checkbox } from 'formik-antd';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Formik } from 'formik';
 import type { NextPage } from 'next';
+import { assets } from '@src/assets';
 import React, { Fragment } from 'react';
-
-
-import { assets } from '../../assets';
+import { Button, Row, Col } from 'antd';
+import { Form, Input, Checkbox } from 'formik-antd';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 interface IFormData {
   email: string;
@@ -20,7 +18,7 @@ interface Props {
   formData: IFormData;
   onSubmitForm: () => void;
   onFormChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  validateSchema: any;
+  validateSchema: object;
   onRememberCheck: (event: CheckboxChangeEvent) => void;
 }
 
@@ -86,7 +84,7 @@ export const LoginForm: NextPage<Props> = ({
                 </Checkbox>
               </Col>
               <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-                <h5 className='float-right mt-1'>
+                <h5 className='float-right'>
                   <Link href='/forgot-password'>
                     <a className='text-black'> Forgot your password</a>
                   </Link>

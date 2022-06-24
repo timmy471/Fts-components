@@ -1,12 +1,9 @@
-import type { NextPage } from 'next';
 import { Col, Row } from 'antd';
-
-import { OnboardingSidebar } from './OnboardingSidebar';
-
+import type { NextPage } from 'next';
+import { OnboardingSidebar } from '@src/components';
 interface IProps {
   children: JSX.Element[] | JSX.Element;
 }
-
 export const OnboardingLayout: NextPage<IProps> = ({ children }) => {
   return (
     <div className='onboarding'>

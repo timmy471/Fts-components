@@ -17,9 +17,13 @@
   }
 
   .fa-input-search-icon {
-    color: $fa-grey-200 !important;
+    color: $fa-grey-200  !important;
   }
 
+  .searchfield-placeholder {
+    bottom: .3rem;
+    position: relative;
+  }
 }
 
 .texfield_container_default {

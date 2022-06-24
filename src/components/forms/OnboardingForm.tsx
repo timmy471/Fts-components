@@ -1,11 +1,10 @@
 import { Col, Row, Radio } from 'antd';
-import { Formik, Form, ErrorMessage } from 'formik';
-import { Dispatch, SetStateAction } from 'react';
-
 import OtpInput from 'react-otp-input';
+import { Dispatch, SetStateAction } from 'react';
 import PhoneInput from 'react-phone-number-input';
+import { Formik, Form, ErrorMessage } from 'formik';
+import { industries } from '@src/helpers/constants';
 
-import { industries } from '../../../src/helpers/constants';
 
 import {
   Typography,
@@ -55,7 +54,6 @@ interface IProps {
   validatePin: () => object;
   handlePrevious: () => void;
 }
-
 export const OnboardingForm: React.FC<IProps> = ({
   currentStep,
   initialValues,

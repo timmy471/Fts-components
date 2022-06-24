@@ -1,15 +1,3 @@
-import type { DatePickerProps } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
-import { Col, Modal, Row, Table, Collapse, Dropdown, Menu, DatePicker } from 'antd';
-import { CaretDownOutlined, DownOutlined } from '@ant-design/icons';
-
-import Image from 'next/image';
-import type { NextPage } from 'next';
-import { useState } from 'react';
-import * as Yup from 'yup';
-
-import { assets } from '../../../src/assets/';
-import { defaultValidation } from '../../../src/helpers';
 import {
   InvestorsDashboardLayout,
   Button,
@@ -17,10 +5,19 @@ import {
   TextField,
   SelectField,
   WalletForm,
-} from '../../../src/components';
+} from '@src/components';
+import * as Yup from 'yup';
+import Image from 'next/image';
+import { useState } from 'react';
+import type { NextPage } from 'next';
+import { assets } from '@src/assets/';
+import type { DatePickerProps } from 'antd';
+import { defaultValidation } from '@src/helpers';
+import type { ColumnsType } from 'antd/lib/table';
+import { CaretDownOutlined } from '@ant-design/icons';
+import { Col, Modal, Row, Table, Collapse, Dropdown, Menu, DatePicker } from 'antd';
 
 interface IProps {}
-
 interface IDataType {
   date: string;
   id: string;
@@ -33,22 +30,17 @@ interface IDataType {
 
 const InvestorsWallet: NextPage<IProps> = () => {
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
-
   const { Panel } = Collapse;
-
   const handlePaymentModalAction = () => setIsPaymentModalOpen(!isPaymentModalOpen);
-
   const fundWalledValidation = () =>
     Yup.object().shape({
       currency: defaultValidation('Currency'),
       amount: defaultValidation('Amount'),
     });
-
   const handleWalletFundSubmit = (values: object) => {
     console.log(values);
     handlePaymentModalAction();
   };
-
   const tableColumns: ColumnsType<IDataType> = [
     {
       title: 'Date',
@@ -345,7 +337,7 @@ const InvestorsWallet: NextPage<IProps> = () => {
                     overlayClassName='dropdown-container'>
                     <div className='cursor-pointer date-filter-cta w-100 d-flex justify-content-between align-items-center'>
                       <Typography className='mtop-3'>All Dates</Typography>{' '}
-                      <DownOutlined className='drop-down' />
+                      <CaretDownOutlined style={{ color: '#bfbfbf' }} />
                     </div>
                   </Dropdown>
                 </div>
@@ -362,7 +354,8 @@ const InvestorsWallet: NextPage<IProps> = () => {
                 expandIcon={({ isActive }) => (
                   <CaretDownOutlined rotate={isActive ? 180 : 0} />
                 )}
-                className=''>
+                className=''
+                key={key}>
                 <Panel
                   header={
                     <div className='w-100 d-flex justify-content-between pr-1'>
@@ -414,7 +407,7 @@ const InvestorsWallet: NextPage<IProps> = () => {
         <div className='fa-table wallet-table mtop-1 pb-4'>
           <Table
             columns={tableColumns}
-            dataSource={walletData}
+            dataSource={walletData.map((info, key) => ({ ...info, key }))}
             pagination={false}
             scroll={{ x: true, y: 'calc(100vh - 300px)' }}
           />

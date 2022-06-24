@@ -91,4 +91,24 @@ export const assets = {
     alt: 'filter',
     src: '/assets/images/filter.png',
   },
+  SearchIcon: {
+    alt: 'Search Icon',
+    src: '/assets/images/dashboard/search-icon.svg',
+  },
+  DealCta: {
+    alt: 'Deal CTA Image',
+    src: '/assets/images/dashboard/deal-cta2.jpg',
+  },
+  DealCta2: {
+    alt: 'Deal CTA Image',
+    src: '/assets/images/dashboard/deal-cta3.jpg',
+  },
+  MooiLogo: {
+    alt: 'Mooi Logo',
+    src: '/assets/images/dashboard/mooi-logo.png',
+  },
+  FilterHarmBurger: {
+    alt: 'Filter Icon',
+    src: '/assets/images/dashboard/filter-harmburger.svg',
+  },
 };

@@ -1,6 +1,7 @@
-import { SearchOutlined } from '@ant-design/icons';
-import React, { ForwardRefRenderFunction, InputHTMLAttributes } from 'react';
 import clsx from 'classnames';
+import Image from 'next/image';
+import { assets } from '@src/assets';
+import React, { ForwardRefRenderFunction, InputHTMLAttributes } from 'react';
 
 interface TextfieldProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -63,8 +64,18 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
     <div className={`fa_textfield_container ${label ? 'texfield_container_default' : ''}`}>
       {!label && placeholder && (
         <div className={`placeholder ${value ? 'no-placeholder' : ''}`}>
-          {!value && searchField && <SearchOutlined className={'fa-input-search-icon'} />}{' '}
-          <label htmlFor={id || name}>{placeholder}</label> {required && <span>*</span>}
+          {!value && searchField && (
+            <Image
+              src={assets.SearchIcon.src}
+              alt={assets.SearchIcon.alt}
+              width='20'
+              height='20'
+            />
+          )}{' '}
+          <label htmlFor={id || name} className={searchField ? 'searchfield-placeholder' : ''}>
+            {placeholder}
+          </label>{' '}
+          {required && <span>*</span>}
         </div>
       )}
 

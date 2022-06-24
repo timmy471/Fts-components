@@ -1,13 +1,13 @@
+import * as Yup from 'yup';
+import Link from 'next/link';
+import Image from 'next/image';
+import Router from 'next/router';
+import { assets } from '@src/assets';
+import type { NextPage } from 'next';
+import { useState, Fragment } from 'react';
+import { RegisterForm } from '@src/components';
 import { Layout, Row, Col, Button } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-import type { NextPage } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useState, Fragment } from 'react';
-import * as Yup from 'yup';
-
-import { assets } from '../src/assets';
-import { RegisterForm } from '../src/components';
 
 interface Props {}
 
@@ -21,7 +21,6 @@ interface IFormData {
 
 const Register: NextPage<Props> = () => {
   const { Content } = Layout;
-
   const [formData, setFormData] = useState<IFormData>({
     firstName: '',
     lastName: '',
@@ -29,16 +28,13 @@ const Register: NextPage<Props> = () => {
     password: '',
     terms: false,
   });
-
   const onFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-
   const onTermsCheck = (e: CheckboxChangeEvent) => {
     setFormData({ ...formData, terms: e.target.checked });
   };
-
-  const validateSchema = Yup.object().shape({
+  const validateSchema: object = Yup.object().shape({
     firstName: Yup.string()
       .min(2, 'First name must be at least 2 characters')
       .max(25, 'First name must be at most 25 characters')
@@ -51,11 +47,10 @@ const Register: NextPage<Props> = () => {
     password: Yup.string().required('Password is required'),
     terms: Yup.boolean().required('Terms must be accepted'),
   });
-
   const onSubmitForm = () => {
     console.log(formData);
+    Router.push('/onboarding');
   };
-
   return (
     <div className='register'>
       <Content className='container'>
@@ -72,7 +67,6 @@ const Register: NextPage<Props> = () => {
               </Fragment>
               <div className='left-hero'>
                 <div className='image-wrapper'>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={assets.LoginHero.src}
                     alt={assets.LoginHero.alt}
@@ -86,7 +80,6 @@ const Register: NextPage<Props> = () => {
                 </p>
               </div>
             </Col>
-
             <Col
               xs={24}
               sm={24}

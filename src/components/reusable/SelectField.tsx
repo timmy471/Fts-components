@@ -1,24 +1,8 @@
 import { Select } from 'antd';
+import { ISelect } from 'type.d';
+import { CaretDownOutlined } from '@ant-design/icons';
 
-interface IOption {
-  value: string;
-  label: string;
-}
-
-interface ISelect {
-  placeholder?: React.ReactNode;
-  required?: boolean;
-  disabled?: boolean;
-  isSearchable?: boolean;
-  options: IOption[];
-  className?: string;
-  hasError?: boolean | string;
-  onSelect: (value: string | number) => void;
-  onChange: (value: string) => void;
-  onBlur?: (e: React.FocusEvent<any, Element>) => void;
-}
 const { Option } = Select;
-
 export const SelectField: React.FC<ISelect> = ({
   placeholder,
   required = true,
@@ -47,6 +31,7 @@ export const SelectField: React.FC<ISelect> = ({
         onSelect={onSelect}
         onChange={onChange}
         onBlur={onBlur}
+        suffixIcon={<CaretDownOutlined />}
         bordered={false}
         filterOption={(input, option: any) => {
           return option!.children?.toLowerCase().includes(input.toLowerCase());

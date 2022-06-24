@@ -1,35 +1,16 @@
 import AOS from 'aos';
+import * as Yup from 'yup';
 import { Col, Row } from 'antd';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { IDetailFormValues } from 'type.d';
 import { useState, useEffect } from 'react';
-import * as Yup from 'yup';
-
-import { countries } from '../src/helpers/constants';
-import { defaultValidation, urlValidation } from '../src/helpers';
-import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '../src/components';
-
-interface IDetailFormValues {
-  nationality: string;
-  country: string;
-  city: string;
-  address: string;
-  zip: string;
-  phoneNumber: string;
-  linkedin: string;
-  profession: string;
-  firm: string;
-  industry: string;
-  income: string;
-  investmentMethod: string | null;
-  pastInvestment: boolean;
-  syndicateMember: boolean;
-  pastEvent: boolean;
-  event: string;
-}
+import { countries } from '@src/helpers/constants';
+import { defaultValidation, urlValidation } from '@src/helpers';
+import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '@src/components';
 
 const Onboarding: NextPage = () => {
-  const [currentStep, setCurrentStep] = useState<number>(2);
+  const [currentStep, setCurrentStep] = useState<number>(1);
   const [mounted, setMounted] = useState<boolean>(false);
   const [shouldValidateEvent, setShouldValidateEvent] = useState<boolean>(false);
 
@@ -129,7 +110,6 @@ const Onboarding: NextPage = () => {
     'Other Details',
     'PIN Setup',
   ];
-
   const initialValues: IDetailFormValues = {
     nationality: '',
     country: '',
@@ -148,9 +128,7 @@ const Onboarding: NextPage = () => {
     pastEvent: false,
     event: '',
   };
-
   if (!mounted) return null;
-
   return (
     <div className='onboarding'>
       <Row>
@@ -165,7 +143,6 @@ const Onboarding: NextPage = () => {
             <Col xs={0} lg={24}>
               <Typography component='h5'>Awesome! Lets get you onboarded</Typography>
             </Col>
-
             <FormStepper steps={onBoardingSteps} currentStep={currentStep} />
             <div>
               <div className='onboarding-form-main'>
