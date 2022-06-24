@@ -44,8 +44,6 @@
     }
 
     .filter-params-container {
-
-
         display: flex;
         align-content: center;
         align-items: center;
@@ -80,7 +78,41 @@
             width: 100%
         }
     }
+
+    .date-filter-cta {
+
+        border-radius: 8px;
+        background-color: $fa-white;
+        font-size: 14px;
+        padding: 0 .8rem;
+
+        p {
+            color: $fa-grey-200;
+        }
+
+        .drop-down {
+            color: $fa-grey-200;
+            font-size: 12px;
+        }
+    }
+
+    .dropdown-container {
+        border-radius: 10px;
+    }
 }
+
+.ant-dropdown-menu {
+    border-radius: 6px;
+    padding-bottom: 1rem
+}
+
+.filter-date-picker {
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    height: 2.3rem;
+}
+
+
 
 .wallet-payment-modal {
     .ant-modal-content {

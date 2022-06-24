@@ -9,11 +9,11 @@ import { countries } from '@src/helpers/constants';
 import { defaultValidation, urlValidation } from '@src/helpers';
 import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '@src/components';
 
-
 const Onboarding: NextPage = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [mounted, setMounted] = useState<boolean>(false);
   const [shouldValidateEvent, setShouldValidateEvent] = useState<boolean>(false);
+
   useEffect(() => {
     setMounted(true);
     AOS.init({
@@ -21,6 +21,7 @@ const Onboarding: NextPage = () => {
     });
     AOS.refresh();
   }, []);
+
   const validateProfileInfo = () =>
     Yup.object().shape({
       nationality: defaultValidation('Nationality'),
@@ -39,18 +40,21 @@ const Onboarding: NextPage = () => {
       industry: defaultValidation('Industry'),
       income: defaultValidation('Income'),
     });
+
   const validateOtherInfo = () =>
     Yup.object().shape({
       investmentMethod: Yup.string().required('Select a Method').nullable(),
       event: shouldValidateEvent ? Yup.string().required('Event is required') : Yup.string(),
     });
+
   const validatePin = () =>
     Yup.object({
-      pin: defaultValidation('PIN'),
+      pin: Yup.string().required('Error: PIN is required'),
       confirmPin: Yup.string()
-        .required('Re-enter PIN')
-        .oneOf([Yup.ref('pin'), null], 'Pins do not match'),
+        .required('Error: Re-enter PIN')
+        .oneOf([Yup.ref('pin'), null], 'Error: Entered PINs do not match'),
     });
+
   const getValidationSchema = () => {
     switch (currentStep) {
       case 1:
@@ -66,14 +70,19 @@ const Onboarding: NextPage = () => {
         return Yup.object().shape({});
     }
   };
+
   const router = useRouter();
+
   const onDetailSubmit = (values: object) => {
     return handleNext();
   };
+
   const onPinSubmit = (values: object) => {
     return router.push('/onboarding-congratulations');
   };
+
   const handleNext = () => setCurrentStep(currentStep + 1);
+
   const handlePrevious = () => {
     return setCurrentStep(currentStep - 1);
   };

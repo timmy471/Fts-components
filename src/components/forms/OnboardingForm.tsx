@@ -5,7 +5,6 @@ import PhoneInput from 'react-phone-number-input';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { industries } from '@src/helpers/constants';
 
-
 import {
   Typography,
   SelectField,
@@ -175,7 +174,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                         countryCallingCodeEditable={false}
                         name='phoneNumber'
                         value={values.phoneNumber}
-                        onChange={(val) => setFieldValue('phoneNumber', val)}
+                        onChange={(val: string) => setFieldValue('phoneNumber', val)}
                         defaultCountry='NG'
                         international
                       />
@@ -352,7 +351,7 @@ export const OnboardingForm: React.FC<IProps> = ({
             }}
             validationSchema={validatePin}
             onSubmit={onPinSubmit}>
-            {({ setFieldValue, values }) => (
+            {({ setFieldValue, values, errors, touched }) => (
               <Form noValidate autoComplete='off'>
                 <Typography variant='body7'>Pin Code</Typography>
                 <OtpInput
@@ -363,7 +362,11 @@ export const OnboardingForm: React.FC<IProps> = ({
                   shouldAutoFocus
                   isInputNum
                 />
-                <ErrorMessage component={FormError} name='pin' />
+                <div className='mtop-2'>
+                  {errors.pin && touched.pin ? (
+                    <Typography state='error'>{errors.pin}</Typography>
+                  ) : null}
+                </div>
 
                 <div className='mt-2'>
                   <Typography variant='body7'> Confrim Pin Code</Typography>
@@ -374,7 +377,11 @@ export const OnboardingForm: React.FC<IProps> = ({
                     numInputs={5}
                     isInputNum
                   />
-                  <ErrorMessage component={FormError} name='confirmPin' />
+                  <div className='mtop-2'>
+                    {errors.confirmPin && touched.confirmPin ? (
+                      <Typography state='error'>{errors.confirmPin}</Typography>
+                    ) : null}
+                  </div>
                 </div>
                 <div className='control-buttons-container contro-buttons-container__single'>
                   <Button type='submit' label='Finish' />

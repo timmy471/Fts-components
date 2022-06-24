@@ -1,5 +1,6 @@
 import { Select } from 'antd';
 import { ISelect } from 'type.d';
+import { CaretDownOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 export const SelectField: React.FC<ISelect> = ({
@@ -30,6 +31,7 @@ export const SelectField: React.FC<ISelect> = ({
         onSelect={onSelect}
         onChange={onChange}
         onBlur={onBlur}
+        suffixIcon={<CaretDownOutlined />}
         bordered={false}
         filterOption={(input, option: any) => {
           return option!.children?.toLowerCase().includes(input.toLowerCase());
