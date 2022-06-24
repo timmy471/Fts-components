@@ -29,7 +29,7 @@ interface IDetailFormValues {
 }
 
 const Onboarding: NextPage = () => {
-  const [currentStep, setCurrentStep] = useState<number>(1);
+  const [currentStep, setCurrentStep] = useState<number>(2);
   const [mounted, setMounted] = useState<boolean>(false);
   const [shouldValidateEvent, setShouldValidateEvent] = useState<boolean>(false);
 
@@ -68,10 +68,10 @@ const Onboarding: NextPage = () => {
 
   const validatePin = () =>
     Yup.object({
-      pin: defaultValidation('PIN'),
+      pin: Yup.string().required('Error: PIN is required'),
       confirmPin: Yup.string()
-        .required('Re-enter PIN')
-        .oneOf([Yup.ref('pin'), null], 'Pins do not match'),
+        .required('Error: Re-enter PIN')
+        .oneOf([Yup.ref('pin'), null], 'Error: Entered PINs do not match'),
     });
 
   const getValidationSchema = () => {

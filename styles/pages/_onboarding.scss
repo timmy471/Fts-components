@@ -4,15 +4,17 @@
 
     .onboarding-sidebar-container {
         padding: 2rem 0.8rem 2rem 2.5rem;
+        height: 100vh;
         position: relative;
 
-        @include mdMaxBreakPoint {
+        @include lgMaxBreakPoint {
             padding: 0;
+            height: 100%;
         }
     }
 
     .onboarding-sidebar {
-        height: 100vh;
+        // height: 100vh;
         background-color: $fa-grey-800;
         border-radius: 20px;
         padding: 3rem 3rem 6rem;
@@ -23,6 +25,7 @@
         color: $fa-white  !important;
         background-blend-mode: overlay;
         position: relative;
+        height: 100%;
 
         h5 {
             color: $fa-white;
@@ -38,13 +41,14 @@
 
         .onboarding-img {
             position: relative;
-            top: 30%;
+            top: 23%;
             display: flex;
             justify-content: center;
         }
 
         @include xlMaxBreakPoint {
             padding: 3rem 1.5rem 6rem;
+
         }
 
         @include lgMaxBreakPoint {
@@ -150,7 +154,7 @@
             .text-indicator {
                 margin: 0.2rem 0.5rem;
                 width: 100%;
-                text-align: center;
+                // text-align: center;
 
                 div {
                     border: 1px solid rgba(255, 168, 0, 0.2);
@@ -159,11 +163,12 @@
 
                 p {
                     opacity: 0.3;
+                    margin-left: .4rem
                 }
 
                 &__active {
                     div {
-                        border: 1px dashed $fa-primary-100;
+                        border: 1.5px dashed $fa-primary-100;
                     }
 
                     p {
@@ -172,11 +177,14 @@
                     }
                 }
 
-                &__completed div {
-                    border: 1px solid $fa-primary-100;
+                &__completed {
+                    div {
+                        border: 1px solid $fa-primary-100;
+                    }
 
                     p {
                         color: $fa-black;
+                        opacity: 1;
                     }
                 }
 
@@ -287,7 +295,7 @@
 
     .control-buttons-container {
         position: absolute;
-        bottom: 5rem;
+        bottom: 3.5rem;
         width: 80%;
 
         div {

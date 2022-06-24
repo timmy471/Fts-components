@@ -1,6 +1,7 @@
-import { Col, Modal, Row, Table, Collapse } from 'antd';
+import type { DatePickerProps } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
-import { CaretDownOutlined } from '@ant-design/icons';
+import { Col, Modal, Row, Table, Collapse, Dropdown, Menu, DatePicker } from 'antd';
+import { CaretDownOutlined, DownOutlined } from '@ant-design/icons';
 
 import Image from 'next/image';
 import type { NextPage } from 'next';
@@ -191,6 +192,62 @@ const InvestorsWallet: NextPage<IProps> = () => {
     },
   ];
 
+  const onDateChange: DatePickerProps['onChange'] = (date, dateString) => {
+    console.log(date, dateString);
+  };
+
+  const dateMenu = (
+    <Menu
+      items={[
+        {
+          label: 'Today',
+          key: '0',
+        },
+        {
+          label: 'Yesterday',
+          key: '1',
+        },
+        {
+          label: 'This Month',
+          key: '2',
+        },
+        {
+          label: 'Last Month',
+          key: '3',
+        },
+        {
+          type: 'divider',
+        },
+        {
+          label: (
+            <div className='d-flex'>
+              <div>
+                <label>From</label>
+                <br />
+                <DatePicker
+                  onChange={onDateChange}
+                  suffixIcon={null}
+                  className='filter-date-picker'
+                />
+              </div>
+              &nbsp; &nbsp;
+              <div>
+                <label>To</label>
+                <br />
+                <DatePicker
+                  onChange={onDateChange}
+                  suffixIcon={null}
+                  className='filter-date-picker'
+                />
+              </div>
+            </div>
+          ),
+          key: '4',
+        },
+      ]}
+    />
+  );
+
   return (
     <InvestorsDashboardLayout classN='wallet' subClassN='wallet'>
       <div className='investor-wallet'>
@@ -281,14 +338,16 @@ const InvestorsWallet: NextPage<IProps> = () => {
                     onChange={() => {}}
                     className='w-100 mr-2'
                   />
-                  <SelectField
-                    placeholder='All Dates'
-                    required={false}
-                    options={[]}
-                    onSelect={() => {}}
-                    onChange={() => {}}
-                    className='w-100 '
-                  />
+                  <Dropdown
+                    overlay={dateMenu}
+                    trigger={['click']}
+                    overlayStyle={{ borderRadius: '10px!important' }}
+                    overlayClassName='dropdown-container'>
+                    <div className='cursor-pointer date-filter-cta w-100 d-flex justify-content-between align-items-center'>
+                      <Typography className='mtop-3'>All Dates</Typography>{' '}
+                      <DownOutlined className='drop-down' />
+                    </div>
+                  </Dropdown>
                 </div>
               </div>
             </Col>
