@@ -107,9 +107,15 @@
 }
 
 .filter-date-picker {
-    border: 1px solid #e2e2e2;
-    border-radius: 8px;
-    height: 2.3rem;
+    border: none;
+    border-radius: 10px;
+    height: 3.3rem !important;
+    width: 14rem !important;
+    background-color: $fa-white;
+
+    .ant-picker-input>input::placeholder {
+        color: $fa-grey-200;
+    }
 }
 
 
