@@ -165,3 +165,17 @@
     }
   }
 }
+
+// Desktop Screens
+@media (min-width: 1000px) {
+  .login {
+    .container {
+      .row-style {
+        height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

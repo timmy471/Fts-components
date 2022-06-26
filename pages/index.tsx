@@ -61,7 +61,7 @@ const Login: NextPage<Props> = () => {
           <Image src={assets.FaLogo.src} alt={assets.FaLogo.alt} width={100} height={100} />
         </Fragment>
         <div>
-          <Row>
+          <Row className='row-style'>
             <Col xs={0} sm={0} md={0} lg={14} xl={14}>
               <div className='left-hero'>
                 <div className='image-wrapper'>
