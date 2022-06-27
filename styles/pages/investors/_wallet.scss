@@ -63,11 +63,17 @@
         }
     }
 
-    .filter-cta {
-        span {
-            @include xlMaxBreakPoint {
-                display: block;
-            }
+    .desktop-filter-cta {
+        @include xlMaxBreakPoint {
+            display: none;
+        }
+    }
+
+    .mobile-filter-cta {
+        display: none;
+
+        @include xlMaxBreakPoint {
+            display: flex;
         }
     }
 
@@ -187,5 +193,36 @@
         line-height: 10px;
         font-weight: 600;
         color: #393636;
+    }
+}
+
+.mobile-filter-accordion {
+    .wallet-filter-panel {
+        background-color: $fa-white;
+        margin-bottom: 5px;
+        margin-top: 1.5rem;
+        border-radius: 8px !important;
+        border-bottom: 1px solid $fa-grey-400  !important;
+
+        p {
+            margin-bottom: -.3rem
+        }
+
+        div {
+            flex-wrap: wrap;
+
+            div {
+                margin: 0 .4rem 1rem 0
+            }
+        }
+    }
+
+    .ant-collapse-borderless,
+    .ant-collapse {
+        background-color: $fa-white;
+    }
+
+    .ant-collapse-item-active {
+        background: #f4f4f4;
     }
 }

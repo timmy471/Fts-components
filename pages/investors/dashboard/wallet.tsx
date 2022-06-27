@@ -5,6 +5,8 @@ import {
   TextField,
   SelectField,
   WalletForm,
+  MobileFilter,
+  Pill,
 } from '@src/components';
 import * as Yup from 'yup';
 import Image from 'next/image';
@@ -40,12 +42,16 @@ const InvestorsWallet: NextPage<IProps> = () => {
 
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
   const [showDateFilter, setShowDateFilter] = useState<boolean>(false);
+  const [isOpenMobileFilter, setisOpenMobileFilter] = useState<boolean>(false);
+  const [activeKey, setActiveKey] = useState<string | number | undefined>(undefined);
   const [filterParams, setFilterParams] = useState<IFilter>({
     q: '',
     provider: '',
     status: '',
     date: '',
   });
+
+  const handleMobileFilterClick = () => setisOpenMobileFilter(!isOpenMobileFilter);
 
   const handlePaymentModalAction = () => setIsPaymentModalOpen(!isPaymentModalOpen);
 
@@ -204,6 +210,8 @@ const InvestorsWallet: NextPage<IProps> = () => {
   ];
 
   const dateMenuOptions = ['Today', 'Yesterday', 'This Month', 'Last Month', 'Date Range'];
+  // const statusMenuOptions = [];
+  // const providerMenuOptions = [];
 
   const handleDateOptionClick = (key: number) => {
     //Set date in filterOptions with moment helper function based on today, tomorrow etc
@@ -289,9 +297,14 @@ const InvestorsWallet: NextPage<IProps> = () => {
             </Col>
             <Col xs={24} md={showDateFilter ? 16 : 12}>
               <div className='filter-params-container'>
-                <div className='filter-cta cursor-pointer d-flex align-items-center'>
+                <div className='desktop-filter-cta'>
+                  <Typography className='mt-1'>Filter By</Typography>
+                </div>
+                <div
+                  className='mobile-filter-cta cursor-pointer align-items-center'
+                  onClick={handleMobileFilterClick}>
                   <Typography className='mt-1'>Filter By:</Typography>
-                  <span className='mtop-2 d-none'>
+                  <span className='mtop-2'>
                     <Image
                       src={assets.filterIcon.src}
                       alt={assets.filterIcon.alt}
@@ -426,6 +439,56 @@ const InvestorsWallet: NextPage<IProps> = () => {
             onWalletFundSubmit={handleWalletFundSubmit}
           />
         </Modal>
+        <MobileFilter visible={isOpenMobileFilter} handleClose={handleMobileFilterClick}>
+          <div className='p-4 mobile-filter-accordion'>
+            <div className='d-flex justify-content-between'>
+              <Typography component='h5'>Filter</Typography>
+              {/* <Typography className='cursor-pointer' variant='body6' state='tetiary'>
+                Apply Filter
+              </Typography> */}
+            </div>
+            <div className='mt-2'>
+              <Collapse
+                bordered={false}
+                expandIconPosition='end'
+                expandIcon={(info: any) => (
+                  <CaretDownOutlined
+                    style={{ color: '#bfbfbf' }}
+                    onClick={() =>
+                      activeKey === info.panelKey
+                        ? setActiveKey(undefined)
+                        : setActiveKey(info.panelKey)
+                    }
+                  />
+                )}
+                activeKey={activeKey}>
+                <Panel
+                  header={<Typography variant='body6'>All Providers</Typography>}
+                  key={1}
+                  className='wallet-filter-panel'></Panel>
+                <Panel
+                  header={<Typography variant='body6'>All Status</Typography>}
+                  key={2}
+                  className='wallet-filter-panel'></Panel>
+                <Panel
+                  header={<Typography variant='body6'>All Dates</Typography>}
+                  key={3}
+                  className='wallet-filter-panel'>
+                  <div className='d-flex'>
+                    {dateMenuOptions.map((option, key) => (
+                      <Pill
+                        label={option}
+                        key={key}
+                        onClick={() => setFilterParams({ ...filterParams, date: option })}
+                        selected={filterParams.date === option}
+                      />
+                    ))}
+                  </div>
+                </Panel>
+              </Collapse>
+            </div>
+          </div>
+        </MobileFilter>
       </div>
     </InvestorsDashboardLayout>
   );
