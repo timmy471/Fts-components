@@ -115,4 +115,16 @@ export const assets = {
     alt: 'Logo',
     src: '/assets/images/dashboard/pinterest.svg',
   },
+  ClosingDocsIcon: {
+    alt: 'Icon',
+    src: '/assets/images/dashboard/closing-docs-icon.svg',
+  },
+  MessageLeadsIcon: {
+    alt: 'Icon',
+    src: '/assets/images/dashboard/message-leads-icon.svg',
+  },
+  PastInvestmentsIcon: {
+    alt: 'Icon',
+    src: '/assets/images/dashboard/past-investments-icon.svg',
+  },
 };

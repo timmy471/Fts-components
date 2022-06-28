@@ -45,11 +45,21 @@
   }
   .card-cta {
     margin-top: 30px;
+    b {
+      display: block;
+      margin-top: 20px;
+    }
+    h2 {
+      font-family: $font-family-primary;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 20px;
+    }
     .card-container p {
       margin: 0;
     }
     .card-container > .ant-tabs-card .ant-tabs-content {
-      height: 120px;
       margin-top: -16px;
     }
     .card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
@@ -68,8 +78,6 @@
     }
     .card-container > .ant-tabs-card .ant-tabs-tab-active,
     [data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab-active {
-      // background: #fff;
-      // border-color: #fff;
       border-radius: 18px 18px 0px 0px;
       background: #ffa800;
       padding: 10px 30px;

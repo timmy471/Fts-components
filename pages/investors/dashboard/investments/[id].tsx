@@ -43,14 +43,90 @@ const InvestorsDashboard: NextPage<IProps> = () => {
           <div className='card-container'>
             <Tabs type='card'>
               <TabPane tab='Note' key='1'>
-                <p>Content of Tab Pane 1</p>
-                <p>Content of Tab Pane 1</p>
-                <p>Content of Tab Pane 1</p>
+                <Row gutter={[40, 40]}>
+                  <Col xs={24} sm={24} md={18} lg={18} xl={18}>
+                    <p>
+                      Our Fund is led by operators who founded, funded and helped build many of
+                      Africas fastest-growing startups like Andela, Flutterwave, Jumia, Kobo360
+                      and 54gene, amongst several others, from their earliest stages over the
+                      last decade. This experience of funding, founding and building
+                      high-growth technology businesses gives us a unique understanding of how
+                      to be partners that can provide more than capital to these types of
+                      businesses. Founders flock to us because of our track record of
+                      partnering with companies to provide early-stage capital when they need
+                      it most. We also provide coaching on key elements of building a
+                      high-growth business including sales and business development, support
+                      for future raises, people operations, marketing, product and strategy. We
+                      work with a strong community of small businesses, large corporations,
+                      angel and institutional investors, government officials and talented
+                      professionals, who work with our companies to innovate and grow.
+                      <br />
+                      <br />
+                      Ultimately, we do not just do this because we are good at making great
+                      returns for you. We do what we do because of our desire to partner with
+                      companies leveraging the miracle of technology and innovation to build
+                      out of Africas deeply unsettling challenges global businesses that
+                      deliver a more equitable future where prosperity and purpose are within
+                      everyones reach. The Fund aims to sell stakes in portfolio companies
+                      after that company achieves a $100M+ valuation, instead of waiting for a
+                      traditional exit opportunity. Any companies featured above are referenced
+                      due to their notoriety in the startup and venture capital community.
+                      <br />
+                      <br />
+                      <i>
+                        {' '}
+                        These references are provided for illustrative purposes only and are
+                        not an exhaustive list of all investments made or involving the Fund
+                        Lead. A full list of the Fund Lead’s investment history will be made
+                        available upon request.
+                      </i>
+                    </p>
+                  </Col>
+                  <Col xs={24} sm={24} md={6} lg={6} xl={6}>
+                    <b>
+                      <img
+                        src={assets.MessageLeadsIcon.src}
+                        alt={assets.MessageLeadsIcon.alt}
+                        width='15'
+                        height={'15'}
+                        className='mbottom-1'
+                      />
+                      {'   '}
+                      Message Fund Leads
+                    </b>
+                    <b>
+                      <img
+                        src={assets.ClosingDocsIcon.src}
+                        alt={assets.ClosingDocsIcon.alt}
+                        width='15'
+                        height={'15'}
+                        className='mbottom-1'
+                      />
+                      {'   '}
+                      Closing Documents
+                    </b>
+                    <br />
+                    <br />
+                    <br />
+                    <h3>Fund Manager/Lead</h3>
+                    <h2>Future Africa</h2>
+                    <p className='text-primary'>
+                      {' '}
+                      <img
+                        src={assets.PastInvestmentsIcon.src}
+                        alt={assets.PastInvestmentsIcon.alt}
+                        width='15'
+                        height='15'
+                        className='mbottom-1'
+                      />
+                      {'   '}
+                      Past Investments
+                    </p>
+                  </Col>
+                </Row>
               </TabPane>
               <TabPane tab='Investments Details' key='2'>
-                <p>Content of Tab Pane 2</p>
-                <p>Content of Tab Pane 2</p>
-                <p>Content of Tab Pane 2</p>
+                
               </TabPane>
               <TabPane tab='Asset Record' key='3'>
                 <p>Content of Tab Pane 3</p>
