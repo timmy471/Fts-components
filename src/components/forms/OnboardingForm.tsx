@@ -291,7 +291,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                         </div>
                       </div>
 
-                      <div className='mt-2 d-flex justify-content-between align-items-base'>
+                      <div className='mt-2 d-flex justify-content-between align-items-baseline'>
                         <Typography variant='body5'>
                           Are you a past member of a syndicate?
                         </Typography>
@@ -305,7 +305,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                         </div>
                       </div>
 
-                      <div className='mt-2 d-flex justify-content-between align-items-base'>
+                      <div className='mt-2 d-flex justify-content-between align-items-baseline'>
                         <Typography variant='body5'>
                           Have you been to any past Future Africa events?
                         </Typography>
