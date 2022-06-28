@@ -17,19 +17,19 @@ const InvestorsDashboard: NextPage<IProps> = () => {
         </span>
         <div className='image-cta' style={{ backgroundImage: `url(${assets.DealCta.src})` }}>
           <Row className='deal-name'>
-            <Col xs={24} sm={24} md={4} lg={4} xl={4}>
+            <Col xs={24} sm={24} md={3} lg={3} xl={3}>
               <Image
-                src={assets.FaLogo.src}
-                alt={assets.FaLogo.alt}
+                src={assets.PinterestLogo.src}
+                alt={assets.PinterestLogo.alt}
                 width='100'
                 height={'100'}
               />
             </Col>
-            <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+            <Col xs={24} sm={24} md={14} lg={14} xl={14}>
               <h1>Future Africa Fund II</h1>
             </Col>
-            <Col xs={24} sm={24} md={6} lg={6} xl={6}>
-              <Button>Invest</Button>
+            <Col xs={24} sm={24} md={5} lg={5} xl={5}>
+              <Button className='btn-invest'>Invest</Button>
             </Col>
           </Row>
         </div>

@@ -111,4 +111,8 @@ export const assets = {
     alt: 'Filter Icon',
     src: '/assets/images/dashboard/filter-harmburger.svg',
   },
+  PinterestLogo: {
+    alt: 'Logo',
+    src: '/assets/images/dashboard/pinterest.svg',
+  },
 };
