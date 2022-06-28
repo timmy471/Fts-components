@@ -237,7 +237,7 @@ const InvestorsWallet: NextPage<IProps> = () => {
   );
 
   return (
-    <InvestorsDashboardLayout classN='wallet' subClassN='wallet'>
+    <InvestorsDashboardLayout classN='wallet'>
       <div className='investor-wallet'>
         <Typography component='h4'>Wallet</Typography>
         <div className='mt-2'>

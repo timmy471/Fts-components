@@ -1,0 +1,25 @@
+.selected-investment {
+  .image-cta {
+    height: 270px;
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 10px;
+    object-fit: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    .deal-name {
+      height: 127px;
+      width: 100%;
+      margin-top: auto;
+      background: #e0e0e0;
+      mix-blend-mode: normal;
+      opacity: 0.85;
+      backdrop-filter: blur(14px);
+      border-radius: 0px 0px 10px 10px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
