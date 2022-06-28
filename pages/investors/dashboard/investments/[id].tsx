@@ -1,13 +1,19 @@
 import Image from 'next/image';
-import { Row, Col, Button } from 'antd';
 import { assets } from '@src/assets';
 import type { NextPage } from 'next';
+import { Row, Col, Button, Tabs } from 'antd';
 import { CaretLeftOutlined } from '@ant-design/icons';
 import { InvestorsDashboardLayout } from '@src/components';
 
 interface IProps {}
 
 const InvestorsDashboard: NextPage<IProps> = () => {
+  const { TabPane } = Tabs;
+
+  const onChange = (key: string) => {
+    console.log(key);
+  };
+
   return (
     <InvestorsDashboardLayout classN='investments' subClassN='investments'>
       <div className='selected-investment'>
@@ -32,6 +38,27 @@ const InvestorsDashboard: NextPage<IProps> = () => {
               <Button className='btn-invest'>Invest</Button>
             </Col>
           </Row>
+        </div>
+        <div className='card-cta'>
+          <div className='card-container'>
+            <Tabs type='card'>
+              <TabPane tab='Note' key='1'>
+                <p>Content of Tab Pane 1</p>
+                <p>Content of Tab Pane 1</p>
+                <p>Content of Tab Pane 1</p>
+              </TabPane>
+              <TabPane tab='Investments Details' key='2'>
+                <p>Content of Tab Pane 2</p>
+                <p>Content of Tab Pane 2</p>
+                <p>Content of Tab Pane 2</p>
+              </TabPane>
+              <TabPane tab='Asset Record' key='3'>
+                <p>Content of Tab Pane 3</p>
+                <p>Content of Tab Pane 3</p>
+                <p>Content of Tab Pane 3</p>
+              </TabPane>
+            </Tabs>
+          </div>
         </div>
       </div>
     </InvestorsDashboardLayout>
