@@ -6,6 +6,7 @@ export * from './reusable/TextField';
 export * from './reusable/SelectField';
 export * from './reusable/Pill';
 export * from './reusable/FormError';
+export * from './reusable/MobileFilter';
 export * from './layouts/onboarding';
 export * from './layouts/onboarding/OnboardingSidebar';
 export * from './layouts/onboarding/FormStepper';

@@ -5,13 +5,14 @@ import {
   TextField,
   SelectField,
   WalletForm,
+  MobileFilter,
+  Pill,
 } from '@src/components';
 import * as Yup from 'yup';
 import Image from 'next/image';
 import { useState } from 'react';
 import type { NextPage } from 'next';
 import { assets } from '@src/assets/';
-import type { DatePickerProps } from 'antd';
 import { defaultValidation } from '@src/helpers';
 import type { ColumnsType } from 'antd/lib/table';
 import { CaretDownOutlined } from '@ant-design/icons';
@@ -28,19 +29,43 @@ interface IDataType {
   status: string;
 }
 
+interface IFilter {
+  q: string;
+  provider: string;
+  status: '';
+  date: string | object;
+}
+
 const InvestorsWallet: NextPage<IProps> = () => {
-  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
   const { Panel } = Collapse;
+  const { RangePicker } = DatePicker;
+
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
+  const [showDateFilter, setShowDateFilter] = useState<boolean>(false);
+  const [isOpenMobileFilter, setisOpenMobileFilter] = useState<boolean>(false);
+  const [activeKey, setActiveKey] = useState<string | number | undefined>(undefined);
+  const [filterParams, setFilterParams] = useState<IFilter>({
+    q: '',
+    provider: '',
+    status: '',
+    date: '',
+  });
+
+  const handleMobileFilterClick = () => setisOpenMobileFilter(!isOpenMobileFilter);
+
   const handlePaymentModalAction = () => setIsPaymentModalOpen(!isPaymentModalOpen);
+
   const fundWalledValidation = () =>
     Yup.object().shape({
       currency: defaultValidation('Currency'),
       amount: defaultValidation('Amount'),
     });
+
   const handleWalletFundSubmit = (values: object) => {
     console.log(values);
     handlePaymentModalAction();
   };
+
   const tableColumns: ColumnsType<IDataType> = [
     {
       title: 'Date',
@@ -184,59 +209,30 @@ const InvestorsWallet: NextPage<IProps> = () => {
     },
   ];
 
-  const onDateChange: DatePickerProps['onChange'] = (date, dateString) => {
-    console.log(date, dateString);
+  const dateMenuOptions = ['Today', 'Yesterday', 'This Month', 'Last Month', 'Date Range'];
+  // const statusMenuOptions = [];
+  // const providerMenuOptions = [];
+
+  const handleDateOptionClick = (key: number) => {
+    //Set date in filterOptions with moment helper function based on today, tomorrow etc
+    if (showDateFilter) setShowDateFilter(false);
   };
 
   const dateMenu = (
     <Menu
-      items={[
-        {
-          label: 'Today',
-          key: '0',
-        },
-        {
-          label: 'Yesterday',
-          key: '1',
-        },
-        {
-          label: 'This Month',
-          key: '2',
-        },
-        {
-          label: 'Last Month',
-          key: '3',
-        },
-        {
-          type: 'divider',
-        },
-        {
-          label: (
-            <div className='d-flex'>
-              <div>
-                <label>From</label>
-                <br />
-                <DatePicker
-                  onChange={onDateChange}
-                  suffixIcon={null}
-                  className='filter-date-picker'
-                />
-              </div>
-              &nbsp; &nbsp;
-              <div>
-                <label>To</label>
-                <br />
-                <DatePicker
-                  onChange={onDateChange}
-                  suffixIcon={null}
-                  className='filter-date-picker'
-                />
-              </div>
-            </div>
-          ),
-          key: '4',
-        },
-      ]}
+      items={dateMenuOptions.map((option, key) => ({
+        label: (
+          <div
+            onClick={() =>
+              key < dateMenuOptions.length - 1
+                ? handleDateOptionClick(key + 1)
+                : setShowDateFilter(true)
+            }>
+            {option}
+          </div>
+        ),
+        key: key,
+      }))}
     />
   );
 
@@ -294,16 +290,21 @@ const InvestorsWallet: NextPage<IProps> = () => {
         </div>
         <div className='mt-2'>
           <Row>
-            <Col xs={24} md={12}>
+            <Col xs={24} md={showDateFilter ? 8 : 12}>
               <div className='wallet-search'>
                 <TextField searchField placeholder='Search' name='search' required={false} />
               </div>
             </Col>
-            <Col xs={24} md={12}>
+            <Col xs={24} md={showDateFilter ? 16 : 12}>
               <div className='filter-params-container'>
-                <div className='filter-cta cursor-pointer d-flex align-items-center'>
+                <div className='desktop-filter-cta'>
+                  <Typography className='mt-1'>Filter By</Typography>
+                </div>
+                <div
+                  className='mobile-filter-cta cursor-pointer align-items-center'
+                  onClick={handleMobileFilterClick}>
                   <Typography className='mt-1'>Filter By:</Typography>
-                  <span className='mtop-2 d-none'>
+                  <span className='mtop-2'>
                     <Image
                       src={assets.filterIcon.src}
                       alt={assets.filterIcon.alt}
@@ -330,16 +331,28 @@ const InvestorsWallet: NextPage<IProps> = () => {
                     onChange={() => {}}
                     className='w-100 mr-2'
                   />
-                  <Dropdown
-                    overlay={dateMenu}
-                    trigger={['click']}
-                    overlayStyle={{ borderRadius: '10px!important' }}
-                    overlayClassName='dropdown-container'>
-                    <div className='cursor-pointer date-filter-cta w-100 d-flex justify-content-between align-items-center'>
-                      <Typography className='mtop-3'>All Dates</Typography>{' '}
-                      <CaretDownOutlined style={{ color: '#bfbfbf' }} />
-                    </div>
-                  </Dropdown>
+                  <div className='mr-2 w-100'>
+                    <Dropdown
+                      overlay={dateMenu}
+                      trigger={['click']}
+                      overlayStyle={{ borderRadius: '10px!important' }}
+                      overlayClassName='dropdown-container'>
+                      <div className='cursor-pointer date-filter-cta w-100 d-flex justify-content-between align-items-center'>
+                        <Typography className='mtop-3'>All Dates</Typography>{' '}
+                        <CaretDownOutlined style={{ color: '#bfbfbf' }} />
+                      </div>
+                    </Dropdown>
+                  </div>
+                  <div className={`${showDateFilter ? '' : 'd-none'}`}>
+                    <RangePicker
+                      suffixIcon={null}
+                      className='filter-date-picker'
+                      onCalendarChange={(val) =>
+                        // setFilterParams({ ...filterParams, date: val })
+                        console.log(val)
+                      }
+                    />
+                  </div>
                 </div>
               </div>
             </Col>
@@ -347,61 +360,61 @@ const InvestorsWallet: NextPage<IProps> = () => {
         </div>
         <div className='wallet-accordion-container mt-1'>
           {walletData.map(
-            ({ date, id, narration, via, paymentProvider, amount, status }, key) => (
-              <Collapse
-                bordered={false}
-                expandIconPosition='end'
-                expandIcon={({ isActive }) => (
-                  <CaretDownOutlined rotate={isActive ? 180 : 0} />
-                )}
-                className=''
-                key={key}>
-                <Panel
-                  header={
-                    <div className='w-100 d-flex justify-content-between pr-1'>
-                      <div>
-                        <Typography variant='body8'>Date</Typography>{' '}
-                        <Typography variant='body7' className='wallet-detail'>
-                          {date}
-                        </Typography>
+            ({ date, id, narration, via, paymentProvider, amount, status }, key) => {
+              const bodyInfo = [
+                { label: 'Id', value: id },
+                { label: 'Narration', value: narration },
+                { label: 'Via', value: via },
+                { label: 'Payment Provider', value: paymentProvider },
+              ];
+              return (
+                <Collapse
+                  bordered={false}
+                  expandIconPosition='end'
+                  expandIcon={({ isActive }) => (
+                    <CaretDownOutlined rotate={isActive ? 180 : 0} />
+                  )}
+                  className=''
+                  key={key}>
+                  <Panel
+                    header={
+                      <div className='w-100 d-flex justify-content-between pr-1'>
+                        <div>
+                          <Typography variant='body8'>Date</Typography>{' '}
+                          <Typography variant='body7' className='wallet-detail'>
+                            {date}
+                          </Typography>
+                        </div>
+                        <div>
+                          <Typography variant='body8'>Amount</Typography>{' '}
+                          <Typography variant='body7' className='wallet-detail'>
+                            {amount}
+                          </Typography>
+                        </div>
+                        <div>
+                          <Typography variant='body8'>Status</Typography>{' '}
+                          <Typography variant='body7' className='wallet-detail'>
+                            {status}
+                          </Typography>
+                        </div>
                       </div>
-                      <div>
-                        <Typography variant='body8'>Amount</Typography>{' '}
-                        <Typography variant='body7' className='wallet-detail'>
-                          {amount}
-                        </Typography>
-                      </div>
-                      <div>
-                        <Typography variant='body8'>Status</Typography>{' '}
-                        <Typography variant='body7' className='wallet-detail'>
-                          {status}
-                        </Typography>
-                      </div>
+                    }
+                    key={key}
+                    className='wallet-accordion-panel'>
+                    <div className='pr-4'>
+                      {bodyInfo.map((info, key) => (
+                        <div
+                          className='d-flex justify-content-between align-items-center'
+                          key={key}>
+                          <Typography variant='body8'>{info.label}</Typography>
+                          <Typography variant='body6'>{info.value}</Typography>
+                        </div>
+                      ))}
                     </div>
-                  }
-                  key={key}
-                  className='wallet-accordion-panel'>
-                  <div className='pr-4'>
-                    <div className='d-flex justify-content-between'>
-                      <Typography variant='body8'>ID</Typography>
-                      <Typography variant='body6'>{id}</Typography>
-                    </div>
-                    <div className='d-flex justify-content-between'>
-                      <Typography variant='body8'>Naration</Typography>
-                      <Typography variant='body6'>{narration}</Typography>
-                    </div>
-                    <div className='d-flex justify-content-between'>
-                      <Typography variant='body8'>Via</Typography>
-                      <Typography variant='body6'>{via}</Typography>
-                    </div>
-                    <div className='d-flex justify-content-between'>
-                      <Typography variant='body8'>Payment Provider</Typography>
-                      <Typography variant='body6'>{paymentProvider}</Typography>
-                    </div>
-                  </div>
-                </Panel>
-              </Collapse>
-            )
+                  </Panel>
+                </Collapse>
+              );
+            }
           )}
         </div>
         <div className='fa-table wallet-table mtop-1 pb-4'>
@@ -426,6 +439,56 @@ const InvestorsWallet: NextPage<IProps> = () => {
             onWalletFundSubmit={handleWalletFundSubmit}
           />
         </Modal>
+        <MobileFilter visible={isOpenMobileFilter} handleClose={handleMobileFilterClick}>
+          <div className='p-4 mobile-filter-accordion'>
+            <div className='d-flex justify-content-between'>
+              <Typography component='h5'>Filter</Typography>
+              {/* <Typography className='cursor-pointer' variant='body6' state='tetiary'>
+                Apply Filter
+              </Typography> */}
+            </div>
+            <div className='mt-2'>
+              <Collapse
+                bordered={false}
+                expandIconPosition='end'
+                expandIcon={(info: any) => (
+                  <CaretDownOutlined
+                    style={{ color: '#bfbfbf' }}
+                    onClick={() =>
+                      activeKey === info.panelKey
+                        ? setActiveKey(undefined)
+                        : setActiveKey(info.panelKey)
+                    }
+                  />
+                )}
+                activeKey={activeKey}>
+                <Panel
+                  header={<Typography variant='body6'>All Providers</Typography>}
+                  key={1}
+                  className='wallet-filter-panel'></Panel>
+                <Panel
+                  header={<Typography variant='body6'>All Status</Typography>}
+                  key={2}
+                  className='wallet-filter-panel'></Panel>
+                <Panel
+                  header={<Typography variant='body6'>All Dates</Typography>}
+                  key={3}
+                  className='wallet-filter-panel'>
+                  <div className='d-flex'>
+                    {dateMenuOptions.map((option, key) => (
+                      <Pill
+                        label={option}
+                        key={key}
+                        onClick={() => setFilterParams({ ...filterParams, date: option })}
+                        selected={filterParams.date === option}
+                      />
+                    ))}
+                  </div>
+                </Panel>
+              </Collapse>
+            </div>
+          </div>
+        </MobileFilter>
       </div>
     </InvestorsDashboardLayout>
   );
