@@ -127,4 +127,24 @@ export const assets = {
     alt: 'Icon',
     src: '/assets/images/dashboard/past-investments-icon.svg',
   },
+  AellaLogo: {
+    alt: 'Logo',
+    src: '/assets/images/dashboard/aella-icon.svg',
+  },
+  AlphaLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/alphax-logo.svg',
+  },
+  BetwayLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/betway-logo.svg',
+  },
+  EhealthLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/ehealth-logo.svg',
+  },
+  MobniaLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/mobnia-logo.svg',
+  },
 };

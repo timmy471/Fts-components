@@ -126,12 +126,102 @@ const InvestorsDashboard: NextPage<IProps> = () => {
                 </Row>
               </TabPane>
               <TabPane tab='Investments Details' key='2'>
-                
+                <Row className='mb-3' gutter={[20, 20]}>
+                  <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+                    <p>Subscription Start Date</p>
+                    <em>April 1, 2022</em>
+                  </Col>
+                  <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+                    <p>Carry</p>
+                    <em>Twenty percent (20%)</em>
+                  </Col>
+                </Row>
+                <Row className='mb-3' gutter={[20, 20]}>
+                  <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+                    <p>Frequency</p>
+                    <em>Quarterly</em>
+                  </Col>
+                  <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+                    <p>Minimum Quarterly Subscription</p>
+                    <em>$10,000</em>
+                  </Col>
+                </Row>
+                <Row className='mb-3' gutter={[20, 20]}>
+                  <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+                    <p>Management Fee</p>
+                    <em>
+                      2% per annum over each funds 10-year life, payable quarterly over the
+                      first four years
+                    </em>
+                  </Col>
+                  <Col xs={24} sm={24} md={8} lg={8} xl={8}>
+                    <p>GP Commitment</p>
+                    <em>
+                      Future Africas personal subscription per quarter will be at least $10,000
+                      in total.
+                    </em>
+                  </Col>
+                </Row>
               </TabPane>
               <TabPane tab='Asset Record' key='3'>
-                <p>Content of Tab Pane 3</p>
-                <p>Content of Tab Pane 3</p>
-                <p>Content of Tab Pane 3</p>
+                <span>
+                  ** This is a list of companies that investment have been made with by the
+                  entity responsible for this
+                  <br /> specific rolling fund. These were selected based fund manager’s sole
+                  discretion.{' '}
+                </span>
+                <Row gutter={[30, 30]} className='mt-2'>
+                  <Col xs={12} sm={12} md={4} lg={4} xl={4}>
+                    <div className='company'>
+                      <img
+                        src={assets.AlphaLogo.src}
+                        alt={assets.AlphaLogo.alt}
+                        width='100'
+                        height='100'
+                      />
+                    </div>
+                  </Col>
+                  <Col xs={12} sm={12} md={4} lg={4} xl={4}>
+                    <div className='company'>
+                      <img
+                        src={assets.MobniaLogo.src}
+                        alt={assets.MobniaLogo.alt}
+                        width='100'
+                        height='100'
+                      />
+                    </div>
+                  </Col>
+                  <Col xs={12} sm={12} md={4} lg={4} xl={4}>
+                    <div className='company'>
+                      <img
+                        src={assets.EhealthLogo.src}
+                        alt={assets.EhealthLogo.alt}
+                        width='100'
+                        height='100'
+                      />
+                    </div>
+                  </Col>
+                  <Col xs={12} sm={12} md={4} lg={4} xl={4}>
+                    <div className='company'>
+                      <img
+                        src={assets.AellaLogo.src}
+                        alt={assets.AellaLogo.alt}
+                        width='100'
+                        height='100'
+                      />
+                    </div>
+                  </Col>
+                  <Col xs={12} sm={12} md={4} lg={4} xl={4}>
+                    <div className='company'>
+                      <img
+                        src={assets.BetwayLogo.src}
+                        alt={assets.BetwayLogo.alt}
+                        width='100'
+                        height='100'
+                      />
+                    </div>
+                  </Col>
+                </Row>
               </TabPane>
             </Tabs>
           </div>

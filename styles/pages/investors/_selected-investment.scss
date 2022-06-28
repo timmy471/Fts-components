@@ -49,6 +49,12 @@
       display: block;
       margin-top: 20px;
     }
+    em {
+      font-weight: 700;
+      font-size: 14px;
+      font-style: normal;
+      line-height: 20px;
+    }
     h2 {
       font-family: $font-family-primary;
       font-style: normal;
@@ -85,6 +91,17 @@
     .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
       color: black;
       text-shadow: 0 0 0.25px currentcolor;
+    }
+
+    .company {
+      display: flex;
+      height: 130px;
+      width: 100%;
+      border: 1px solid #bdbdbd;
+      border-radius: 5px;
+      img {
+        margin: auto;
+      }
     }
   }
 }
