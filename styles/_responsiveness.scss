@@ -142,6 +142,15 @@
     line-height: 0px;
     background: $fa-grey-600;
   }
+
+  .selected-investment {
+    .btn-invest {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      margin-right: 20px;
+    }
+  }
 }
 
 // Iphone and Below
