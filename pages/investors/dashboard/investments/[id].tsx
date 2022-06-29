@@ -7,7 +7,7 @@ import { InvestorsDashboardLayout } from '@src/components';
 
 interface IProps {}
 
-const InvestorsDashboard: NextPage<IProps> = () => {
+const SelectedInvestment: NextPage<IProps> = () => {
   const { TabPane } = Tabs;
 
   const onChange = (key: string) => {
@@ -247,4 +247,4 @@ export async function getServerSideProps(context: any) {
   }
 }
 
-export default InvestorsDashboard;
+export default SelectedInvestment;

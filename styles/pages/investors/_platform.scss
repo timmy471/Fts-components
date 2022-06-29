@@ -1,0 +1,56 @@
+.platform {
+  .card {
+    background: $fa-white;
+    width: 100%;
+    min-height: 480px;
+    padding: 30px 20px 40px 20px;
+
+    h3 {
+      font-family: $font-family-primary;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 30px;
+      color: $fa-secondary-200;
+    }
+    p {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: $fa-grey-300;
+      display: block;
+    }
+    ul {
+      margin: 0px;
+      padding: 10px;
+      color: $fa-grey-300;
+    }
+    .btn-invest {
+      align-items: center;
+      max-width: 250px;
+      height: 50px;
+      border: 1px solid $fa-success;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 15px 77px;
+      gap: 10px;
+      margin: auto;
+    }
+    .btn-invest:hover {
+      color: $fa-black;
+      border-color: $fa-primary-200;
+    }
+    .btn-invest:active {
+      color: $fa-black;
+      border-color: $fa-primary-200;
+    }
+    .btn-invest:focus {
+      color: $fa-black;
+      border-color: $fa-primary-200;
+    }
+  }
+}

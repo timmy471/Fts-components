@@ -147,4 +147,16 @@ export const assets = {
     alt: 'Company Logo',
     src: '/assets/images/dashboard/mobnia-logo.svg',
   },
+  AngelListLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/angellist-logo.svg',
+  },
+  CordrosLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/cordros-logo.svg',
+  },
+  VaubanLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/vauban-logo.svg',
+  },
 };
