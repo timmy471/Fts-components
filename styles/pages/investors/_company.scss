@@ -93,6 +93,7 @@
         }
 
         .investment-value-container {
+            min-height: 14rem;
             padding: 1rem 1rem 3rem;
 
             .total-invested {
@@ -103,6 +104,10 @@
             h6 {
                 font-size: 16px;
                 margin-top: -.5rem;
+            }
+
+            @include xlMaxBreakPoint {
+                min-height: fit-content
             }
 
             @include smMaxBreakPoint {
@@ -196,4 +201,53 @@
             }
         }
     }
+
+    .tab-content {
+        min-height: 36.5rem;
+
+        @include mdMaxBreakPoint {
+            min-height: fit-content
+        }
+    }
+
+    .fund-details-container {
+
+        .fund-table {
+            @include mdMaxBreakPoint {
+                display: none
+            }
+        }
+
+        .fund-accordion-container {
+            display: none;
+
+            .ant-collapse-content>.ant-collapse-content-box {
+                padding-right: 0;
+            }
+
+            @include mdMaxBreakPoint {
+                display: block;
+            }
+        }
+
+        p {
+            color: $fa-black;
+            font-size: 14px;
+        }
+
+        .cert-cta {
+            color: $fa-secondary-300  !important;
+        }
+    }
+
+    .ant-collapse-header-text {
+        width: 100%
+    }
+
+    .ant-table-tbody>tr>td,
+    .ant-table-thead>tr>th {
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+    }
+
 }

@@ -32,6 +32,9 @@ export const SPV: React.FC<IProps> = ({ companyDetail }) => {
   const onChange = (key: string) => {
     console.log(key);
   };
+
+  if (!companyDetail) return null;
+
   return (
     <div>
       <Row gutter={[22, 22]}>

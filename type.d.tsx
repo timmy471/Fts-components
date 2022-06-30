@@ -116,3 +116,21 @@ export interface IFundCompanyDetail {
   totalSubscriptio: string;
   totalInvestment: string;
 }
+
+export interface IWalletTableData {
+  date: string;
+  id: string;
+  narration: string;
+  via: string;
+  paymentProvider: string;
+  amount: string;
+  status: string;
+}
+
+export interface ISubscriptionHistoryData {
+  quater: string;
+  amount: string;
+  description: string;
+  date: string;
+  certification: string;
+}

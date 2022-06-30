@@ -211,6 +211,10 @@
     height: 40px;
     background: $fa-grey-500;
     border-radius: 18px 18px 0px 0px;
+
+    @include smMaxBreakPoint {
+      padding: 10px 19px;
+    }
   }
 
   .ant-tabs-tab-active {
@@ -230,4 +234,12 @@
   .ant-tabs-top>.ant-tabs-nav {
     margin: 0
   }
+}
+
+.table-row-light {
+  background-color: $fa-white;
+}
+
+.table-row-dark {
+  background-color: $fa-grey-600;
 }
