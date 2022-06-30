@@ -1,6 +1,7 @@
 export * from './abstract/MetaHead';
 export * from './abstract/PreLoader';
 export * from './reusable/Button';
+export * from './reusable/FloatLabel';
 export * from './reusable/Typography';
 export * from './reusable/TextField';
 export * from './reusable/SelectField';

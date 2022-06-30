@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { assets } from '@src/assets';
 import type { NextPage } from 'next';
 import { Row, Col, Button } from 'antd';
-import { InvestorsDashboardLayout } from '@src/components';
+import { InvestorsDashboardLayout, FormStepper } from '@src/components';
 
 interface IProps {}
 
@@ -13,6 +13,10 @@ const SelectedInvestment: NextPage<IProps> = () => {
         <h1>How do you want to invest?</h1>
         <p>Invest in early stage companies through these funds</p>
         <Row className='mt-2' gutter={[20, 20]}>
+          <FormStepper
+            currentStep={1}
+            steps={['Complete Profile', 'Work Information', 'Other Details', 'PIN Setup']}
+          />
           <Col xs={24} sm={24} md={12} lg={8} xl={8}>
             <div className='card'>
               <Image
