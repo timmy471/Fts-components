@@ -15,7 +15,7 @@ export interface IUser {
   lastLogin: string;
 }
 
-export interface IDetailFormValues {
+export interface IOnboardingDetailFormValues {
   nationality: string;
   country: string;
   city: string;
@@ -34,12 +34,10 @@ export interface IDetailFormValues {
   event: string;
 }
 
-export interface ISelectStates {
-  nationality: boolean;
-  country: boolean;
-  income: boolean;
+export interface ISelectFieldOptions {
+  value: string;
+  label: string;
 }
-
 export interface IButton {
   label: string;
   disabled?: boolean;
@@ -54,7 +52,7 @@ export interface IButton {
   rest?: String[];
 }
 
-export interface ISelect {
+export interface ISelectField {
   placeholder?: React.ReactNode;
   required?: boolean;
   disabled?: boolean;
@@ -62,7 +60,59 @@ export interface ISelect {
   options: { value: string; label: string }[];
   className?: string;
   hasError?: boolean | string;
-  onSelect: (value: string | number) => void;
+  defaultValue?: string;
+  onSelect?: (value: string | number) => void;
   onChange: (value: string) => void;
   onBlur?: (e: React.FocusEvent<any, Element>) => void;
+}
+
+export interface ITextArea {
+  label?: string;
+  disabled?: boolean;
+  className?: string;
+  style?: React.CSSProperties;
+  maxLength?: number;
+  value: string;
+  id?: string;
+  placeholder?: string;
+  variant?: string;
+  rows?: number;
+}
+
+type companyFounder = {
+  name: string;
+  position: string;
+  picture: string;
+};
+export interface ISPVCompanyDetail {
+  id: string;
+  name: string;
+  logo: string;
+  investmentType: string;
+  category: string;
+  headquater: string;
+  size: string;
+  valuation: string;
+  yearFounded: string;
+  type: string;
+  website: string;
+  totalInvestment: string;
+  livePositions: string;
+  investedValuation: string;
+  currentValuation: string;
+  about: string;
+  founders: companyFounder[];
+}
+
+export interface IFundCompanyDetail {
+  id: string;
+  name: string;
+  logo: string;
+  investmentType: string;
+  fundManager: string;
+  subscription: string;
+  type: string;
+  links: string;
+  totalSubscriptio: string;
+  totalInvestment: string;
 }

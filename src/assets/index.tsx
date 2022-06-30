@@ -83,6 +83,10 @@ export const assets = {
     alt: 'Money',
     src: '/assets/images/dollar-briefcase.svg',
   },
+  briefcaseIcon: {
+    alt: 'Money',
+    src: '/assets/images/briefcase.svg',
+  },
   dollarPlainIcon: {
     alt: 'Money',
     src: '/assets/images/dollar-plain.svg',
@@ -111,4 +115,22 @@ export const assets = {
     alt: 'Filter Icon',
     src: '/assets/images/dashboard/filter-harmburger.svg',
   },
+  //Temporary
+  faCompany: {
+    alt: 'Future Africa',
+    src: '/assets/images/portfolio/faFund.svg',
+  },
+  edenCompany: {
+    alt: 'Eden',
+    src: '/assets/images/portfolio/eden-logo.svg',
+  },
+  founderBoy: {
+    alt: 'founder',
+    src: '/assets/images/portfolio/boy-founder.svg',
+  },
+  founderGirl: {
+    alt: 'founder',
+    src: '/assets/images/portfolio/girl-founder.svg',
+  },
+  /////
 };

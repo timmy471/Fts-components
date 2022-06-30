@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { Col, Row } from 'antd';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { IDetailFormValues } from 'type.d';
+import { IOnboardingDetailFormValues } from 'type.d';
 import { useState, useEffect } from 'react';
 import { countries } from '@src/helpers/constants';
 import { defaultValidation, urlValidation } from '@src/helpers';
@@ -110,7 +110,7 @@ const Onboarding: NextPage = () => {
     'Other Details',
     'PIN Setup',
   ];
-  const initialValues: IDetailFormValues = {
+  const initialValues: IOnboardingDetailFormValues = {
     nationality: '',
     country: '',
     city: '',

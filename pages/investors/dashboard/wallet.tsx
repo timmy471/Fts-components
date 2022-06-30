@@ -8,9 +8,10 @@ import {
   MobileFilter,
   Pill,
 } from '@src/components';
+import AOS from 'aos';
 import * as Yup from 'yup';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import { assets } from '@src/assets/';
 import { defaultValidation } from '@src/helpers';
@@ -39,6 +40,15 @@ interface IFilter {
 const InvestorsWallet: NextPage<IProps> = () => {
   const { Panel } = Collapse;
   const { RangePicker } = DatePicker;
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setMounted(true);
+    AOS.init({
+      duration: 500,
+    });
+    AOS.refresh();
+  }, []);
 
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState<boolean>(false);
   const [showDateFilter, setShowDateFilter] = useState<boolean>(false);
@@ -240,7 +250,7 @@ const InvestorsWallet: NextPage<IProps> = () => {
     <InvestorsDashboardLayout classN='wallet' subClassN='wallet'>
       <div className='investor-wallet'>
         <Typography component='h4'>Wallet</Typography>
-        <div className='mt-2'>
+        <div className='mt-2' data-aos='fade-left'>
           {' '}
           <Row gutter={[32, 12]} className='wallet-cards-container'>
             <Col xs={24} xl={12}>
@@ -279,7 +289,7 @@ const InvestorsWallet: NextPage<IProps> = () => {
                   </div>
                   <div>
                     <Typography variant='body8' state='secondary'>
-                      Balance
+                      Total Invested
                     </Typography>
                     <Typography component='h4'>$56,000</Typography>
                   </div>
@@ -319,7 +329,6 @@ const InvestorsWallet: NextPage<IProps> = () => {
                     placeholder='All Providers'
                     required={false}
                     options={[]}
-                    onSelect={() => {}}
                     onChange={() => {}}
                     className='w-100 mr-2'
                   />
@@ -327,7 +336,6 @@ const InvestorsWallet: NextPage<IProps> = () => {
                     placeholder='All Status'
                     required={false}
                     options={[]}
-                    onSelect={() => {}}
                     onChange={() => {}}
                     className='w-100 mr-2'
                   />

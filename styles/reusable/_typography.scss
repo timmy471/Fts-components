@@ -55,7 +55,7 @@ h6.typography_default {
 }
 
 .fa_typography__body4 {
-  @include fa-typography(10px, 25px, 400);
+  @include fa-typography(18px, 25px, 400);
 }
 
 .fa_typography__body5 {
@@ -72,6 +72,14 @@ h6.typography_default {
 
 .fa_typography__body8 {
   @include fa-typography(14px, 20px, 400);
+}
+
+.fa_typography__body9 {
+  @include fa-typography(11px, 13px, 700);
+}
+
+.fa_typography__body10 {
+  @include fa-typography(11px, 13px, 400);
 }
 
 //States || Color
@@ -93,4 +101,9 @@ h6.typography_default {
 
 .fa_typography__error {
   color: $fa-error; //red
+}
+
+//Display
+.fa_typography__inline {
+  display: inline-block;
 }
