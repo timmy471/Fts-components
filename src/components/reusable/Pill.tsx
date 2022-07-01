@@ -7,14 +7,19 @@ interface IProps {
   falseText?: string;
   label?: string;
   selected?: boolean;
-  onClick: () => void;
+  className?: string;
+  isTag?: boolean;
+  onClick?: () => void;
 }
+
 export const Pill: React.FC<IProps> = ({
   value,
   trueText = 'Yes',
   falseText = 'No',
   label,
   selected,
+  className = '',
+  isTag,
   onClick,
 }) => {
   const [itemValue, setItemValue] = useState<boolean | undefined>(value);
@@ -25,7 +30,7 @@ export const Pill: React.FC<IProps> = ({
 
   return label ? (
     <div
-      className={`fa_filter_pill cursor-pointer ${
+      className={`${className} ${isTag ? 'fa_detail_tag' : ''} fa_filter_pill cursor-pointer ${
         selected ? 'fa_filter_pill__selected' : ''
       }`}>
       <Typography>{label}</Typography>

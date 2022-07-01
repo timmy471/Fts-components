@@ -1,9 +1,9 @@
 import { Select } from 'antd';
-import { ISelect } from 'type.d';
+import { ISelectField } from 'type.d';
 import { CaretDownOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
-export const SelectField: React.FC<ISelect> = ({
+export const SelectField: React.FC<ISelectField> = ({
   placeholder,
   required = true,
   options,
@@ -11,6 +11,7 @@ export const SelectField: React.FC<ISelect> = ({
   onBlur,
   onChange,
   isSearchable,
+  defaultValue,
   hasError,
   className = '',
 }) => {
@@ -28,6 +29,7 @@ export const SelectField: React.FC<ISelect> = ({
         showSearch={isSearchable}
         style={{ width: '100%' }}
         className={`fa_selectfield`}
+        defaultValue={defaultValue}
         onSelect={onSelect}
         onChange={onChange}
         onBlur={onBlur}

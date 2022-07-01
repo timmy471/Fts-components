@@ -2,8 +2,9 @@ import { Col, Row, Radio } from 'antd';
 import OtpInput from 'react-otp-input';
 import { Dispatch, SetStateAction } from 'react';
 import PhoneInput from 'react-phone-number-input';
-import { Formik, Form, ErrorMessage } from 'formik';
 import { industries } from '@src/helpers/constants';
+import { Formik, Form, ErrorMessage } from 'formik';
+import { IOnboardingDetailFormValues, ISelectFieldOptions } from 'type.d';
 
 import {
   Typography,
@@ -15,37 +16,13 @@ import {
   Pill,
 } from '../../components';
 
-interface IDetailFormValues {
-  nationality: string;
-  country: string;
-  city: string;
-  address: string;
-  zip: string;
-  phoneNumber: string;
-  linkedin: string;
-  profession: string;
-  firm: string;
-  industry: string;
-  income: string;
-  investmentMethod: string | null;
-  pastInvestment: boolean;
-  syndicateMember: boolean;
-  pastEvent: boolean;
-  event: string;
-}
-
-interface IOption {
-  value: string;
-  label: string;
-}
-
 interface IProps {
   currentStep: number;
-  initialValues: IDetailFormValues;
-  incomeOptions: IOption[];
+  initialValues: IOnboardingDetailFormValues;
+  incomeOptions: ISelectFieldOptions[];
   shouldValidateEvent: boolean;
-  getCountries: () => IOption[];
-  nationalityOptions: () => IOption[];
+  getCountries: () => ISelectFieldOptions[];
+  nationalityOptions: () => ISelectFieldOptions[];
   setShouldValidateEvent: Dispatch<SetStateAction<boolean>>;
   getValidationSchema: () => void;
   onDetailSubmit: (values: object) => void;
@@ -56,10 +33,10 @@ interface IProps {
 export const OnboardingForm: React.FC<IProps> = ({
   currentStep,
   initialValues,
-  nationalityOptions,
-  getCountries,
   shouldValidateEvent,
   incomeOptions,
+  nationalityOptions,
+  getCountries,
   setShouldValidateEvent,
   getValidationSchema,
   onDetailSubmit,
@@ -81,11 +58,11 @@ export const OnboardingForm: React.FC<IProps> = ({
           {({
             errors,
             touched,
+            values,
             setFieldValue,
             getFieldProps,
             handleChange,
             handleBlur,
-            values,
           }) => (
             <Form noValidate autoComplete='off'>
               {/* PROFILE */}

@@ -1,0 +1,56 @@
+.settings {
+
+    width: 97%;
+
+    .setting-container {
+        margin-top: 2.5rem;
+        padding: 2rem 3rem 9rem;
+
+
+        .pin-setting {
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid $fa-grey-400;
+        }
+
+        button {
+            padding: 0;
+            width: fit-content;
+            padding: 0 1.5rem;
+            height: 2.6rem;
+            color: $fa-grey-100;
+            background-color: $fa-grey-500;
+            font-size: 14px;
+        }
+    }
+
+    @include xlMaxBreakPoint {
+        width: 100%;
+
+        .setting-container {
+            padding: 1rem 1.5rem 7rem;
+        }
+
+        .pin-setting,
+        .two-factor {
+            &>div {
+                display: block !important;
+
+                button {
+                    margin-top: 1.2rem;
+                }
+            }
+        }
+    }
+
+    .pin-setting-container {
+        padding: 2rem 2.5rem 7rem;
+
+        .pin-setup-form {
+            margin-top: 3.2rem
+        }
+
+        @include smMaxBreakPoint {
+            padding: 2rem 1.3rem 3rem
+        }
+    }
+}

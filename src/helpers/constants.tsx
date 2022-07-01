@@ -1,3 +1,5 @@
+import { assets } from '@src/assets';
+
 export const countries = [
   {
     name: 'Afghanistan',
@@ -1013,3 +1015,80 @@ export const industries = [
   'Utilities',
   'Others',
 ];
+
+//Temporary Data
+
+export const portfolioData = [
+  {
+    companyId: '1',
+    companyName: 'Eden',
+    companyLogo: assets.edenCompany.src,
+    investmentType: 'SPV',
+    about:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem egestas euismod mi consectetur id fermentum nec. Eget viverra mattis netus ut mi mauris suspendisse et risus.',
+    amount: '$100,000',
+    dateInvested: 'Mar 30, 2022',
+    platform: 'AngelList',
+    status: 'Live',
+  },
+  {
+    companyId: '2',
+    companyName: 'Future Africa Fund',
+    companyLogo: assets.faCompany.src,
+    investmentType: 'Fund',
+    about:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sem egestas euismod mi consectetur id fermentum nec. Eget viverra mattis netus ut mi mauris suspendisse et risus.',
+    amount: '$1,0000,000',
+    dateInvested: 'Mar 30, 2022',
+    platform: 'Cordros',
+    status: 'Live',
+  },
+];
+
+export const companiesData = [
+  {
+    id: '1',
+    name: 'EdenTechnology',
+    logo: assets.edenCompany.src,
+    investmentType: 'spv',
+    category: 'Technology',
+    headquater: 'Lekki, Lagos',
+    size: '20+ employees',
+    valuation: '$150,000,000',
+    yearFounded: '1193',
+    type: 'Public Company',
+    website: 'www.edentech.com',
+    totalInvestment: '$100,000',
+    livePositions: '1',
+    investedValuation: '$1,000,000',
+    currentValuation: '$3,000000',
+    about:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Risus et sagittis, maecenas dignissim sit at non. Sed fringilla proin vestibulum integer fermentum eros, praesent congue. Tincidunt mollis dictumst at nisi, fermentum quisque suspendisse. Et, ornare et duis in sit tellus molestie purus. Morbi enim mauris malesuada ultricies suspendisse in vel. Leo convallis fames non eu elit turpis enim vel velit. Nec mi vulputate leo id tempus. Eget molestie faucibus sit sed sagittis.',
+
+    founders: [
+      {
+        name: 'Jane Doe',
+        position: 'Founder and CEO',
+        picture: assets.founderGirl.src,
+      },
+      {
+        name: 'Sebastian Christian',
+        position: 'Founder and COO',
+        picture: assets.founderBoy.src,
+      },
+    ],
+  },
+  {
+    id: '2',
+    name: 'Future Africa Fund',
+    logo: assets.faCompany.src,
+    investmentType: 'fund',
+    fundManager: 'Future Africa',
+    Subscription: 'Active',
+    type: 'Public Company',
+    links: 'Fund Profile',
+    totalSubscription: '556, 980',
+    totalInvestments: '70',
+  },
+];
+/////
