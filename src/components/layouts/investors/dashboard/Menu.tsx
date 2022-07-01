@@ -141,15 +141,18 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
               />
               Community
             </li>
-            <li className='topic'>
-              <img
-                src={assets.SettingsIcon.src}
-                alt={assets.SettingsIcon.alt}
-                height='25'
-                width='25'
-              />
-              Settings
-            </li>
+            <Link href={'/investors/dashboard/settings'} passHref>
+              <li className='topic'>
+                <img
+                  src={assets.SettingsIcon.src}
+                  alt={assets.SettingsIcon.alt}
+                  height='25'
+                  width='25'
+                />
+                Settings
+              </li>
+            </Link>
+
             <li className='topic'>
               <img
                 src={assets.LogoutIcon.src}

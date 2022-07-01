@@ -79,6 +79,10 @@ export interface ITextArea {
   rows?: number;
 }
 
+export interface IBackCTA {
+  className?: string;
+}
+
 type companyFounder = {
   name: string;
   position: string;
@@ -133,4 +137,11 @@ export interface ISubscriptionHistoryData {
   description: string;
   date: string;
   certification: string;
+}
+
+export interface IInvestmentData {
+  fund: string;
+  amountDeployed: string;
+  amountValue: string;
+  date: string;
 }

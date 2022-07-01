@@ -35,6 +35,10 @@
   color: $fa-success  !important;
 }
 
+.width-fit-content {
+  width: fit-content;
+}
+
 .mt-1 {
   margin-top: 1rem;
 }
@@ -242,4 +246,28 @@
 
 .table-row-dark {
   background-color: $fa-grey-600;
+}
+
+.otp-input {
+  text-align: center;
+  color: $fa-black  !important;
+  font-weight: 500;
+  width: 50px !important;
+  height: 50px;
+  background: $fa-white;
+  color: $fa-grey-200;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin-right: 1rem;
+
+  &__grey {
+    background-color: rgba(224, 224, 224, 0.5)
+  }
+
+  @include smMaxBreakPoint {
+    width: 46px !important;
+    margin-right: 0.8rem;
+  }
 }

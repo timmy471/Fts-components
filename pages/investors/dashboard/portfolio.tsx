@@ -1,6 +1,3 @@
-import { Col, Row } from 'antd';
-import Image from 'next/image';
-import { assets } from '@src/assets';
 import {
   InvestorsDashboardLayout,
   Typography,
@@ -8,8 +5,11 @@ import {
   PortfolioChart,
   PortfolioDetail,
 } from '@src/components';
-
+import Image from 'next/image';
+import { Col, Row } from 'antd';
+import { assets } from '@src/assets';
 import type { NextPage } from 'next';
+
 interface IProps {}
 
 const Portfolio: NextPage<IProps> = () => {

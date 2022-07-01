@@ -1,10 +1,9 @@
 import { useRouter } from 'next/router';
-import { CaretLeftOutlined } from '@ant-design/icons';
 import { companiesData } from '@src/helpers/constants';
-import { InvestorsDashboardLayout, Fund, SPV, Typography } from '@src/components';
+import { InvestorsDashboardLayout, Fund, SPV, Typography, BackCTA } from '@src/components';
 
 const Company = () => {
-  const { query, back } = useRouter();
+  const { query } = useRouter();
 
   const currentCompany: any = companiesData.find((company) => company.id === query.companyId);
 
@@ -16,11 +15,8 @@ const Company = () => {
         <Typography component='h4' className='beadcrumb'>
           Company / Fund Details
         </Typography>
-        <div className='cursor-pointer back-cta' onClick={() => back()}>
-          <CaretLeftOutlined />{' '}
-          <Typography variant='body6' className='font-inline'>
-            Back
-          </Typography>
+        <div className='back-cta'>
+          <BackCTA />
         </div>
         <div className='mtop-3'>
           {isSPVCompany ? (
