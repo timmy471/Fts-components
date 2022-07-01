@@ -25,3 +25,6 @@ export const urlValidation = (name: string) =>
     .required(`${name} is required`);
 
 // /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/
+
+export const getTableAlternatingBg = (index: number) =>
+  index % 2 === 0 ? 'table-row-light' : 'table-row-dark';

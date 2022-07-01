@@ -41,4 +41,19 @@
         }
 
     }
+
+
+}
+
+.fa_detail_tag {
+    background: $fa-grey-500;
+    border-radius: 25px;
+    // width: 49px;
+    height: 25px;
+
+    p {
+        font-weight: 550;
+        font-size: 10px;
+
+    }
 }
