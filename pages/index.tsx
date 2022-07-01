@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import Link from 'next/link';
 import Image from 'next/image';
+import Router from 'next/router';
 import { assets } from '@src/assets';
 import type { NextPage } from 'next';
 import { bindActionCreators } from 'redux';
@@ -52,6 +53,7 @@ const Login: NextPage<Props> = () => {
       role: 'admin',
       lastLogin: '3rd, April, 20:00:00',
     });
+    Router.push('/investors/dashboard/investments');
   };
 
   return (

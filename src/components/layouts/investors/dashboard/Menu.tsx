@@ -148,15 +148,17 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
               />
               Settings
             </li>
-            <li className='topic'>
-              <img
-                src={assets.LogoutIcon.src}
-                alt={assets.LogoutIcon.alt}
-                height='25'
-                width='25'
-              />
-              Logout
-            </li>
+            <Link href='/' passHref>
+              <li className='topic'>
+                <img
+                  src={assets.LogoutIcon.src}
+                  alt={assets.LogoutIcon.alt}
+                  height='25'
+                  width='25'
+                />
+                Logout
+              </li>
+            </Link>
           </ul>
         </div>
       </Sider>

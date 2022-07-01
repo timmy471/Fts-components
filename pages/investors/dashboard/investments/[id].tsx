@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Image from 'next/image';
 import { assets } from '@src/assets';
 import type { NextPage } from 'next';
@@ -17,11 +18,13 @@ const SelectedInvestment: NextPage<IProps> = () => {
   return (
     <InvestorsDashboardLayout classN='investments' subClassN='investments'>
       <div className='selected-investment'>
-        <span>
-          <CaretLeftOutlined />
-          Back
-        </span>
-        <div className='image-cta' style={{ backgroundImage: `url(${assets.DealCta.src})` }}>
+        <Link href='/investors/dashboard/investments' passHref>
+          <span className='cursor-pointer '>
+            <CaretLeftOutlined />
+            Back
+          </span>
+        </Link>
+        <div className='image-cta mt-2' style={{ backgroundImage: `url(${assets.DealCta.src})` }}>
           <Row className='deal-name'>
             <Col xs={3} sm={3} md={3} lg={3} xl={3}>
               <Image
@@ -35,7 +38,9 @@ const SelectedInvestment: NextPage<IProps> = () => {
               <h1>Future Africa</h1>
             </Col>
             <Col xs={24} sm={24} md={5} lg={5} xl={5}>
-              <Button className='btn-invest'>Invest</Button>
+              <Link href='/investors/dashboard/investments/platform' passHref>
+                <Button className='btn-invest'>Invest</Button>
+              </Link>
             </Col>
           </Row>
         </div>

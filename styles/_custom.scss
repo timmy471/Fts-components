@@ -19,6 +19,10 @@
   margin: 0.25rem !important;
 }
 
+.m-auto{
+  margin: auto !important;
+}
+
 .mtop-1,
 .my-1 {
   margin-top: 0.25rem !important;
@@ -385,7 +389,7 @@
 }
 
 .w-100 {
-  width: 100%
+  width: 100%;
 }
 
 // TEXTS
@@ -693,4 +697,8 @@ a.text-success:hover {
 
 .d-flex {
   display: flex !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
 }
