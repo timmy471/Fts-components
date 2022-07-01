@@ -7,12 +7,14 @@ interface IProps {
   children: JSX.Element[] | JSX.Element;
   classN: string;
   subClassN?: string;
+  contentClassName?: string;
 }
 
 export const InvestorsDashboardLayout: React.FC<IProps> = ({
   children,
   classN,
   subClassN,
+  contentClassName,
 }) => {
   const { Content } = Layout;
   const [visible, setVisible] = useState<boolean>(false);
@@ -47,7 +49,10 @@ export const InvestorsDashboardLayout: React.FC<IProps> = ({
         <Layout className='site-layout'>
           <TopHeader showDrawer={showDrawer} user={user} />
           <Content className='site-content'>
-            <div className='site-layout-background'>{children}</div>
+            <div
+              className={`site-layout-background ${contentClassName ? contentClassName : ''}`}>
+              {children}
+            </div>
           </Content>
         </Layout>
       </Layout>

@@ -72,31 +72,33 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
                 </li>
               )}
             </Link>
-            {classN === 'portfolio' ? (
-              <li className='active-topic'>
-                <div className='active-item'>
-                  <div className='active'>
-                    <img
-                      src={assets.PortfolioActiveIcon.src}
-                      alt={assets.PortfolioActiveIcon.alt}
-                      height='25'
-                      width='25'
-                    />
+            <Link href={'/investors/dashboard/portfolio'} passHref>
+              {classN === 'portfolio' ? (
+                <li className='active-topic'>
+                  <div className='active-item'>
+                    <div className='active'>
+                      <img
+                        src={assets.PortfolioActiveIcon.src}
+                        alt={assets.PortfolioActiveIcon.alt}
+                        height='25'
+                        width='25'
+                      />
+                    </div>
+                    My Portfolio
                   </div>
+                </li>
+              ) : (
+                <li className='topic'>
+                  <img
+                    src={assets.PortfolioIcon.src}
+                    alt={assets.PortfolioIcon.alt}
+                    height='25'
+                    width='25'
+                  />
                   My Portfolio
-                </div>
-              </li>
-            ) : (
-              <li className='topic'>
-                <img
-                  src={assets.PortfolioIcon.src}
-                  alt={assets.PortfolioIcon.alt}
-                  height='25'
-                  width='25'
-                />
-                My Portfolio
-              </li>
-            )}
+                </li>
+              )}
+            </Link>
 
             <Link href={'/investors/dashboard/wallet'} passHref>
               {classN === 'wallet' ? (
@@ -139,15 +141,18 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
               />
               Community
             </li>
-            <li className='topic'>
-              <img
-                src={assets.SettingsIcon.src}
-                alt={assets.SettingsIcon.alt}
-                height='25'
-                width='25'
-              />
-              Settings
-            </li>
+            <Link href={'/investors/dashboard/settings'} passHref>
+              <li className='topic'>
+                <img
+                  src={assets.SettingsIcon.src}
+                  alt={assets.SettingsIcon.alt}
+                  height='25'
+                  width='25'
+                />
+                Settings
+              </li>
+            </Link>
+
             <li className='topic'>
               <img
                 src={assets.LogoutIcon.src}
@@ -181,7 +186,7 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
             </div>
             <ul>
               <Fragment>
-                <Link href='/#' passHref>
+                <Link href='/investors/dashboard/investments' passHref>
                   {classN === 'investments' ? (
                     <li className='mt-3'>
                       <div className='active-item-with-dropdown'>
@@ -258,7 +263,7 @@ export const Menu: NextPage<IProps> = ({ user, visible, onClose, classN, subClas
               </Fragment>
 
               <Fragment>
-                <Link href='/#' passHref>
+                <Link href='/investors/dashboard/wallet' passHref>
                   {classN === 'wallet' ? (
                     <li>
                       <div className='active-item'>

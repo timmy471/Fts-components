@@ -1,0 +1,171 @@
+.portfolio {
+    width: 97%;
+
+    .header-card {
+        background: $fa-white;
+        box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.05);
+        border-radius: 15px;
+    }
+
+    .chart-container {
+        height: 320px;
+
+        .indicator-container {
+            margin-top: .3rem;
+        }
+
+        .desktop-color-indicator {
+            @include smMaxBreakPoint {
+                display: none;
+            }
+        }
+
+        .mobile-color-indicator {
+            display: none;
+
+            @include smMaxBreakPoint {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+
+
+        .indicator {
+            display: flex;
+            align-items: center;
+            margin-bottom: .2rem;
+
+
+            .value-indicator {
+                background-color: $fa-primary-100;
+                width: 28px;
+                height: .2rem;
+                margin: -.6rem .3rem 0 0;
+            }
+
+            .amount-indicator {
+                background-color: $fa-info;
+                width: 28px;
+                height: .2rem;
+                margin: -.6rem .3rem 0 0;
+            }
+        }
+
+        .date-select {
+            width: 100px;
+
+            .ant-select-borderless .ant-select-selector,
+            .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+                background-color: $fa-grey-500  !important;
+                height: 35px;
+                border-radius: 30px;
+
+                .ant-select-selection-item {
+                    margin-top: -.5rem;
+                    margin-left: 5px;
+                }
+            }
+        }
+
+        @include smMaxBreakPoint {
+            width: 100%;
+            height: 350px;
+            margin-top: 1rem
+        }
+    }
+
+    @include mdMaxBreakPoint {
+        width: 100%;
+    }
+
+    .line-chart {
+        height: 240px;
+        width: 93%;
+
+        @include smMaxBreakPoint {
+            width: 100%;
+            height: 260px;
+        }
+    }
+
+    .chart-value-indicator {
+        background-color: $fa-black;
+        color: $fa-white;
+        height: 3.4rem;
+        width: fit-content;
+        border-radius: 10px
+    }
+
+    .header-section {
+        height: 47.5%;
+
+        .icon-container {
+            width: 50px;
+            height: 50px;
+            margin-right: 2rem;
+        }
+    }
+
+    .portfolio-detail-card {
+        background: $fa-white;
+        border-radius: 5px;
+        padding: 1rem .55rem .5rem;
+
+        h6 {
+            margin: 0rem 0 0 .2rem;
+            font-size: 15px;
+        }
+
+        h5 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 10px;
+        }
+
+        .detail-tag {
+            background: $fa-grey-500;
+            border-radius: 25px;
+            // width: 49px;
+            height: 25px;
+
+            p {
+                font-weight: 550;
+                font-size: 10px;
+
+            }
+        }
+
+        .view-detail-btn {
+            max-height: 0;
+            transition: max-height 0.15s ease-out;
+            overflow: hidden;
+        }
+
+        button {
+            height: 32px;
+            border: .7px solid $fa-black;
+            border-radius: 6px;
+            font-size: 10px;
+            display: none;
+
+        }
+
+        &:hover {
+            button {
+                display: block;
+
+                &:hover {
+                    transform: none;
+                }
+            }
+
+            .view-detail-btn {
+                max-height: 500px;
+                transition: max-height 0.5s ease-in;
+            }
+        }
+    }
+
+}

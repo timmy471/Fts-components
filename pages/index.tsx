@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import Link from 'next/link';
 import Image from 'next/image';
+import Router from 'next/router';
 import { assets } from '@src/assets';
 import type { NextPage } from 'next';
 import { bindActionCreators } from 'redux';
@@ -52,6 +53,7 @@ const Login: NextPage<Props> = () => {
       role: 'admin',
       lastLogin: '3rd, April, 20:00:00',
     });
+    Router.push('/investors/dashboard/investments');
   };
 
   return (
@@ -61,7 +63,7 @@ const Login: NextPage<Props> = () => {
           <Image src={assets.FaLogo.src} alt={assets.FaLogo.alt} width={100} height={100} />
         </Fragment>
         <div>
-          <Row>
+          <Row className='row-style'>
             <Col xs={0} sm={0} md={0} lg={14} xl={14}>
               <div className='left-hero'>
                 <div className='image-wrapper'>

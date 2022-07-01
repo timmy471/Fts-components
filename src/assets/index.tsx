@@ -83,6 +83,10 @@ export const assets = {
     alt: 'Money',
     src: '/assets/images/dollar-briefcase.svg',
   },
+  briefcaseIcon: {
+    alt: 'Money',
+    src: '/assets/images/briefcase.svg',
+  },
   dollarPlainIcon: {
     alt: 'Money',
     src: '/assets/images/dollar-plain.svg',
@@ -110,5 +114,69 @@ export const assets = {
   FilterHarmBurger: {
     alt: 'Filter Icon',
     src: '/assets/images/dashboard/filter-harmburger.svg',
+  },
+  PinterestLogo: {
+    alt: 'Logo',
+    src: '/assets/images/dashboard/pinterest.svg',
+  },
+  ClosingDocsIcon: {
+    alt: 'Icon',
+    src: '/assets/images/dashboard/closing-docs-icon.svg',
+  },
+  MessageLeadsIcon: {
+    alt: 'Icon',
+    src: '/assets/images/dashboard/message-leads-icon.svg',
+  },
+  PastInvestmentsIcon: {
+    alt: 'Icon',
+    src: '/assets/images/dashboard/past-investments-icon.svg',
+  },
+  AellaLogo: {
+    alt: 'Logo',
+    src: '/assets/images/dashboard/aella-icon.svg',
+  },
+  AlphaLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/alphax-logo.svg',
+  },
+  BetwayLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/betway-logo.svg',
+  },
+  EhealthLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/ehealth-logo.svg',
+  },
+  MobniaLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/mobnia-logo.svg',
+  },
+  AngelListLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/angellist-logo.svg',
+  },
+  CordrosLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/cordros-logo.svg',
+  },
+  VaubanLogo: {
+    alt: 'Company Logo',
+    src: '/assets/images/dashboard/vauban-logo.svg',
+  },
+  faCompany: {
+    alt: 'Future Africa',
+    src: '/assets/images/portfolio/faFund.svg',
+  },
+  edenCompany: {
+    alt: 'Eden',
+    src: '/assets/images/portfolio/eden-logo.svg',
+  },
+  founderBoy: {
+    alt: 'founder',
+    src: '/assets/images/portfolio/boy-founder.svg',
+  },
+  founderGirl: {
+    alt: 'founder',
+    src: '/assets/images/portfolio/girl-founder.svg',
   },
 };

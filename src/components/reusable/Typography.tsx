@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'classnames';
+
 type elements = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span' | 'p';
+
 type bodyVariants =
   | 'body1'
   | 'body2'
@@ -9,7 +11,10 @@ type bodyVariants =
   | 'body5'
   | 'body6'
   | 'body7'
-  | 'body8';
+  | 'body8'
+  | 'body9'
+  | 'body10';
+
 type typographyStates = 'default' | 'primary' | 'secondary' | 'tetiary' | 'error';
 
 interface ITypogrphy {

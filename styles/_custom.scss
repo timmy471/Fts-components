@@ -19,6 +19,10 @@
   margin: 0.25rem !important;
 }
 
+.m-auto{
+  margin: auto !important;
+}
+
 .mtop-1,
 .my-1 {
   margin-top: 0.25rem !important;
@@ -385,7 +389,11 @@
 }
 
 .w-100 {
-  width: 100%
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%
 }
 
 // TEXTS
@@ -526,7 +534,7 @@
 }
 
 .text-primary {
-  color: #007bff !important;
+  color: $fa-info !important;
 }
 
 a.text-primary:focus,
@@ -693,4 +701,8 @@ a.text-success:hover {
 
 .d-flex {
   display: flex !important;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
 }

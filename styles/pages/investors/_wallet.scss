@@ -44,8 +44,6 @@
     }
 
     .filter-params-container {
-
-
         display: flex;
         align-content: center;
         align-items: center;
@@ -65,11 +63,17 @@
         }
     }
 
-    .filter-cta {
-        span {
-            @include xlMaxBreakPoint {
-                display: block;
-            }
+    .desktop-filter-cta {
+        @include xlMaxBreakPoint {
+            display: none;
+        }
+    }
+
+    .mobile-filter-cta {
+        display: none;
+
+        @include xlMaxBreakPoint {
+            display: flex;
         }
     }
 
@@ -80,7 +84,47 @@
             width: 100%
         }
     }
+
+    .date-filter-cta {
+
+        border-radius: 8px;
+        background-color: $fa-white;
+        font-size: 14px;
+        padding: 0 .8rem;
+
+        p {
+            color: $fa-grey-200;
+        }
+
+        .drop-down {
+            color: $fa-grey-200;
+            font-size: 12px;
+        }
+    }
+
+    .dropdown-container {
+        border-radius: 10px;
+    }
 }
+
+.ant-dropdown-menu {
+    border-radius: 6px;
+    padding-bottom: 1rem
+}
+
+.filter-date-picker {
+    border: none;
+    border-radius: 10px;
+    height: 3.3rem !important;
+    width: 14rem !important;
+    background-color: $fa-white;
+
+    .ant-picker-input>input::placeholder {
+        color: $fa-grey-200;
+    }
+}
+
+
 
 .wallet-payment-modal {
     .ant-modal-content {
@@ -149,5 +193,36 @@
         line-height: 10px;
         font-weight: 600;
         color: #393636;
+    }
+}
+
+.mobile-filter-accordion {
+    .wallet-filter-panel {
+        background-color: $fa-white;
+        margin-bottom: 5px;
+        margin-top: 1.5rem;
+        border-radius: 8px !important;
+        border-bottom: 1px solid $fa-grey-400  !important;
+
+        p {
+            margin-bottom: -.3rem
+        }
+
+        div {
+            flex-wrap: wrap;
+
+            div {
+                margin: 0 .4rem 1rem 0
+            }
+        }
+    }
+
+    .ant-collapse-borderless,
+    .ant-collapse {
+        background-color: $fa-white;
+    }
+
+    .ant-collapse-item-active {
+        background: #f4f4f4;
     }
 }

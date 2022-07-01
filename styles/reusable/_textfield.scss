@@ -17,9 +17,13 @@
   }
 
   .fa-input-search-icon {
-    color: $fa-grey-200 !important;
+    color: $fa-grey-200  !important;
   }
 
+  .searchfield-placeholder {
+    bottom: .3rem;
+    position: relative;
+  }
 }
 
 .texfield_container_default {
@@ -108,5 +112,29 @@
 
   .select-placeholder {
     color: $fa-grey-200
+  }
+}
+
+textarea {
+  resize: none !important;
+}
+
+.fa-text-area {
+  &::placeholder {
+    font-family: $font-family-primary;
+  }
+
+  font-family: $font-family-primary;
+
+  &__default {
+    background-color: $fa-white;
+  }
+
+  &__primary {
+    background-color: #f6f6f6;
+
+    &:focus {
+      background-color: #f6f6f6;
+    }
   }
 }

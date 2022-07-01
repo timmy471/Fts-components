@@ -19,7 +19,12 @@ export const defaultValidation = (name: string) =>
 export const urlValidation = (name: string) =>
   Yup.string()
     .matches(
-      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
       'Enter valid url!'
     )
     .required(`${name} is required`);
+
+// /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/
+
+export const getTableAlternatingBg = (index: number) =>
+  index % 2 === 0 ? 'table-row-light' : 'table-row-dark';

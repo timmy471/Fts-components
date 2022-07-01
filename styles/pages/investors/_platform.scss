@@ -1,0 +1,229 @@
+.platform {
+  .card {
+    background: $fa-white;
+    width: 100%;
+    min-height: 480px;
+    padding: 30px 20px 40px 20px;
+
+    h3 {
+      font-family: $font-family-primary;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 30px;
+      color: $fa-secondary-200;
+    }
+    p {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: $fa-grey-300;
+      display: block;
+    }
+    ul {
+      margin: 0px;
+      padding: 10px;
+      color: $fa-grey-300;
+    }
+    .btn-invest {
+      align-items: center;
+      max-width: 250px;
+      height: 50px;
+      border: 1px solid $fa-success;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 15px 77px;
+      gap: 10px;
+      margin: auto;
+      color: $fa-black;
+      line-height: 50px;
+    }
+    .btn-invest:hover {
+      color: $fa-black;
+      border-color: $fa-primary-200;
+    }
+    .btn-invest:active {
+      color: $fa-black;
+      border-color: $fa-primary-200;
+    }
+    .btn-invest:focus {
+      color: $fa-black;
+      border-color: $fa-primary-200;
+    }
+  }
+
+  .form-stepper {
+    display: flex;
+
+    .status-indicator {
+      display: flex;
+      color: $fa-grey-200;
+      margin-right: 0.8rem;
+      flex-grow: 1;
+
+      .number-indicator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .index {
+          opacity: 0.3;
+
+          &__active,
+          &__completed {
+            opacity: 1;
+          }
+        }
+
+        @include faMaxBreakPoint(640px) {
+          h5 {
+            font-size: 20px;
+          }
+        }
+      }
+
+      .status-track {
+        border: 1px solid rgba(255, 168, 0, 0.2);
+        width: 22px;
+        height: 22px;
+        display: flex;
+        color: $fa-white;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        margin-top: 0.5rem;
+
+        &__completed {
+          background-color: $fa-primary-100;
+          border: none;
+        }
+
+        &__active {
+          border: 1.5px solid $fa-primary-100;
+        }
+
+        @include lgMaxBreakPoint {
+          margin-top: 20%;
+        }
+      }
+
+      .text-indicator {
+        margin: 0.2rem 0.5rem;
+        width: 100%;
+        // text-align: center;
+
+        div {
+          border: 1px solid rgba(255, 168, 0, 0.2);
+          margin-top: 1.3rem;
+        }
+
+        p {
+          opacity: 0.3;
+          margin-left: 0.4rem;
+        }
+
+        &__active {
+          div {
+            border: 1.5px dashed $fa-primary-100;
+          }
+
+          p {
+            color: $fa-black;
+            opacity: 1;
+          }
+        }
+
+        &__completed {
+          div {
+            border: 1px solid $fa-primary-100;
+          }
+
+          p {
+            color: $fa-black;
+            opacity: 1;
+          }
+        }
+
+        @include lgMaxBreakPoint {
+          margin: 0 0.3rem;
+        }
+
+        @include faMaxBreakPoint(640px) {
+          display: none;
+          flex-grow: 0;
+          margin: 6.5% 0;
+
+          div {
+            margin-top: 1rem;
+          }
+
+          &__active {
+            display: block;
+            margin-right: 2rem;
+            margin-left: 0.7rem;
+          }
+        }
+
+        @include smMaxBreakPoint {
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+
+      @include smMaxBreakPoint {
+        .number-indicator {
+          margin-top: 0.6rem;
+        }
+      }
+
+      @include smMaxBreakPoint {
+        margin-right: 0.2rem;
+      }
+    }
+  }
+
+  .cordros-form {
+    display: flex;
+    margin: auto;
+    height: 80vh;
+    h1 {
+      line-height: 30px !important;
+      font-style: normal;
+      font-weight: 800;
+      font-size: 24px !important;
+      line-height: 26px;
+      align-items: center;
+      text-align: center;
+    }
+    p {
+      align-items: center;
+      text-align: center;
+    }
+    .btn-continue {
+      margin-top: 30px;
+      width: 100%;
+      background-color: $fa-primary-200;
+      border-radius: 5px;
+      height: 50px;
+      align-items: center;
+      text-align: center;
+      font-size: 14px;
+      font-family: $font-family-primary;
+      color: $fa-white;
+    }
+    .btn-continue:hover {
+      border-color: $fa-primary-200;
+    }
+    .btn-continue:active {
+      border-color: $fa-primary-200;
+    }
+    .btn-continue:focus {
+      border-color: $fa-primary-200;
+    }
+  }
+}
