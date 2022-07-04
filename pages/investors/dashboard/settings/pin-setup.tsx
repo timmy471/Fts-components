@@ -1,13 +1,28 @@
 import * as Yup from 'yup';
 import type { NextPage } from 'next';
-import { InvestorsDashboardLayout, Typography, BackCTA, PINSetupForm } from '@src/components';
+import {
+  InvestorsDashboardLayout,
+  Typography,
+  BackCTA,
+  PINSetupForm,
+  PINChangeForm,
+} from '@src/components';
 
 const Settings: NextPage = () => {
-  const validatePin = () =>
+  const validatePinSet = () =>
     Yup.object({
       pin: Yup.string().required('Error: PIN is required'),
       confirmPin: Yup.string()
         .required('Error: Re-enter PIN')
+        .oneOf([Yup.ref('pin'), null], 'Error: Entered PINs do not match'),
+    });
+
+  const validatePinChange = () =>
+    Yup.object({
+      oldPin: Yup.string().required('Error: Old PIN is required'),
+      pin: Yup.string().required('Error: New PIN is required'),
+      confirmPin: Yup.string()
+        .required('Error: Re-enter New PIN')
         .oneOf([Yup.ref('pin'), null], 'Error: Entered PINs do not match'),
     });
 
@@ -26,7 +41,12 @@ const Settings: NextPage = () => {
           <Typography className='font-inline' state='secondary' variant='body7'>
             4 digit code
           </Typography>
-          <PINSetupForm onPinSubmit={() => {}} validatePin={validatePin} />
+          {/* Include Condition to show either if user already has pin setup */}
+          {true ? (
+            <PINSetupForm onPinSubmit={() => {}} validatePin={validatePinSet} />
+          ) : (
+            <PINChangeForm validatePin={validatePinChange} onPinSubmit={() => {}} />
+          )}
         </div>
       </div>
     </InvestorsDashboardLayout>

@@ -335,7 +335,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                   value={values.pin}
                   inputStyle='otp-input'
                   onChange={(val: string) => setFieldValue('pin', val)}
-                  numInputs={5}
+                  numInputs={4}
                   shouldAutoFocus
                   isInputNum
                 />
@@ -351,7 +351,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                     value={values.confirmPin}
                     inputStyle='otp-input'
                     onChange={(val: string) => setFieldValue('confirmPin', val)}
-                    numInputs={5}
+                    numInputs={4}
                     isInputNum
                   />
                   <div className='mtop-2'>

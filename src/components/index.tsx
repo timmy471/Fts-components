@@ -21,6 +21,7 @@ export * from './forms/ForgotPasswordForm';
 export * from './forms/NewPasswordForm';
 export * from './forms/WalletForm';
 export * from './forms/PINSetupForm';
+export * from './forms/PINChangeForm';
 export * from './layouts/investors/dashboard/Menu';
 export * from './layouts/investors/dashboard/TopHeader';
 export * from './layouts/investors/dashboard';
