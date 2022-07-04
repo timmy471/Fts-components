@@ -36,7 +36,7 @@ const Settings: NextPage = () => {
                 </Typography>
               </div>
               <div>
-                <Button label='Setup Authentication' />
+                <Button label='Setup Authentication' disabled />
               </div>
             </div>
           </div>
