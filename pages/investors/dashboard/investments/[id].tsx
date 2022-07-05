@@ -24,7 +24,9 @@ const SelectedInvestment: NextPage<IProps> = () => {
             Back
           </span>
         </Link>
-        <div className='image-cta mt-2' style={{ backgroundImage: `url(${assets.DealCta.src})` }}>
+        <div
+          className='image-cta mt-2'
+          style={{ backgroundImage: `url(${assets.DealCta.src})` }}>
           <Row className='deal-name'>
             <Col xs={3} sm={3} md={3} lg={3} xl={3}>
               <Image

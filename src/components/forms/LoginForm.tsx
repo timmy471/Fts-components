@@ -21,6 +21,7 @@ interface Props {
   onFormChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   validateSchema: object;
   onRememberCheck: (event: CheckboxChangeEvent) => void;
+  onKeyDown: any;
 }
 
 export const LoginForm: NextPage<Props> = ({
@@ -29,6 +30,7 @@ export const LoginForm: NextPage<Props> = ({
   onSubmitForm,
   onFormChange,
   onRememberCheck,
+  onKeyDown,
 }) => {
   return (
     <Formik
@@ -39,7 +41,7 @@ export const LoginForm: NextPage<Props> = ({
       onSubmit={onSubmitForm}
       validationSchema={validateSchema}>
       {({ errors, touched }) => (
-        <Form name='login-form' autoComplete='none'>
+        <Form name='login-form' autoComplete='none' onKeyDown={onKeyDown}>
           <div className='mt-10'>
             <FloatLabel label='Email' value={formData.email}>
               <Input
