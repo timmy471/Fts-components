@@ -31,7 +31,7 @@ const Subscription: NextPage<IProps> = () => {
         <h1>Subscription</h1>
         <p>Invest in early stage companies through these funds</p>
         <Fragment>
-          <Row gutter={[30, 30]}>
+          <Row gutter={[20, 20]}>
             <Col xs={24} sm={24} md={12} lg={12} xl={12}>
               <div className='left-aside'>
                 <Row>
@@ -64,7 +64,7 @@ const Subscription: NextPage<IProps> = () => {
             </Col>
             <Col xs={24} sm={24} md={12} lg={12} xl={12}>
               <Row>
-                <Col xs={18} sm={18} md={18} lg={18} xl={18}>
+                <Col xs={24} sm={24} md={18} lg={18} xl={18}>
                   <div className='right-aside'>
                     <h4 className='mb-1'>Subscription Preview</h4>
                     <Row gutter={[20, 20]}>
@@ -72,18 +72,18 @@ const Subscription: NextPage<IProps> = () => {
                         <span>Subscription</span>
                         <h4>4 quarters of $50,000</h4>
                       </Col>
-                      <Col xs={6} sm={6} md={6} lg={6} xl={6}>
+                      <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                         <span>Mgmt. Fee</span>
                         <h4>1%</h4>
                       </Col>
-                      <Col xs={6} sm={6} md={6} lg={6} xl={6}>
+                      <Col xs={12} sm={12} md={6} lg={6} xl={6}>
                         <span>Carry</span>
                         <h4>0%</h4>
                       </Col>
                     </Row>
                   </div>
                 </Col>
-                <Col xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Col xs={24} sm={24} md={6} lg={6} xl={6}>
                   <div className='last-aside'>
                     <h4 className='mb-1'>Amount Due</h4>
                     <h2>$50,000</h2>

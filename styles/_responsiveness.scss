@@ -177,6 +177,33 @@
       width: 40px;
     }
   }
+
+  .subscription {
+    .right-aside {
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .last-aside {
+      border-radius: 10px;
+    }
+    .sub-container {
+      border-radius: 10px;
+      .item {
+        flex: 100%;
+        margin-bottom: 20px;
+      }
+    }
+    .form-container {
+      .buttons {
+        justify-content: start;
+        flex: 100%;
+        .btn-cancel,
+        .btn-confirm {
+          width: 100%;
+        }
+      }
+    }
+  }
 }
 
 // Desktop Screens
