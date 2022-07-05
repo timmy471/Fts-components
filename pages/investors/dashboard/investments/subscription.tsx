@@ -35,26 +35,30 @@ const Subscription: NextPage<IProps> = () => {
             <Col xs={24} sm={24} md={12} lg={12} xl={12}>
               <div className='left-aside'>
                 <Row>
-                  <Image
-                    src={assets.PinterestLogo.src}
-                    alt={assets.PinterestLogo.alt}
-                    width='80'
-                    height='80'
-                  />
-                  <h2>
-                    Future Africa Fund{' '}
-                    <b>
-                      <img
-                        src={assets.ClosingDocsIcon.src}
-                        alt={assets.ClosingDocsIcon.alt}
-                        width='15'
-                        height={'15'}
-                        className='mbottom-1'
-                      />
-                      {'   '}
-                      Closing Documents
-                    </b>
-                  </h2>
+                  <Col xs={3} sm={3} md={3} lg={3} xl={3}>
+                    <Image
+                      src={assets.PinterestLogo.src}
+                      alt={assets.PinterestLogo.alt}
+                      width='100'
+                      height='100'
+                    />
+                  </Col>
+                  <Col xs={18} sm={18} md={14} lg={14} xl={14}>
+                    <h2>
+                      Future Africa Fund{' '}
+                      <b className='mt-1'>
+                        <img
+                          src={assets.ClosingDocsIcon.src}
+                          alt={assets.ClosingDocsIcon.alt}
+                          width='15'
+                          height={'15'}
+                          className='mbottom-1'
+                        />
+                        {'   '}
+                        Closing Documents
+                      </b>
+                    </h2>
+                  </Col>
                 </Row>
               </div>
             </Col>
@@ -64,7 +68,7 @@ const Subscription: NextPage<IProps> = () => {
                   <div className='right-aside'>
                     <h4 className='mb-1'>Subscription Preview</h4>
                     <Row gutter={[20, 20]}>
-                      <Col xs={12} sm={12} md={12} lg={12} xl={12}>
+                      <Col xs={24} sm={24} md={12} lg={12} xl={12}>
                         <span>Subscription</span>
                         <h4>4 quarters of $50,000</h4>
                       </Col>
