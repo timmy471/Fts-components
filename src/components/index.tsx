@@ -23,6 +23,7 @@ export * from './forms/WalletForm';
 export * from './forms/PINSetupForm';
 export * from './layouts/investors/dashboard/Menu';
 export * from './layouts/investors/dashboard/TopHeader';
+export * from './layouts/fundmanager/dashboard/FundManagerHeader';
 export * from './layouts/investors/dashboard';
 export * from './portfolio/PortfolioChart';
 export * from './portfolio/PortfolioDetail';
