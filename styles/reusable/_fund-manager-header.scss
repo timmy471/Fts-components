@@ -2,6 +2,14 @@
   min-height: 80px;
   background: $fa-white;
   display: flex;
+
+  .hamburger-icon {
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+    margin-left: 25px;
+  }
+
   .logo-bg {
     background: $fa-black;
     padding-left: 20px;

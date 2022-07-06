@@ -1,5 +1,16 @@
 .fund-manager-dashboard {
-  min-height: 100vh;
-  background-color: red;
-  color: blue;
+  .fund-manager-site-layout {
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    .fund-manager-layout-background {
+      padding: 50px 100px;
+      h1 {
+        font-family: $font-family-secondary;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        color: $fa-grey-1000;
+      }
+    }
+  }
 }

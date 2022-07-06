@@ -1,12 +1,8 @@
-import Link from 'next/link';
 import { IUser } from 'type.d';
-import Image from 'next/image';
-import { assets } from '@src/assets';
 import type { NextPage } from 'next';
 import { Fragment, useState } from 'react';
 import { Menu, FundManagerHeader } from '@src/components';
-import { Layout, Row, Col, Input, Dropdown, Button, Menu as M } from 'antd';
-import { CaretDownOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import { Layout } from 'antd';
 
 interface IProps {}
 
@@ -27,32 +23,27 @@ const FundManagerDashboard: NextPage<IProps> = () => {
     setVisible(false);
   };
 
-  const menu = (
-    <M
-      items={[
-        {
-          key: '1',
-          label: (
-            <a target='_blank' rel='noopener noreferrer' href='https://www.antgroup.com'>
-              1st menu item
-            </a>
-          ),
-        },
-        {
-          key: '2',
-          label: (
-            <a target='_blank' rel='noopener noreferrer' href='https://www.aliyun.com'>
-              2nd menu item
-            </a>
-          ),
-        },
-      ]}
-    />
-  );
-
   return (
     <div className='fund-manager-dashboard'>
-      <FundManagerHeader showDrawer={showDrawer} user={user} />
+      <FundManagerHeader
+        classN='investments'
+        user={user}
+        visible={visible}
+        onClose={onClose}
+        showDrawer={showDrawer}
+      />
+      {/* <Menu
+        user={user}
+        onClose={onClose}
+        visible={visible}
+        classN='investments'
+        subClassN='investments'
+      /> */}
+      <div className='fund-manager-site-layout'>
+        <div className='fund-manager-layout-background'>
+          <h1>Okasy</h1>
+        </div>
+      </div>
     </div>
   );
 };
