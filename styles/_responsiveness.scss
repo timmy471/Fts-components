@@ -156,12 +156,20 @@
     }
   }
 
-  .fund-manager-dashboard {
+  .fund-manager-wrapper {
     .fund-manager-site-layout {
       min-height: 100vh;
       background-color: #f0f0f0;
       .fund-manager-layout-background {
         padding: 20px 20px;
+      }
+    }
+  }
+
+  .fund-manager-dashboard {
+    .metrics {
+      .item {
+        flex: 40%;
       }
     }
   }

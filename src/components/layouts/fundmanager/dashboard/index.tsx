@@ -31,7 +31,7 @@ export const FundManagerDashboardLayout: NextPage<IProps> = ({
   };
 
   return (
-    <div className='fund-manager-dashboard'>
+    <div className='fund-manager-wrapper'>
       <FundManagerHeader
         user={user}
         classN={classN}
