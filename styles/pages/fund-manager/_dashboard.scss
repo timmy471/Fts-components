@@ -1,6 +1,7 @@
 .fund-manager-dashboard {
   text-align: justify;
   text-justify: inter-word;
+
   h1 {
     font-family: 'Manier';
     font-style: normal;
@@ -108,6 +109,242 @@
       padding: 10px 20px;
       margin-right: 20px;
       margin-bottom: 10px;
+    }
+  }
+
+  .search-container {
+    margin-top: 20px;
+    min-height: 140px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    border-radius: 7px;
+
+    p {
+      font-family: 'Museo Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+      color: #1d1d1d;
+    }
+    .search-input {
+      height: 50px;
+      background: #ffffff;
+      border-radius: 6px;
+    }
+    .search-input:hover {
+      outline: none;
+    }
+
+    .mydropdown {
+      width: 100%;
+      height: 50px;
+      border-radius: 6px;
+      float: left;
+      text-align: left;
+
+      .mleft-3 {
+        margin-left: 3rem;
+      }
+    }
+    .mydropdown:hover {
+      border: transparent;
+      color: $fa-black;
+    }
+  }
+
+  .table {
+    margin-top: 20px;
+
+    .ant-table-content {
+      background-color: #e0e0e0;
+    }
+
+    .ant-table-thead > tr > th {
+      position: relative;
+      color: rgba(0, 0, 0, 0.85);
+      font-weight: 500;
+      text-align: left;
+      background: #e0e0e0;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background 0.3s ease;
+      font-family: 'Museo Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 18px;
+      align-items: center;
+      color: #828282;
+      border: none;
+    }
+    .ant-table-tbody > tr {
+      background: #f0f0f0;
+      background-color: #f0f0f0;
+      min-height: 150px;
+      transition: background 0.3s;
+      border-radius: 7px;
+      height: 150px;
+    }
+
+    .ant-table-thead
+      > tr
+      > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 1px;
+      height: 1.6em;
+      background-color: rgba(0, 0, 0, 0.06);
+      transform: translateY(-50%);
+      transition: background-color 0.3s;
+      content: none;
+    }
+
+    .ant-table table {
+      cursor: pointer;
+      border-spacing: 0 10px;
+    }
+
+    td:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    td:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    span {
+      font-family: 'Museo Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      align-items: center;
+      color: #1d1d1d;
+    }
+
+    .stage-pill {
+      padding: 7px 15px;
+      background: #e0e0e0;
+      border-radius: 25px;
+      font-family: 'Museo Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      align-items: center;
+      text-align: center;
+      color: #1d1d1d;
+    }
+
+    .wired {
+      padding: 7px 15px;
+      background: #e0e0e0;
+      border-radius: 25px;
+      font-family: 'Museo Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      align-items: center;
+      text-align: center;
+      color: #1d1d1d;
+    }
+
+    .closing {
+      padding: 7px 15px;
+      background: rgba(255, 168, 0, 0.07);
+      border-radius: 25px;
+      font-family: 'Museo Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      align-items: center;
+      text-align: center;
+      color: #b67800;
+    }
+
+    .raising {
+      padding: 7px 15px;
+      background: rgba(0, 135, 63, 0.07);
+      border-radius: 25px;
+      font-family: 'Museo Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      align-items: center;
+      text-align: center;
+      color: #00873f;
+    }
+    .company {
+      // display: flex;
+      max-width: 350px;
+      margin: 0px;
+      padding: 0px;
+
+      h4 {
+        font-family: 'Museo Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 22px;
+        color: #1d1d1d;
+        display: inline-block;
+        margin-left: 10px;
+        margin-left: 20px;
+        span {
+          font-family: 'Museo Sans';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 14px;
+          color: #828282;
+        }
+      }
+      a {
+        font-family: 'Museo Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 16px;
+        color: #2f80ed;
+        margin: 20px;
+      }
+    }
+  }
+
+  .investment-accordion-container {
+    display: block;
+    visibility: hidden;
+    .wallet-accordion-panel {
+      border-radius: 12px !important;
+      background-color: $fa-white;
+      margin-bottom: 5px;
+    }
+
+    .ant-collapse-item-active {
+      background: transparent;
+      border: 1px solid $fa-grey-500;
+    }
+
+    .ant-collapse-borderless,
+    .ant-collapse {
+      background-color: transparent;
+    }
+
+    .ant-collapse-header-text {
+      width: 100%;
+    }
+
+    .wallet-detail {
+      line-height: 10px;
+      font-weight: 600;
+      color: #393636;
     }
   }
 }

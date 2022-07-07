@@ -2,7 +2,9 @@
   min-height: 80px;
   background: $fa-white;
   display: flex;
-
+  position: fixed;
+  width: 100%;
+  z-index: 99;
   .hamburger-icon {
     margin-top: auto;
     margin-bottom: auto;

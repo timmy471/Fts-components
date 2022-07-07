@@ -161,7 +161,7 @@
       min-height: 100vh;
       background-color: #f0f0f0;
       .fund-manager-layout-background {
-        padding: 20px 20px;
+        padding: 120px 20px;
       }
     }
   }
@@ -171,6 +171,14 @@
       .item {
         flex: 40%;
       }
+    }
+    .table {
+      display: none;
+      visibility: hidden;
+    }
+    .investment-accordion-container {
+      display: block;
+      visibility: visible;
     }
   }
 }
