@@ -47,6 +47,9 @@
   .menus {
     margin-top: auto;
     // margin-bottom: auto;
+    .active {
+      color: $fa-black;
+    }
     ul {
       list-style-type: none;
       margin: 0;

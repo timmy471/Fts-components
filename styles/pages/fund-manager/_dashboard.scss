@@ -1,16 +1,11 @@
 .fund-manager-dashboard {
-  .fund-manager-site-layout {
-    min-height: 100vh;
-    background-color: #f0f0f0;
-    .fund-manager-layout-background {
-      padding: 50px 100px;
-      h1 {
-        font-family: $font-family-secondary;
-        font-style: normal;
-        font-weight: 800;
-        font-size: 32px;
-        color: $fa-grey-1000;
-      }
-    }
+  h1 {
+    font-family: 'Manier';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 35px;
+
+    color: #1d1d1d;
   }
 }

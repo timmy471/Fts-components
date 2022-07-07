@@ -25,6 +25,7 @@ export * from './layouts/investors/dashboard/Menu';
 export * from './layouts/investors/dashboard/TopHeader';
 export * from './layouts/fundmanager/dashboard/FundManagerHeader';
 export * from './layouts/investors/dashboard';
+export * from './layouts/fundmanager/dashboard';
 export * from './portfolio/PortfolioChart';
 export * from './portfolio/PortfolioDetail';
 export * from './company/Fund';

@@ -78,13 +78,38 @@ export const FundManagerHeader = ({
       </Col>
       <Col xs={0} sm={0} md={0} lg={9} xl={9} className='menus'>
         <ul>
-          <li>
-            Investments
-            <hr />
-          </li>
-          <li>Portfolio</li>
-          <li>Network</li>
-          <li>Settings</li>
+          {classN === 'investments' ? (
+            <li className='active'>
+              Investments
+              <hr />
+            </li>
+          ) : (
+            <li>Investments</li>
+          )}
+          {classN === 'portfolio' ? (
+            <li className='active'>
+              Portfolio
+              <hr />
+            </li>
+          ) : (
+            <li>Portfolio</li>
+          )}
+          {classN === 'network' ? (
+            <li className='active'>
+              Network
+              <hr />
+            </li>
+          ) : (
+            <li>Network</li>
+          )}
+          {classN === 'settings' ? (
+            <li className='active'>
+              Settings
+              <hr />
+            </li>
+          ) : (
+            <li>Settings</li>
+          )}
         </ul>
       </Col>
       <Col xs={6} sm={6} md={10} lg={5} xl={5} className='profile'>

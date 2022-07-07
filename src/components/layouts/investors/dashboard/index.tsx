@@ -1,7 +1,6 @@
 import { Layout } from 'antd';
 import React, { useState } from 'react';
-
-import { Menu, TopHeader } from '../../../../../src/components';
+import { Menu, TopHeader } from '@src/components';
 
 interface IProps {
   children: JSX.Element[] | JSX.Element;

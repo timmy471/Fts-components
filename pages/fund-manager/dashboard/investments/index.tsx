@@ -1,50 +1,26 @@
-import { IUser } from 'type.d';
 import type { NextPage } from 'next';
-import { Fragment, useState } from 'react';
-import { Menu, FundManagerHeader } from '@src/components';
-import { Layout } from 'antd';
+import { Row, Col, Button } from 'antd';
+import { FundManagerDashboardLayout } from '@src/components';
 
 interface IProps {}
 
 const FundManagerDashboard: NextPage<IProps> = () => {
-  const { Content } = Layout;
-  const [visible, setVisible] = useState<boolean>(false);
-
-  let user: IUser = {
-    firstName: 'Abbey',
-    lastName: 'Sunkami',
-    role: 'Investor',
-    lastLogin: 'March 03, 2022 09.23am',
-  };
-  const showDrawer = () => {
-    setVisible(true);
-  };
-  const onClose = () => {
-    setVisible(false);
-  };
-
   return (
-    <div className='fund-manager-dashboard'>
-      <FundManagerHeader
-        classN='investments'
-        user={user}
-        visible={visible}
-        onClose={onClose}
-        showDrawer={showDrawer}
-      />
-      {/* <Menu
-        user={user}
-        onClose={onClose}
-        visible={visible}
-        classN='investments'
-        subClassN='investments'
-      /> */}
-      <div className='fund-manager-site-layout'>
-        <div className='fund-manager-layout-background'>
-          <h1>Okasy</h1>
-        </div>
+    <FundManagerDashboardLayout classN='investments'>
+      <div className='fund-manager-dashboard'>
+        <Row gutter={[25, 25]}>
+          <Col xs={18} sm={18} md={17} lg={17} xl={17}>
+            <h1>Investments</h1>
+          </Col>
+          <Col xs={0} sm={0} md={3} lg={3} xl={3}>
+            <Button className='fa-green-btn'>New SPV</Button>
+          </Col>
+          <Col xs={3} sm={3} md={3} lg={3} xl={3}>
+            <Button className='fa-green-outline-btn'>New Fund</Button>
+          </Col>
+        </Row>
       </div>
-    </div>
+    </FundManagerDashboardLayout>
   );
 };
 

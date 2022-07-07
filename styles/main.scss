@@ -12,6 +12,7 @@
 @import 'reusable/_menu';
 @import 'reusable/_top-header';
 @import 'reusable/_fund-manager-header';
+@import 'reusable/_fm-wrapper';
 @import 'reusable/_float-label';
 @import 'pages/_login';
 @import 'pages/_onboarding';
@@ -25,5 +26,6 @@
 @import 'pages/investors/_subscription';
 @import 'pages/investors/_company';
 @import 'pages/investors/_settings';
+@import 'pages/fund-manager/_dashboard';
 @import 'pages/fund-manager/_dashboard';
 @import '_responsiveness';
