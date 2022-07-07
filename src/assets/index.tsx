@@ -179,4 +179,16 @@ export const assets = {
     alt: 'founder',
     src: '/assets/images/portfolio/girl-founder.svg',
   },
+  userAvatar: {
+    alt: 'user',
+    src: '/assets/images/dashboard/user-avatar.svg',
+  },
+  cameraIcon: {
+    alt: 'camera',
+    src: '/assets/images/dashboard/camera.svg',
+  },
+  questionsImg: {
+    alt: 'help',
+    src: '/assets/images/dashboard/questions.png',
+  },
 };

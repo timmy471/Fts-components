@@ -5,6 +5,7 @@ import { CaretDownOutlined } from '@ant-design/icons';
 const { Option } = Select;
 export const SelectField: React.FC<ISelectField> = ({
   placeholder,
+  value,
   required = true,
   options,
   onSelect,
@@ -14,6 +15,7 @@ export const SelectField: React.FC<ISelectField> = ({
   defaultValue,
   hasError,
   className = '',
+  style,
 }) => {
   return (
     <div
@@ -26,8 +28,9 @@ export const SelectField: React.FC<ISelectField> = ({
             {placeholder} {required && <span className='font-danger'>*</span>}
           </span>
         }
+        value={value}
         showSearch={isSearchable}
-        style={{ width: '100%' }}
+        style={{ width: '100%', paddingLeft: '.4rem', ...style }}
         className={`fa_selectfield`}
         defaultValue={defaultValue}
         onSelect={onSelect}

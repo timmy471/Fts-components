@@ -1,6 +1,6 @@
 import OtpInput from 'react-otp-input';
 import { Formik, Form } from 'formik';
-import { Typography, Button } from '../../components';
+import { Typography, Button } from '@src/components';
 
 interface IPINSetupProps {
   validatePin: () => object;

@@ -1,0 +1,198 @@
+.profile {
+    .profile-card {
+        border-radius: 5px;
+        background-color: $fa-white;
+        border: 1px solid rgba(189, 189, 189, 0.5);
+    }
+
+    .profile-picture-container {
+        position: relative;
+        padding: 2.5rem 0 1.7rem;
+        margin: auto;
+
+        .camera-icon {
+            position: relative;
+            top: -3rem;
+            left: 2rem;
+        }
+
+        p {
+            position: relative;
+            top: -1rem;
+            color: $fa-grey-200
+        }
+    }
+
+    .questions-container {
+        padding: 2rem 0 2rem;
+
+        p {
+            padding: 0 1.32rem;
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+        button {
+            margin: 1rem auto;
+        }
+    }
+
+    .profile-picture-mobile {
+
+        padding: .7rem 0 .5rem;
+        margin: auto;
+
+        &>div {
+            position: relative;
+        }
+
+        .camera-icon {
+            position: absolute;
+            bottom: -.3rem;
+            left: 3.8rem;
+        }
+    }
+
+    .profile-status-container {
+
+        padding-top: 1.5rem;
+        margin-bottom: 2rem;
+
+        .close-icon {
+            display: flex;
+
+            span {
+                background-color: $fa-error;
+                border-radius: 50%;
+                color: $fa-white;
+                font-size: 12px;
+                width: 1.2rem;
+                height: 1.2rem;
+                font-weight: 600;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+            }
+        }
+
+        .profile-status {
+            padding: 0 2rem 1rem 0;
+            margin: 0 2rem 0 1rem;
+
+            .status-info {
+                line-height: 17px;
+                flex: .58;
+            }
+
+            .progress-indicator {
+                margin-top: 1rem
+            }
+
+
+            @include smMaxBreakPoint {
+                margin: 0;
+                padding-right: .2rem;
+
+                div {
+                    flex-direction: column;
+                }
+
+                .progress-indicator {
+                    margin-top: 0rem
+                }
+
+                .status-text {
+                    margin: 1rem 0 0;
+                }
+            }
+        }
+
+
+
+        @include xlMaxBreakPoint {
+            margin-top: 1rem;
+            padding-top: 1rem
+        }
+    }
+
+    @include smMaxBreakPoint {
+        .page-title {
+            font-size: 24px
+        }
+    }
+
+    .profile-form-container {
+        .profile-tabs {
+
+            .ant-tabs-tab-btn {
+                font-size: 12px;
+            }
+
+            .ant-tabs-tab-active {
+                font-weight: 600;
+            }
+        }
+
+        input {
+            background-color: $fa-disabled;
+            font-weight: 600;
+        }
+
+        .bio-data {
+            min-height: 32.5rem;
+            position: relative;
+
+            .ant-select-selection-item {
+                font-weight: 600;
+                color: $fa-grey-200;
+            }
+
+            .ant-picker-input {
+                input {
+                    &::placeholder {
+                        color: $fa-grey-200;
+                        font-weight: 400;
+                    }
+                }
+            }
+
+            .submit-cta {
+                position: absolute;
+                bottom: 1rem;
+                right: 1.5rem;
+                width: 12rem;
+
+                button {
+                    font-size: 14px
+                }
+
+                @include xlMaxBreakPoint {
+                    position: relative;
+                    bottom: 0;
+                    right: 0;
+                    margin-top: 3rem;
+                    width: 100%;
+                }
+            }
+
+            @include xlMaxBreakPoint {
+                min-height: fit-content;
+            }
+        }
+
+        .sectioned-field {
+            margin-top: 3rem;
+
+            @include mdMaxBreakPoint {
+                margin-top: 0;
+            }
+        }
+
+        .eye-icon {
+            margin-right: 1rem;
+            width: 20px;
+            cursor: pointer;
+        }
+    }
+}

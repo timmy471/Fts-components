@@ -45,6 +45,7 @@ export const TextField: ForwardRefRenderFunction<HTMLInputElement, TextfieldProp
     state ? `${textFieldBaseClass}__${state}` : '',
     `${hasError ? `${textFieldBaseClass}__error` : ''}`,
     `${label ? `${textFieldBaseClass}__label_input` : ''}`,
+    `${endIcon ? `${textFieldBaseClass}__end_icon_input` : ''}`,
     className
   );
 

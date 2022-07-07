@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { countries } from './constants';
 
 export const validateEmail = (email: string) => {
   //Check for @,. com
@@ -28,3 +29,9 @@ export const urlValidation = (name: string) =>
 
 export const getTableAlternatingBg = (index: number) =>
   index % 2 === 0 ? 'table-row-light' : 'table-row-dark';
+
+export const getNationalitiesForForm = () =>
+  countries.map((country) => ({ label: country.nationality, value: country.nationality }));
+
+export const getCountries = () =>
+  countries.map((country) => ({ label: country.name, value: country.name }));

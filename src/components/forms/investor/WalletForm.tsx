@@ -1,5 +1,5 @@
 import { Formik, Form, ErrorMessage } from 'formik';
-import { Typography, SelectField, TextField, Button, FormError } from '../../components';
+import { Typography, SelectField, TextField, Button, FormError } from '@src/components';
 
 interface IWalletProps {
   validationSchema: () => object;
