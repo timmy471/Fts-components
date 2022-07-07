@@ -9,7 +9,7 @@ const FundManagerDashboard: NextPage<IProps> = () => {
     <FundManagerDashboardLayout classN='investments'>
       <div className='fund-manager-dashboard'>
         <Row gutter={[25, 25]}>
-          <Col xs={18} sm={18} md={17} lg={17} xl={17}>
+          <Col xs={17} sm={17} md={17} lg={17} xl={17}>
             <h1>Investments</h1>
           </Col>
           <Col xs={0} sm={0} md={3} lg={3} xl={3}>
