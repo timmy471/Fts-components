@@ -157,7 +157,7 @@ export interface IProfilePasswordVisibility {
 export interface IProfileProps {
   initialValues: IProfileFormValues;
   passwordVisibility: IProfilePasswordVisibility;
-  validationSchema: () => object;
+  validationSchema: object;
   submitProfileInfo: (values: object) => void;
   onPasswordToggle: (key: string, value: boolean) => void;
 }
@@ -176,8 +176,8 @@ interface IEmploymentInfo {
   linkedin: string;
   profession: string;
   firm: string;
-  industry: string;
-  income: string;
+  industry: string | undefined;
+  income: string | undefined;
 }
 
 interface ISecurityValues {

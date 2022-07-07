@@ -1,5 +1,12 @@
+import * as Yup from 'yup';
 import Image from 'next/image';
 import { useState } from 'react';
+import {
+  defaultValidation,
+  emailValidation,
+  passwordValidation,
+  urlValidation,
+} from '@src/helpers/validators';
 import { assets } from '@src/assets';
 import type { NextPage } from 'next';
 import { Col, Row, Progress } from 'antd';
@@ -39,8 +46,8 @@ const Profile: NextPage<IProps> = () => {
       linkedin: '',
       profession: '',
       firm: '',
-      industry: '',
-      income: '',
+      industry: undefined,
+      income: undefined,
     },
     security: {
       currentPassword: '',
@@ -62,6 +69,45 @@ const Profile: NextPage<IProps> = () => {
   const { firstName, lastName, profileComplete } = initialValues;
 
   const [showCompleteStatus, setShowCompleteStatus] = useState<boolean>(profileComplete < 100);
+
+  const basicInfoValidation = {
+    firstName: defaultValidation('First Name'),
+    lastName: defaultValidation('Last Name'),
+    email: emailValidation(),
+    phoneNumber: defaultValidation('Phone Number'),
+    country: defaultValidation('Country'),
+    city: defaultValidation('City'),
+    address: defaultValidation('Address'),
+  };
+
+  const validationSchema = Yup.object().shape({
+    ...basicInfoValidation,
+    dateOfBirth: defaultValidation('Date Of Birth'),
+    // dateOfBirth: Yup.string().test(
+    //     "dateOfBirth",
+    //     "Invalid Date Of Birth",
+    //     (value) => moment().diff(moment(value), "days") <=0
+    //   ),
+    nationality: defaultValidation('Nationality'),
+
+    employment: Yup.object({
+      linkedin: urlValidation('Linkedin URL'),
+      profession: defaultValidation('Profession'),
+      firm: defaultValidation('Firm / Company'),
+      industry: defaultValidation('Industry'),
+      income: defaultValidation('Income'),
+    }),
+    security: Yup.object({
+      currentPassword: defaultValidation('Current Password'),
+      newPassword: passwordValidation('security.newPassword'),
+      confirmPassword: Yup.string()
+        .required('Re-enter Password')
+        .oneOf([Yup.ref('newPassword'), null], 'Passwords do not match'),
+    }),
+    nextOfKin: Yup.object({
+      ...basicInfoValidation,
+    }),
+  });
 
   const getHelp = () => (
     <div className='questions-container profile-card text-center mtop-3'>
@@ -101,22 +147,22 @@ const Profile: NextPage<IProps> = () => {
               {getHelp()}
             </Col>
             <Col xs={24} xl={18}>
-              {/* <Col xs={24} xl={0} style={{ padding: 0, marginBottom: '1.5rem' }}> */}
-              <div className='profile-card profile-picture-mobile px-3 d-flex align-items-center'>
-                <div style={{ position: 'relative' }}>
-                  <Image src={assets.userAvatar.src} alt={''} width='100px' height='100px' />
-                  <div className='camera-icon'>
-                    <Image src={assets.cameraIcon.src} alt={''} width='40px' height='40px' />
+              <div style={{ marginBottom: '1.5rem' }} className='mobile-show'>
+                <div className='profile-card profile-picture-mobile px-3 d-flex align-items-center'>
+                  <div style={{ position: 'relative' }}>
+                    <Image src={assets.userAvatar.src} alt={''} width='100px' height='100px' />
+                    <div className='camera-icon'>
+                      <Image src={assets.cameraIcon.src} alt={''} width='40px' height='40px' />
+                    </div>
+                  </div>
+                  <div className='ml-3'>
+                    <Typography component='h4' className='mbottom-1'>
+                      {firstName}
+                    </Typography>
+                    <Typography variant='body7'>{lastName}</Typography>
                   </div>
                 </div>
-                <div className='ml-3'>
-                  <Typography component='h4' className='mbottom-1'>
-                    {firstName}
-                  </Typography>
-                  <Typography variant='body7'>{lastName}</Typography>
-                </div>
               </div>
-              {/* </Col> */}
               {showCompleteStatus && (
                 <div className='profile-card px-3 pb-2 profile-status-container'>
                   <Col xs={0} md={24}>
@@ -163,15 +209,15 @@ const Profile: NextPage<IProps> = () => {
               <div className='profile-form-container'>
                 <ProfileForm
                   initialValues={initialValues}
-                  validationSchema={() => ({})}
-                  submitProfileInfo={() => {}}
+                  validationSchema={validationSchema}
+                  submitProfileInfo={(values) => {
+                    console.log(JSON.stringify(values, null, 2));
+                  }}
                   passwordVisibility={passwordVisibility}
                   onPasswordToggle={onPasswordToggle}
                 />
               </div>
-              {/* <Col xs={24} xl={0} style={{ padding: '0' }}> */}
-              {getHelp()}
-              {/* </Col> */}
+              <div className='mobile-show'>{getHelp()}</div>
             </Col>
           </Row>
         </div>

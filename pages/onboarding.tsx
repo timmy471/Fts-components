@@ -5,7 +5,7 @@ import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { IOnboardingDetailFormValues } from 'type.d';
-import { defaultValidation, urlValidation } from '@src/helpers';
+import { defaultValidation, urlValidation } from '@src/helpers/validators';
 import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '@src/components';
 
 const Onboarding: NextPage = () => {

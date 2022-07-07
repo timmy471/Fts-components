@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { assets } from '@src/assets';
 import { IProfileProps } from 'type.d';
-import type { DatePickerProps } from 'antd';
 import PhoneInput from 'react-phone-number-input';
 import { Tabs, Row, Col, DatePicker } from 'antd';
 import { Formik, Form, ErrorMessage } from 'formik';
@@ -18,29 +17,36 @@ export const ProfileForm: React.FC<IProfileProps> = ({
 }) => {
   const { TabPane } = Tabs;
 
-  const onDateChange: DatePickerProps['onChange'] = (date, dateString) => {
-    console.log(date, dateString);
-  };
-
   const { currentPassword, newPassword, confirmPassword } = passwordVisibility;
+  //   Depdnding on API expectation, this might change to different forms
+  //   We then have diff initalValues and validationSchema would be a function
+  //   Expecting an index as an argument to know what schema to return
+  //   This index will be in a setState onClick of the tabPanes
   return (
     <Formik
       initialValues={initialValues}
-      //   validationSchema={validationSchema}
+      validationSchema={validationSchema}
       onSubmit={submitProfileInfo}>
       {({
         errors,
         touched,
         values,
+        isSubmitting,
         setFieldValue,
         getFieldProps,
         handleBlur,
         handleChange,
+        setTouched,
       }) => (
         <Form noValidate autoComplete='off'>
           <div className='fa-tabs profile-tabs'>
-            <Tabs defaultActiveKey='1' onChange={() => {}} tabBarGutter={3}>
-              <TabPane tab='Personal Details' key='1'>
+            <Tabs
+              defaultActiveKey='1'
+              onChange={() => {
+                setTouched({});
+              }}
+              tabBarGutter={3}>
+              <TabPane tab='Personal Details' key='1' disabled={isSubmitting}>
                 <div className='profile-card px-4 pt-4 pb-3 bio-data'>
                   <Row gutter={[20, 20]}>
                     <Col xs={24} sm={12} md={8}>
@@ -79,10 +85,20 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                       <DatePicker
                         className='fa_textfield test'
                         placeholder='Date Of Birth'
-                        style={{ backgroundColor: '#F3F3F3' }}
+                        style={{
+                          backgroundColor: '#F3F3F3',
+                          border:
+                            errors.dateOfBirth && touched.dateOfBirth
+                              ? '1px solid red'
+                              : 'none',
+                        }}
                         inputReadOnly
-                        onChange={onDateChange}
+                        format='DD/MM/YYYY'
+                        onChange={(date, dateString) =>
+                          setFieldValue('dateOfBirth', dateString)
+                        }
                       />
+                      <ErrorMessage component={FormError} name='dateOfBirth' />
                     </Col>
                     <Col xs={24} sm={12}>
                       <SelectField
@@ -95,7 +111,7 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                         onSelect={handleChange}
                         isSearchable={true}
                         style={{ backgroundColor: '#F3F3F3' }}
-                        //   hasError={errors.nationality && touched.nationality}
+                        hasError={errors.nationality && touched.nationality}
                         placeholder='Nationality'
                       />
                       <ErrorMessage component={FormError} name='nationality' />
@@ -156,39 +172,41 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                       <ErrorMessage component={FormError} name='address' />
                     </Col>
                     <Col xs={24} className='submit-cta'>
-                      <Button label={'Save Changes'} fullWidth />
+                      <Button label={'Save Changes'} type='submit' fullWidth />
                     </Col>
                   </Row>
                 </div>
               </TabPane>
 
-              <TabPane tab='Employment' key='2'>
+              <TabPane tab='Employment' key='2' disabled={isSubmitting}>
                 <div className='profile-card px-4 pt-4 pb-3 bio-data'>
                   <Row gutter={[20, 20]}>
                     <Col xs={24} sm={12}>
                       <TextField
                         label='Linkedin URL'
-                        {...getFieldProps('linkedin')}
-                        // hasError={errors.linkedin && touched.linkedin}
+                        {...getFieldProps('employment.linkedin')}
+                        hasError={errors.employment?.linkedin && touched.employment?.linkedin}
                       />
-                      <ErrorMessage component={FormError} name='linkedin' />
+                      <ErrorMessage component={FormError} name='employment.linkedin' />
                     </Col>
                     <Col xs={24} sm={12}>
                       <TextField
                         label='Profession / Role'
-                        {...getFieldProps('profession')}
-                        // hasError={errors.profession && touched.profession}
+                        {...getFieldProps('employment.profession')}
+                        hasError={
+                          errors.employment?.profession && touched.employment?.profession
+                        }
                       />
-                      <ErrorMessage component={FormError} name='profession' />
+                      <ErrorMessage component={FormError} name='employment.profession' />
                     </Col>
 
                     <Col xs={24} sm={12}>
                       <TextField
                         label='Firm / Company'
-                        {...getFieldProps('firm')}
-                        // hasError={errors.firm && touched.firm}
+                        {...getFieldProps('employment.firm')}
+                        hasError={errors.employment?.firm && touched.employment?.firm}
                       />
-                      <ErrorMessage component={FormError} name='firm' />
+                      <ErrorMessage component={FormError} name='employment.firm' />
                     </Col>
 
                     <Col xs={24} sm={12}>
@@ -198,47 +216,50 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                           value: industry,
                         }))}
                         onChange={(value: string) => {
-                          setFieldValue('industry', value);
+                          setFieldValue('employment.industry', value);
                         }}
                         onBlur={handleBlur}
                         onSelect={handleChange}
                         isSearchable={true}
                         style={{ backgroundColor: '#F3F3F3' }}
-                        // hasError={errors.industry && touched.industry}
+                        hasError={errors.employment?.industry && touched.employment?.industry}
                         placeholder='Industry'
                       />
-                      <ErrorMessage component={FormError} name='industry' />
+                      <ErrorMessage component={FormError} name='employment.industry' />
                     </Col>
 
                     <Col xs={24} sm={12}>
                       <SelectField
                         options={incomeOptions}
                         onChange={(value: string) => {
-                          setFieldValue('income', value);
+                          setFieldValue('employment.income', value);
                         }}
                         onBlur={handleBlur}
                         onSelect={handleChange}
                         isSearchable={true}
                         style={{ backgroundColor: '#F3F3F3' }}
-                        // hasError={errors.income && touched.income}
+                        hasError={errors.employment?.income && touched.employment?.income}
                         placeholder='Annual Income'
                       />
-                      <ErrorMessage component={FormError} name='income' />
+                      <ErrorMessage component={FormError} name='employment.income' />
                     </Col>
                     <Col xs={24} className='submit-cta'>
-                      <Button label={'Save Changes'} fullWidth />
+                      <Button label={'Save Changes'} type='submit' fullWidth />
                     </Col>
                   </Row>
                 </div>
               </TabPane>
-              <TabPane tab='Security' key='3'>
+              <TabPane tab='Security' key='3' disabled={isSubmitting}>
                 <div className='profile-card px-4 pt-4 pb-3 bio-data'>
-                  <Row gutter={[20, 20]} className='mt-1'>
+                  <Row gutter={[20, 20]}>
                     <Col xs={24} sm={12}>
                       <TextField
                         label='Current Password'
-                        {...getFieldProps('password')}
+                        {...getFieldProps('security.currentPassword')}
                         type={currentPassword ? 'text' : 'password'}
+                        hasError={
+                          errors.security?.currentPassword && touched.security?.currentPassword
+                        }
                         endIcon={
                           <img
                             src={currentPassword ? assets.EyeOpen.src : assets.EyeClose.src}
@@ -249,14 +270,18 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                           />
                         }
                       />
+                      <ErrorMessage component={FormError} name='security.currentPassword' />
                     </Col>
                   </Row>
-                  <Row gutter={[20, 20]}>
+                  <Row gutter={[20, 20]} className='mtop-3'>
                     <Col xs={24} sm={12}>
                       <TextField
                         label='New Password'
-                        {...getFieldProps('newPassword')}
+                        {...getFieldProps('security.newPassword')}
                         type={newPassword ? 'text' : 'password'}
+                        hasError={
+                          errors.security?.newPassword && touched.security?.newPassword
+                        }
                         endIcon={
                           <img
                             src={newPassword ? assets.EyeOpen.src : assets.EyeClose.src}
@@ -265,14 +290,18 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                           />
                         }
                       />
+                      <ErrorMessage component={FormError} name='security.newPassword' />
                     </Col>
                   </Row>
-                  <Row gutter={[20, 20]}>
+                  <Row gutter={[20, 20]} className='mtop-3'>
                     <Col xs={24} sm={12}>
                       <TextField
                         label='Confirm Password'
-                        {...getFieldProps('confirmPassword')}
+                        {...getFieldProps('security.confirmPassword')}
                         type={confirmPassword ? 'text' : 'password'}
+                        hasError={
+                          errors.security?.confirmPassword && touched.security?.confirmPassword
+                        }
                         endIcon={
                           <img
                             src={confirmPassword ? assets.EyeOpen.src : assets.EyeClose.src}
@@ -283,13 +312,10 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                           />
                         }
                       />
+                      <ErrorMessage component={FormError} name='security.confirmPassword' />
                     </Col>
-                  </Row>
-                  <Row>
-                    <Col xs={24} sm={12}>
-                      <Col xs={24} className='submit-cta'>
-                        <Button label={'Save Changes'} fullWidth />
-                      </Col>
+                    <Col xs={24} className='submit-cta'>
+                      <Button label={'Save Changes'} type='submit' fullWidth />
                     </Col>
                   </Row>
                 </div>
@@ -301,31 +327,35 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                       <TextField
                         label='First Name'
                         {...getFieldProps('nextOfKin.firstName')}
-                        // hasError={errors.nextOfKin.firstName && touched.nextOfKin.firstName}
+                        hasError={errors.nextOfKin?.firstName && touched.nextOfKin?.firstName}
                       />
+                      <ErrorMessage component={FormError} name='nextOfKin.firstName' />
                     </Col>
                     <Col xs={24} sm={12}>
                       <TextField
                         label='Last Name'
                         {...getFieldProps('nextOfKin.lastName')}
-                        // hasError={errors.nextOfKin.lastName && touched.nextOfKin.lastName}
+                        hasError={errors.nextOfKin?.lastName && touched.nextOfKin?.lastName}
                       />
+                      <ErrorMessage component={FormError} name='nextOfKin.lastName' />
                     </Col>
                     <Col xs={24} sm={12}>
                       <TextField
                         label='Email'
                         className='fa_textfield'
                         {...getFieldProps('nextOfKin.email')}
-                        // hasError={errors.nextOfKin.email && touched.nextOfKin.email}
+                        hasError={errors.nextOfKin?.email && touched.nextOfKin?.email}
                       />
+                      <ErrorMessage component={FormError} name='nextOfKin.email' />
                     </Col>
 
                     <Col xs={24} sm={12}>
                       <PhoneInput
                         placeholder='Phone Number'
                         className={`fa_textfield ${
-                          //   errors.nextOfKin.phoneNumber && touched.nextOfKin.phoneNumber
-                          false ? 'fa_textfield__error' : ''
+                          errors.nextOfKin?.phoneNumber && touched.nextOfKin?.phoneNumber
+                            ? 'fa_textfield__error'
+                            : ''
                         }`}
                         style={{ backgroundColor: '#F3F3F3' }}
                         countryCallingCodeEditable={false}
@@ -349,7 +379,7 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                         isSearchable={true}
                         value={values.nextOfKin.country}
                         style={{ backgroundColor: '#F3F3F3' }}
-                        // hasError={errors.nextOfKin.country && touched.nextOfKin.country}
+                        hasError={errors.nextOfKin?.country && touched.nextOfKin?.country}
                         placeholder='Country of Residence'
                       />
                       <ErrorMessage component={FormError} name='nextOfKin.country' />
@@ -359,7 +389,7 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                       <TextField
                         label='City'
                         {...getFieldProps('nextOfKin.city')}
-                        // hasError={errors.nextOfKin.city && touched.nextOfKin.city}
+                        hasError={errors.nextOfKin?.city && touched.nextOfKin?.city}
                       />
                       <ErrorMessage component={FormError} name='nextOfKin.city' />
                     </Col>
@@ -367,12 +397,12 @@ export const ProfileForm: React.FC<IProfileProps> = ({
                       <TextField
                         label='Address'
                         {...getFieldProps('nextOfKin.address')}
-                        // hasError={errors.nextOfKin.address && touched.nextOfKin.address}
+                        hasError={errors.nextOfKin?.address && touched.nextOfKin?.address}
                       />
                       <ErrorMessage component={FormError} name='nextOfKin.address' />
                     </Col>
                     <Col xs={24} className='submit-cta'>
-                      <Button label={'Save Changes'} fullWidth />
+                      <Button label={'Save Changes'} type='submit' fullWidth />
                     </Col>
                   </Row>
                 </div>

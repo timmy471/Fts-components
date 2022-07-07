@@ -167,6 +167,15 @@
                     font-size: 14px
                 }
 
+                @include lgMaxBreakPoint {
+                    display: flex;
+                    justify-content: flex-end;
+
+                    button {
+                        max-width: 12rem
+                    }
+                }
+
                 @include xlMaxBreakPoint {
                     position: relative;
                     bottom: 0;
@@ -193,6 +202,14 @@
             margin-right: 1rem;
             width: 20px;
             cursor: pointer;
+        }
+    }
+
+    .mobile-show {
+        display: none;
+
+        @include xlMaxBreakPoint {
+            display: block;
         }
     }
 }

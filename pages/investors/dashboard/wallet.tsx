@@ -15,9 +15,9 @@ import type { NextPage } from 'next';
 import { assets } from '@src/assets/';
 import { IWalletTableData } from 'type.d';
 import { useState, useEffect } from 'react';
-import { defaultValidation } from '@src/helpers';
 import type { ColumnsType } from 'antd/lib/table';
 import { CaretDownOutlined } from '@ant-design/icons';
+import { defaultValidation } from '@src/helpers/validators';
 import { Col, Modal, Row, Table, Collapse, Dropdown, Menu, DatePicker } from 'antd';
 
 interface IProps {}
