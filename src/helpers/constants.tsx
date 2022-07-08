@@ -18,8 +18,8 @@ export const countries = [
     nationality: 'Algerian',
   },
   {
-    name: 'American Samoa',
-    nationality: 'American Samoan',
+    name: 'American',
+    nationality: 'American',
   },
   {
     name: 'Andorra',
@@ -1014,6 +1014,17 @@ export const industries = [
   'Services',
   'Utilities',
   'Others',
+];
+
+export const incomeOptions = [
+  { value: '< $10000', label: 'Below $10,000' },
+  { value: '$10000 - $49000', label: '$10,000 - $49,000' },
+  { value: '$50000 - $99000', label: '$50,000 - $99,000' },
+  { value: '$100000 - $149000', label: '$100,000 - $149,000' },
+  { value: '$150000 - $199000', label: '$150,000 - $199,000' },
+  { value: '$200000 - $499000', label: '$200,000 - $499,000' },
+  { value: '$500000 - $999000', label: '$500,000 - $990,000' },
+  { value: '> $1Million', label: 'Above $1Million' },
 ];
 
 //Temporary Data

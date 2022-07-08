@@ -11,13 +11,13 @@ import {
 import AOS from 'aos';
 import * as Yup from 'yup';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
 import type { NextPage } from 'next';
 import { assets } from '@src/assets/';
 import { IWalletTableData } from 'type.d';
-import { defaultValidation } from '@src/helpers';
+import { useState, useEffect } from 'react';
 import type { ColumnsType } from 'antd/lib/table';
 import { CaretDownOutlined } from '@ant-design/icons';
+import { defaultValidation } from '@src/helpers/validators';
 import { Col, Modal, Row, Table, Collapse, Dropdown, Menu, DatePicker } from 'antd';
 
 interface IProps {}
@@ -25,7 +25,7 @@ interface IProps {}
 interface IFilter {
   q: string;
   provider: string;
-  status: '';
+  status: string;
   date: string | object;
 }
 

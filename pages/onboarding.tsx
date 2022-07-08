@@ -3,10 +3,9 @@ import * as Yup from 'yup';
 import { Col, Row } from 'antd';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { IOnboardingDetailFormValues } from 'type.d';
 import { useState, useEffect } from 'react';
-import { countries } from '@src/helpers/constants';
-import { defaultValidation, urlValidation } from '@src/helpers';
+import { IOnboardingDetailFormValues } from 'type.d';
+import { defaultValidation, urlValidation } from '@src/helpers/validators';
 import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '@src/components';
 
 const Onboarding: NextPage = () => {
@@ -87,23 +86,6 @@ const Onboarding: NextPage = () => {
     return setCurrentStep(currentStep - 1);
   };
 
-  const getNationalities = () =>
-    countries.map((country) => ({ label: country.nationality, value: country.nationality }));
-
-  const incomeOptions = [
-    { value: '< $10000', label: 'Below $10,000' },
-    { value: '$10000 - $49000', label: '$10,000 - $49,000' },
-    { value: '$50000 - $99000', label: '$50,000 - $99,000' },
-    { value: '$100000 - $149000', label: '$100,000 - $149,000' },
-    { value: '$150000 - $199000', label: '$150,000 - $199,000' },
-    { value: '$200000 - $499000', label: '$200,000 - $499,000' },
-    { value: '$500000 - $999000', label: '$500,000 - $990,000' },
-    { value: '> $1Million', label: 'Above $1Million' },
-  ];
-
-  const getCountries = () =>
-    countries.map((country) => ({ label: country.name, value: country.name }));
-
   const onBoardingSteps = [
     'Complete Profile',
     'Work Information',
@@ -162,10 +144,7 @@ const Onboarding: NextPage = () => {
               <OnboardingForm
                 currentStep={currentStep}
                 initialValues={initialValues}
-                incomeOptions={incomeOptions}
                 shouldValidateEvent={shouldValidateEvent}
-                getCountries={getCountries}
-                nationalityOptions={getNationalities}
                 setShouldValidateEvent={setShouldValidateEvent}
                 getValidationSchema={getValidationSchema}
                 onDetailSubmit={onDetailSubmit}

@@ -4,7 +4,9 @@ import { Dispatch, SetStateAction } from 'react';
 import PhoneInput from 'react-phone-number-input';
 import { industries } from '@src/helpers/constants';
 import { Formik, Form, ErrorMessage } from 'formik';
-import { IOnboardingDetailFormValues, ISelectFieldOptions } from 'type.d';
+import { IOnboardingDetailFormValues } from 'type.d';
+import { incomeOptions } from '@src/helpers/constants';
+import { getNationalitiesForForm, getCountries } from '@src/helpers';
 
 import {
   Typography,
@@ -19,10 +21,7 @@ import {
 interface IProps {
   currentStep: number;
   initialValues: IOnboardingDetailFormValues;
-  incomeOptions: ISelectFieldOptions[];
   shouldValidateEvent: boolean;
-  getCountries: () => ISelectFieldOptions[];
-  nationalityOptions: () => ISelectFieldOptions[];
   setShouldValidateEvent: Dispatch<SetStateAction<boolean>>;
   getValidationSchema: () => void;
   onDetailSubmit: (values: object) => void;
@@ -34,9 +33,6 @@ export const OnboardingForm: React.FC<IProps> = ({
   currentStep,
   initialValues,
   shouldValidateEvent,
-  incomeOptions,
-  nationalityOptions,
-  getCountries,
   setShouldValidateEvent,
   getValidationSchema,
   onDetailSubmit,
@@ -75,7 +71,7 @@ export const OnboardingForm: React.FC<IProps> = ({
                     <Col xs={24} md={12}>
                       <div data-aos='fade-up' data-aos-once={true}>
                         <SelectField
-                          options={nationalityOptions()}
+                          options={getNationalitiesForForm()}
                           onChange={(value: string) => {
                             setFieldValue('nationality', value);
                           }}
@@ -146,7 +142,9 @@ export const OnboardingForm: React.FC<IProps> = ({
                       <PhoneInput
                         placeholder='Phone Number'
                         className={`fa_textfield ${
-                          errors.zip && touched.zip ? 'fa_textfield__error' : ''
+                          errors.phoneNumber && touched.phoneNumber
+                            ? 'fa_textfield__error'
+                            : ''
                         }`}
                         countryCallingCodeEditable={false}
                         name='phoneNumber'

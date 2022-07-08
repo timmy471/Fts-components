@@ -1,5 +1,6 @@
 .top-header {
   background: $fa-grey-600;
+
   h3 {
     font-family: $font-family-primary;
     font-style: normal;
@@ -8,6 +9,7 @@
     line-height: 20px;
     color: $fa-grey-900;
   }
+
   span {
     font-family: $font-family-primary;
     font-weight: 400;
@@ -31,6 +33,7 @@
   .user-detail {
     h3 {
       line-height: 15px;
+
       span {
         line-height: 0px;
         color: $fa-success;
