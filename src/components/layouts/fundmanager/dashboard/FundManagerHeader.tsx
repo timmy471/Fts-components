@@ -37,9 +37,9 @@ export const FundManagerHeader = ({
         {
           key: '1',
           label: (
-            <a target='_blank' rel='noopener noreferrer' href='https://www.antgroup.com'>
+            <Link href={'/investors/dashboard/investments'} passHref>
               Investor Dashboard
-            </a>
+            </Link>
           ),
         },
       ]}
