@@ -34,7 +34,7 @@ const SelectedInvestment: NextPage<IProps> = () => {
                 <li>Have net assets worth over $1 million</li>
               </ul>
               <Row>
-                <Col span={12} offset={4} className='mt-1'>
+                <Col span={12} offset={6} className='mt-1'>
                   <Link href='/investors/dashboard/investments/cordros' passHref>
                     <Button className='btn-invest'>Invest</Button>
                   </Link>
@@ -62,7 +62,7 @@ const SelectedInvestment: NextPage<IProps> = () => {
                 <li>Have an annual income of over $200K individually</li>
               </ul>
               <Row>
-                <Col span={12} offset={4} className='mt-4 pt-3'>
+                <Col span={12} offset={6} className='mt-4 pt-3'>
                   <Link href='/investors/dashboard/investments/cordros' passHref>
                     <Button className='btn-invest'>Invest</Button>
                   </Link>
@@ -88,7 +88,7 @@ const SelectedInvestment: NextPage<IProps> = () => {
                 <li>Have an annual income of over $200K individually</li>
               </ul>
               <Row>
-                <Col span={12} offset={4} className='mt-4 pt-3'>
+                <Col span={12} offset={6} className='mt-4 pt-3'>
                   <Link href='/investors/dashboard/investments/cordros' passHref>
                     <Button className='btn-invest'>Invest</Button>
                   </Link>

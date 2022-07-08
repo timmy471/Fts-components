@@ -1,4 +1,13 @@
 .platform {
+  h1 {
+    font-family: $font-family-secondary;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 32px !important;
+    color: $fa-grey-1000;
+  }
+
   .card {
     background: $fa-white;
     width: 100%;
@@ -210,6 +219,7 @@
       background-color: $fa-primary-200;
       border-radius: 5px;
       height: 50px;
+      line-height: 50px;
       align-items: center;
       text-align: center;
       font-size: 14px;

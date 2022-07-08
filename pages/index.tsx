@@ -45,6 +45,16 @@ const Login: NextPage<Props> = () => {
     password: Yup.string().required('Password is required'),
   });
 
+  /**
+   * Stop enter submitting the form.
+   * @param keyEvent Event triggered when the user presses a key.
+   */
+  const onKeyDown = (keyEvent: any) => {
+    if ((keyEvent.charCode || keyEvent.keyCode) === 13) {
+      keyEvent.preventDefault();
+    }
+  };
+
   const onSubmitForm = () => {
     console.log(formData, state, 'submission clicked');
     Register({
@@ -102,6 +112,7 @@ const Login: NextPage<Props> = () => {
                     onSubmitForm={onSubmitForm}
                     onFormChange={onFormChange}
                     onRememberCheck={onRememberCheck}
+                    onKeyDown={onKeyDown}
                   />
                 </div>
                 <div className='other-socials-login'>

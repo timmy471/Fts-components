@@ -1,0 +1,116 @@
+.fund-manager-header {
+  min-height: 80px;
+  background: $fa-white;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  .hamburger-icon {
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+    margin-left: 25px;
+  }
+
+  .logo-bg {
+    background: $fa-black;
+    padding-left: 20px;
+  }
+  .user-switch {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 15px;
+    .btn {
+      background: #f5f5f5;
+      border-radius: 5px;
+      padding: 2px 20px;
+      border-color: transparent;
+      height: 50px;
+      cursor: pointer;
+      color: $fa-black;
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 22px;
+      p {
+        font-family: 'Museo Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+        color: #828282;
+        float: left;
+        margin: 0px;
+      }
+    }
+    .btn:hover {
+      color: $fa-black;
+    }
+  }
+  .menus {
+    margin-top: auto;
+    // margin-bottom: auto;
+    .active {
+      color: $fa-black;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      text-align: left;
+      cursor: pointer;
+      display: inline-block;
+      align-items: center;
+      margin-left: 10px;
+      margin-right: 10px;
+      font-family: 'Museo Sans';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 22px;
+      color: #a8a8a8;
+    }
+
+    hr {
+      margin-top: 20px;
+      margin-bottom: 0px;
+      height: 4px;
+      background: #3cac70;
+      border-radius: 4px;
+      border-color: transparent;
+    }
+  }
+
+  .profile {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    // justify-content: flex-end;
+    margin-left: auto;
+    display: flex;
+    .notif-bell {
+      width: 40px;
+      padding: 2px;
+      height: 40px;
+      background: $fa-white;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.08);
+      border-radius: 7px;
+    }
+
+    .user-detail {
+      h3 {
+        line-height: 15px;
+        font-weight: 700;
+        font-size: 15px;
+        span {
+          line-height: 0px;
+          color: $fa-success;
+          font-weight: 400;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

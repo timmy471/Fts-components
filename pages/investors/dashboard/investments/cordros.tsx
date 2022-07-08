@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { NextPage } from 'next';
 import { Row, Col, Button } from 'antd';
 import { InvestorsDashboardLayout, FormStepper } from '@src/components';
@@ -22,7 +23,9 @@ const SelectedInvestment: NextPage<IProps> = () => {
               After completing the process, an email would be sent to the investor of their
               acceptance into the collective
             </p>
-            <Button className='btn-continue'>Click to continue</Button>
+            <Link href={'/investors/dashboard/investments/subscription'} passHref>
+              <Button className='btn-continue'>Click to continue</Button>
+            </Link>
           </Col>
         </div>
       </div>

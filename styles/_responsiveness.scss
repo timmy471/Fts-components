@@ -165,11 +165,41 @@
   }
 
   .selected-investment {
+    h1 {
+      margin-left: 10px;
+      font-size: 26px !important;
+    }
     .btn-invest {
       width: 100%;
       min-width: 100%;
       max-width: 100%;
       margin-right: 20px;
+    }
+  }
+
+  .fund-manager-wrapper {
+    .fund-manager-site-layout {
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      .fund-manager-layout-background {
+        padding: 120px 20px;
+      }
+    }
+  }
+
+  .fund-manager-dashboard {
+    .metrics {
+      .item {
+        flex: 40%;
+      }
+    }
+    .table {
+      display: none;
+      visibility: hidden;
+    }
+    .investment-accordion-container {
+      display: block;
+      visibility: visible;
     }
   }
 }
@@ -193,6 +223,33 @@
     .notif-bell {
       height: 40px;
       width: 40px;
+    }
+  }
+
+  .subscription {
+    .right-aside {
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .last-aside {
+      border-radius: 10px;
+    }
+    .sub-container {
+      border-radius: 10px;
+      .item {
+        flex: 100%;
+        margin-bottom: 20px;
+      }
+    }
+    .form-container {
+      .buttons {
+        justify-content: start;
+        flex: 100%;
+        .btn-cancel,
+        .btn-confirm {
+          width: 100%;
+        }
+      }
     }
   }
 }

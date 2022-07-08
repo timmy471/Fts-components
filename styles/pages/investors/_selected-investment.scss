@@ -1,4 +1,13 @@
 .selected-investment {
+  h1 {
+    font-family: $font-family-secondary;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 32px !important;
+    color: $fa-grey-1000;
+  }
+
   .btn-invest {
     min-width: 170px;
     max-width: 170px;
@@ -21,7 +30,7 @@
     border-color: $fa-primary-200;
   }
   .image-cta {
-    height: 270px;
+    min-height: 270px;
     width: 100%;
     background: $fa-grey-500;
     border-radius: 10px;
@@ -31,7 +40,7 @@
     background-size: cover;
     display: flex;
     .deal-name {
-      height: 127px;
+      min-height: 127px;
       width: 100%;
       padding-left: 20px;
       padding-right: 20px;
