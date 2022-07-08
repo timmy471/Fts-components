@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
+import { IFloatLabel } from 'types';
 
-interface IProps {
-  children: JSX.Element[] | JSX.Element;
-  label: string;
-  value: string | [];
-  className?: string;
-}
-export const FloatLabel = (props: IProps) => {
+export const FloatLabel = (props: IFloatLabel) => {
   const [focus, setFocus] = useState(false);
   const { children, label, value, className } = props;
 

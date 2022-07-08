@@ -1,4 +1,4 @@
-import { IFormStepper } from 'type.d';
+import { IFormStepper } from 'types';
 import { Typography } from '@src/components';
 import { CheckOutlined } from '@ant-design/icons';
 

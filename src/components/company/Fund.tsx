@@ -4,11 +4,11 @@ import { Typography } from '@src/components';
 import { Row, Col, Tabs, Table, Collapse } from 'antd';
 import { getTableAlternatingBg } from '@src/helpers';
 import type { ColumnsType } from 'antd/lib/table';
-import { IFundCompanyDetail, ISubscriptionHistoryData, IInvestmentData } from 'type.d';
+import { IFundCompany, ISubscriptionHistoryData, IInvestmentData } from 'types';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 
 interface IProps {
-  companyDetail: IFundCompanyDetail;
+  companyDetail: IFundCompany;
 }
 
 export const Fund: React.FC<IProps> = ({ companyDetail }) => {

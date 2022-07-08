@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { assets } from '@src/assets';
-import { IProfileProps } from 'type.d';
+import { IProfileProps } from 'types';
 import PhoneInput from 'react-phone-number-input';
 import { Tabs, Row, Col, DatePicker } from 'antd';
 import { Formik, Form, ErrorMessage } from 'formik';

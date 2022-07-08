@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'classnames';
-import { IButton } from 'type.d';
+import { IButton } from 'types';
 
 export const Button: React.FC<IButton> = ({
   label,

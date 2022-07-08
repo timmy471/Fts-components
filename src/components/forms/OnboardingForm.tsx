@@ -1,11 +1,10 @@
 import { Col, Row, Radio } from 'antd';
 import OtpInput from 'react-otp-input';
-import { Dispatch, SetStateAction } from 'react';
+
 import PhoneInput from 'react-phone-number-input';
-import { industries } from '@src/helpers/constants';
 import { Formik, Form, ErrorMessage } from 'formik';
-import { IOnboardingDetailFormValues } from 'type.d';
-import { incomeOptions } from '@src/helpers/constants';
+import { IOnboarding } from 'types';
+import { incomeOptions, industries } from '@src/helpers/constants';
 import { getNationalitiesForForm, getCountries } from '@src/helpers';
 
 import {
@@ -18,18 +17,7 @@ import {
   Pill,
 } from '../../components';
 
-interface IProps {
-  currentStep: number;
-  initialValues: IOnboardingDetailFormValues;
-  shouldValidateEvent: boolean;
-  setShouldValidateEvent: Dispatch<SetStateAction<boolean>>;
-  getValidationSchema: () => void;
-  onDetailSubmit: (values: object) => void;
-  onPinSubmit: (values: object) => void;
-  validatePin: () => object;
-  handlePrevious: () => void;
-}
-export const OnboardingForm: React.FC<IProps> = ({
+export const OnboardingForm: React.FC<IOnboarding> = ({
   currentStep,
   initialValues,
   shouldValidateEvent,

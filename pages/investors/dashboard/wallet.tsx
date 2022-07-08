@@ -11,9 +11,9 @@ import {
 import AOS from 'aos';
 import * as Yup from 'yup';
 import Image from 'next/image';
+import { IWalletTable } from 'types';
 import type { NextPage } from 'next';
 import { assets } from '@src/assets/';
-import { IWalletTableData } from 'type.d';
 import { useState, useEffect } from 'react';
 import type { ColumnsType } from 'antd/lib/table';
 import { CaretDownOutlined } from '@ant-design/icons';
@@ -68,7 +68,7 @@ const InvestorsWallet: NextPage<IProps> = () => {
     handlePaymentModalAction();
   };
 
-  const tableColumns: ColumnsType<IWalletTableData> = [
+  const tableColumns: ColumnsType<IWalletTable> = [
     {
       title: 'Date',
       dataIndex: 'date',
@@ -100,7 +100,7 @@ const InvestorsWallet: NextPage<IProps> = () => {
     },
   ];
 
-  const walletData: IWalletTableData[] = [
+  const walletData: IWalletTable[] = [
     {
       date: 'December 2, 2018',
       id: '2336987',

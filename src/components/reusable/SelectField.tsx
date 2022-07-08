@@ -1,5 +1,5 @@
 import { Select } from 'antd';
-import { ISelectField } from 'type.d';
+import { ISelectField } from 'types';
 import { CaretDownOutlined } from '@ant-design/icons';
 
 const { Option } = Select;

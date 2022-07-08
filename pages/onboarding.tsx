@@ -4,7 +4,7 @@ import { Col, Row } from 'antd';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { IOnboardingDetailFormValues } from 'type.d';
+import { IOnboardingDetailForm } from 'types';
 import { defaultValidation, urlValidation } from '@src/helpers/validators';
 import { OnboardingSidebar, Typography, FormStepper, OnboardingForm } from '@src/components';
 
@@ -92,7 +92,7 @@ const Onboarding: NextPage = () => {
     'Other Details',
     'PIN Setup',
   ];
-  const initialValues: IOnboardingDetailFormValues = {
+  const initialValues: IOnboardingDetailForm = {
     nationality: '',
     country: '',
     city: '',

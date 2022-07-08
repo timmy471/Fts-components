@@ -33,6 +33,14 @@ export const TopHeader: NextPage<IProps> = ({ showDrawer, user }) => {
         {
           key: '2',
           label: (
+            <Link href='/fundmanager/dashboard/investments' passHref>
+              Lead Dashboard
+            </Link>
+          ),
+        },
+        {
+          key: '3',
+          label: (
             <Typography variant='body7' className='mb-0' state='error'>
               Logout
             </Typography>

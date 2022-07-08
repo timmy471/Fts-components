@@ -11,7 +11,7 @@ import { assets } from '@src/assets';
 import type { NextPage } from 'next';
 import { Col, Row, Progress } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
-import { IProfileFormValues, IProfilePasswordVisibility } from 'type.d';
+import { IProfileFormValues, IProfilePasswordVisibility } from 'types';
 import { InvestorsDashboardLayout, Typography, Button, ProfileForm } from '@src/components';
 
 interface IProps {}

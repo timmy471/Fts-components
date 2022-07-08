@@ -1,13 +1,12 @@
 import { Drawer } from 'antd';
+import { IDrawer } from 'types';
 
-interface IProps {
-  visible: boolean;
-  height?: string | number;
-  children: JSX.Element[] | JSX.Element;
-  handleClose: () => void;
-}
-
-export const MobileFilter: React.FC<IProps> = ({ visible, height, children, handleClose }) => {
+export const MobileFilter: React.FC<IDrawer> = ({
+  visible,
+  height,
+  children,
+  handleClose,
+}) => {
   return (
     <>
       <Drawer

@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { Row, Col, Tabs } from 'antd';
-import { ISPVCompanyDetail } from 'type.d';
+import { ISPVCompany } from 'types';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import { Typography, Pill, Button, TextAreaField } from '@src/components';
 
 interface IProps {
-  companyDetail: ISPVCompanyDetail;
+  companyDetail: ISPVCompany;
 }
 
 export const SPV: React.FC<IProps> = ({ companyDetail }) => {

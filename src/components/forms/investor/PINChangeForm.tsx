@@ -1,11 +1,7 @@
-import OtpInput from 'react-otp-input';
 import { Formik, Form } from 'formik';
+import OtpInput from 'react-otp-input';
+import { IPINSetupProps } from 'types';
 import { Typography, Button } from '@src/components';
-
-interface IPINSetupProps {
-  validatePin: () => object;
-  onPinSubmit: (values: object) => void;
-}
 
 export const PINChangeForm: React.FC<IPINSetupProps> = ({ validatePin, onPinSubmit }) => {
   return (

@@ -1,18 +1,8 @@
 import { Typography } from '@src/components';
 import { useState } from 'react';
+import { IPill } from 'types';
 
-interface IProps {
-  value?: boolean;
-  trueText?: string;
-  falseText?: string;
-  label?: string;
-  selected?: boolean;
-  className?: string;
-  isTag?: boolean;
-  onClick?: () => void;
-}
-
-export const Pill: React.FC<IProps> = ({
+export const Pill: React.FC<IPill> = ({
   value,
   trueText = 'Yes',
   falseText = 'No',

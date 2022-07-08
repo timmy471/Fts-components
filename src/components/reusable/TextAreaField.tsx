@@ -1,6 +1,6 @@
 import { Input } from 'antd';
 import clsx from 'classnames';
-import { ITextArea } from 'type.d';
+import { ITextArea } from 'types';
 
 export const TextAreaField: React.FC<ITextArea> = ({
   label,

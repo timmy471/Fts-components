@@ -1,14 +1,8 @@
+import { IWallet } from 'types';
 import { Formik, Form, ErrorMessage } from 'formik';
 import { Typography, SelectField, TextField, Button, FormError } from '@src/components';
 
-interface IWalletProps {
-  validationSchema: () => object;
-  onWalletFundSubmit: (values: object) => void;
-}
-export const WalletForm: React.FC<IWalletProps> = ({
-  validationSchema,
-  onWalletFundSubmit,
-}) => {
+export const WalletForm: React.FC<IWallet> = ({ validationSchema, onWalletFundSubmit }) => {
   return (
     <Formik
       initialValues={{
