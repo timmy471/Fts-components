@@ -1,4 +1,4 @@
-import { IBackCTA } from 'type.d';
+import { IBackCTA } from 'types';
 import { useRouter } from 'next/router';
 import { Typography } from '@src/components';
 import { CaretLeftOutlined } from '@ant-design/icons';
